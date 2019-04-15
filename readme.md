@@ -139,6 +139,11 @@ docker run --entrypoint="" --link mongodb --rm iondv/dnt node bin/setup develop-
 docker run --entrypoint="" --link mongodb --rm iondv/dnt node bin/setup viewlib
 ```
 
+If you want to import data into your project, check the demo data in the `data` folder of the application and run the command:
+```
+docker run --entrypoint="" --link mongodb --rm iondv/dnt node bin/import-data --src ./applications/develop-and-test --ns develop-and-test
+```
+
 3. Create user `admin` with password `123` and `admin` role
 ```
 docker run --entrypoint="" --link mongodb --rm iondv/dnt node bin/adduser --name admin --pwd 123

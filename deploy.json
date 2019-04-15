@@ -11,10 +11,10 @@
 		  "graph": "Graph",
 		  "portal": "Portal",
 		  "report": "Report",
-		  "ionadmin": "Administrative module",
-		  "dashboard": "Dashboards",
-		  "lk": "Personal account ",
-		  "gantt-chart": "Gantt-Chart"
+		  
+		  "dashboard": "Dashboards"
+		  
+		  
     },
     "plugins":{
       "actualAclProvider":{
