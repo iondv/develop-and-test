@@ -1,0 +1,16 @@
+{
+  "code": "sign.signAfter",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Electronic signature of outgoing data",
+  "classname": "signAfter@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.7"
+}

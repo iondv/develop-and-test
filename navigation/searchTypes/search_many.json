@@ -1,0 +1,16 @@
+{
+  "namespace": null,
+  "code": "search_many",
+  "orderNumber": 30,
+  "type": 1,
+  "title": "",
+  "caption": "Search by multiple fields",
+  "classname": "searchMany",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

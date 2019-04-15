@@ -1,0 +1,10 @@
+{
+  "id": "SAVEANDCLOSE",
+  "caption": "Save and close",
+  "visibilityCondition": null,
+  "enableCondition": null,
+  "needSelectedItem": false,
+  "signBefore": false,
+  "signAfter": false,
+  "isBulk": false
+}

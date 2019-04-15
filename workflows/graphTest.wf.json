@@ -1,0 +1,151 @@
+{
+  "name": "graphTest",
+  "caption": "Graph testing",
+  "wfClass": "re_kogorta@develop-and-test",
+  "startState": "new",
+  "states": [
+    {
+      "name": "new",
+      "caption": "New",
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "assign",
+      "caption": "Assigned",
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "work",
+      "caption": "In progress",
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "done",
+      "caption": "Done",
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "close",
+      "caption": "Closed",
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    }
+  ],
+  "transitions": [
+    {
+      "name": "assignExpert",
+      "caption": "Assign to an expert",
+      "startState": "new",
+      "finishState": "assign",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [
+        {
+          "key": "state",
+          "value": "assign"
+        }
+      ],
+      "conditions": {
+      	"and": [
+      		{"eq": ["$state", "new"]},
+      		{"nempty": ["$responsible"]}
+  		]
+	  },
+      "confirm": false,
+      "confirmMessage": null
+    },
+    {
+      "name": "perform",
+      "caption": "Realization",
+      "startState": "assign",
+      "finishState": "work",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [
+        {
+          "key": "state",
+          "value": "work"
+        }
+      ],
+      "conditions": {"eq": ["$state", "assign"]},
+      "confirm": false,
+      "confirmMessage": null
+    },
+    {
+      "name": "complet",
+      "caption": "Complete",
+      "startState": "work",
+      "finishState": "done",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [
+        {
+          "key": "state",
+          "value": "done"
+        }
+      ],
+      "conditions": {
+      	"and": [
+      		{"eq": ["$state", "work"]},
+      		{"nempty": ["$result"]}
+  		]
+	  },
+      "confirm": false,
+      "confirmMessage": null
+    },
+    {
+      "name": "returnWork",
+      "caption": "Return to work",
+      "startState": "done",
+      "finishState": "work",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [
+        {
+          "key": "state",
+          "value": "work"
+        }
+      ],
+      "conditions": {"eq": ["$state", "done"]},
+      "confirm": false,
+      "confirmMessage": null
+    },
+    {
+      "name": "closeItem",
+      "caption": "Close",
+      "startState": "done",
+      "finishState": "close",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [
+        {
+          "key": "state",
+          "value": "close"
+        }
+      ],
+      "conditions": {"eq": ["$state", "done"]},
+      "confirm": false,
+      "confirmMessage": null
+    }
+  ],
+  "metaVersion": "2.0.7"
+}

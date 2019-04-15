@@ -1,0 +1,9 @@
+<div class="form-group <%= field.required?"required":"" %> <%=cssFromTags(field)%>" style="<%=styleFromTags(field)%>"
+     data-type="number" data-prop="<%= JSON.stringify(field) %>">
+  <label for="<%= id %>" class="col-md-2 col-sm-3 control-label"><%= field.caption %></label>
+  <div class="col-md-10 col-sm-9">
+    <input type="number" class="form-control attr-value" id="<%= id %>" name="<%= prop.getName() %>"
+           value="<%= prop.getDisplayValue() %>" step="2"/>
+    <p class="error-block"></p>
+  </div>
+</div>

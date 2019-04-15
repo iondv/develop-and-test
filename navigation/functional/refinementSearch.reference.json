@@ -1,0 +1,16 @@
+{
+  "code": "refinementSearch.reference",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Class of the reference",
+  "classname": "modregistr_146_class_b@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

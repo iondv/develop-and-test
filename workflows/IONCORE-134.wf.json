@@ -1,0 +1,87 @@
+{
+  "name": "IONCORE-134",
+  "namespace": "",
+  "caption": "input ID",
+  "wfClass": "IONCORE-134@develop-and-test",
+  "startState": "fs",
+  "states": [
+    {
+      "name": "fs",
+      "caption": "fs",
+      "maxPeriod": null,
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "ss",
+      "caption": "ss",
+      "maxPeriod": null,
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "ts",
+      "caption": "ts",
+      "maxPeriod": null,
+      "conditions": null,
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": []
+    },
+    {
+      "name": "endState",
+      "caption": "endState",
+      "maxPeriod": null,
+      "conditions": null,
+      "itemPermissions": null,
+      "propertyPermissions": [],
+      "selectionProviders": []
+    }
+  ],
+  "transitions": [
+    {
+      "name": "ft",
+      "caption": "Further",
+      "startState": "fs",
+      "finishState": "ss",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [],
+      "conditions": null,
+      "confirm": false,
+      "confirmMessage": null
+    },
+    {
+      "name": "st",
+      "caption": "Confirm",
+      "startState": "ss",
+      "finishState": "ts",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [],
+      "conditions": null,
+      "confirm": true,
+      "confirmMessage": "\u003ch2\u003eАЗАЗА\u003c/h2\u003e\nВы уверены?"
+    },
+    {
+      "name": "tt",
+      "caption": "Done",
+      "startState": "ts",
+      "finishState": "endState",
+      "signBefore": false,
+      "signAfter": false,
+      "roles": [],
+      "assignments": [],
+      "conditions": null,
+      "confirm": false,
+      "confirmMessage": null
+    }
+  ],
+  "metaVersion": "2.0.61"
+}

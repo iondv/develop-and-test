@@ -1,0 +1,23 @@
+<% layout('./layout/layout') %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <%
+        var formatedDate = null;
+        var date = resource.getDate();
+        if (date) {
+          formatedDate = date.toLocaleString('ru',{year: 'numeric', month: 'numeric', day: 'numeric'});
+        }
+        %>
+        <% if (formatedDate) { %><h1><small><%= formatedDate %></small></h1><% } %>
+      </div>
+      <div>
+        <%- resource.getContent() %>
+      </div>
+    </div>
+  </div>
+
+</div>

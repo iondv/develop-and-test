@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Administrator",
+      "type": "local",
+      "pwd": "123",
+      "roles": [
+        "admin"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "code": "fields.fieldsRef",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Class with reference",
+  "classname": "fields_ref@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

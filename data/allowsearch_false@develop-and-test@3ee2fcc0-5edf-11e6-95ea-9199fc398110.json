@@ -1,0 +1,11 @@
+{
+  "id": "3ee2fcc0-5edf-11e6-95ea-9199fc398110",
+  "indexed_string": "e",
+  "indexed_date": "2016-08-11T14:00:00.000Z",
+  "indexed_datetime": "2016-08-09T16:25:00.000Z",
+  "indexed_integer": 5120,
+  "indexed_real": 9,
+  "indexed_decimal": 0,
+  "_class": "allowsearch_false@develop-and-test",
+  "_classVer": ""
+}

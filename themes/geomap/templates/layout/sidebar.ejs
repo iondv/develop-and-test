@@ -1,0 +1,13 @@
+<aside id="aside">
+  <nav id="sideNav" data-default="<%= defaultNode %>">
+    <ul class="nav nav-list">
+      <% for (var i = 0; i < leftMenu.length; i++) { %>
+        <%- partial("./layout/menu_node.ejs",{node: leftMenu[i]}) %>
+      <% } %>
+    </ul>
+  </nav>
+  <button id="mobileMenuBtn">
+    <span class="glyphicon"></span><span class="glyphicon"></span>
+  </button>
+  <div id="aside-splitter" class="aside-splitter"></div>
+</aside>

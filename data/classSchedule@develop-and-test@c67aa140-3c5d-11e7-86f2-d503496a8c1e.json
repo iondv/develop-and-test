@@ -1,0 +1,77 @@
+{
+  "id": "c67aa140-3c5d-11e7-86f2-d503496a8c1e",
+  "schedule": {
+    "description": "Weekly schedule",
+    "occurs": [],
+    "skipped": []
+  },
+  "calendar": [
+    {
+      "description": "25.06 at 15:30 and at 7:00 - 21:00 whole July with a break between 13:00 - 15:00 ",
+      "item": "Test 4",
+      "occurs": [
+        {
+          "month": 6,
+          "day": 25,
+          "hour": 15,
+          "minute": 30,
+          "duration": 30
+        },
+        {
+          "month": 7,
+          "hour": 7,
+          "duration": 50400
+        }
+      ],
+      "skipped": [
+        {
+          "hour": 13,
+          "duration": 7400
+        }
+      ]
+    },
+    {
+      "description": "Each saturday at 20:00",
+      "item": "Test 5",
+      "occurs": [
+        {
+          "weekday": 6,
+          "hour": 20
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "description": "At 21:00",
+      "item": "Test 6",
+      "occurs": [
+        {
+          "hour": 21
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "description": "Each hour for 5 minutes at 9:00 - 18:00 ",
+      "item": "Test 7",
+      "occurs": [
+        {
+          "minute": 1,
+          "duration": 300
+        }
+      ],
+      "skipped": [
+        {
+          "hour": 18,
+          "duration": 21600
+        },
+        {
+          "hour": 0,
+          "duration": 32400
+        }
+      ]
+    }
+  ],
+  "_class": "classSchedule@develop-and-test",
+  "_classVer": ""
+}

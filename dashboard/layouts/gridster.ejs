@@ -1,0 +1,69 @@
+
+<link href="/dashboard/vendor/gridster-js/jquery.gridster.min.css" rel="stylesheet">
+<link href="/dashboard/develop-and-test/layouts/gridster/gridster.css" rel="stylesheet">
+
+<script src="/dashboard/vendor/gridster-js/jquery.gridster.min.js"></script>
+<script src="/dashboard/vendor/gridster-js/jquery.gridster.with-extras.min.js"></script>
+<script src="/dashboard/js/gridster-helper.js"></script>
+
+<div id="gridster" class="gridster" data-app="<%= app %>" data-layout="<%= layout %>">
+  <ul>
+    <li data-sizey="1" data-sizex="1" data-col="1" data-row="3">
+      <% var test = dashboard.getWidget('test'); %>
+      <%- partial(test.view, {
+        widget: test,
+        cssBackground: 'bg-success'
+      })%>
+    </li>
+
+    <li data-sizey="1" data-sizex="2" data-col="2" data-row="3">
+      <%- partial(test.view, {
+        widget: test,
+        cssBackground: 'bg-warning',
+        cssProgress: 'progress-bar-success'
+      })%>
+    </li>
+
+    <li data-sizey="2" data-sizex="2" data-col="1" data-row="1">
+      <%- partial(test.view, {
+        widget: test,
+        cssBackground: 'bg-danger',
+        cssProgress: 'progress-bar-warning'
+      })%>
+    </li>
+
+    <li data-sizey="1" data-sizex="1" data-col="3" data-row="1">
+      <%- partial(test.view, {
+        widget: test,
+        cssBackground: 'bg-info',
+        cssProgress: 'progress-bar-info'
+      })%>
+    </li>
+
+    <li class="gridster-cell" data-sizey="1" data-sizex="1" data-col="3" data-row="2">
+
+    </li>
+
+    <li data-sizey="3" data-sizex="1" data-col="4" data-row="1">
+      <% var image = dashboard.getWidget('develop-and-test-image'); %>
+      <%- partial(image.view, {
+        widget: image
+      })%>
+    </li>
+  </ul>
+</div>
+
+<script>
+  (function () {
+    var helper = new GridsterHelper($('#gridster'), {
+      widget_base_dimensions: ['auto', 140],
+      autogenerate_stylesheet: true,
+      min_cols: 1,
+      max_cols: 4,
+      widget_margins: [10, 10],
+      resize: {
+        enabled: true
+      }
+    });
+  })();
+</script>

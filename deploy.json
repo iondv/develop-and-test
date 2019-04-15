@@ -1,0 +1,650 @@
+{
+  "parametrised": true,
+  "namespace": "develop-and-test",
+  "globals": {
+    "pageTitle": "IONDV. Develop-and-Test",
+    "pageEndContent": "<div><img src=\"https://mc.iondv.com/watch/github/app/dnt\" style=\"position:absolute; left:-9999px;\" alt=\"iondv-metrics\" /></div>",
+    "theme": "applications/develop-and-test/themes/www",
+    "moduleTitles": {
+		  "registry": "Registry",
+		  "geomap": "Geodata",
+		  "graph": "Graph",
+		  "portal": "Portal",
+		  "report": "Report",
+		  "ionadmin": "Administrative module",
+		  "dashboard": "Dashboards",
+		  "lk": "Personal account ",
+		  "gantt-chart": "Gantt-Chart"
+    },
+    "plugins":{
+      "actualAclProvider":{
+        "module": "core/impl/access/DsAcl",
+        "initMethod": "init",
+        "initLevel": 1,
+        "options":{
+          "dataSource": "ion://Db"
+        }
+      },
+      "accounts": {
+        "options": {
+          "caseInsensitiveLogin": true
+        }
+      },
+      "aclProvider": {
+        "module": "core/impl/access/aclMetaMap",
+        "initMethod": "init",
+        "initLevel": 1,
+        "options":{
+          "dataRepo": "lazy://dataRepo",
+          "acl": "lazy://actualAclProvider",
+          "accessManager": "lazy://roleAccessManager",
+          "map": {
+            "employee@develop-and-test": {
+              "isEntry": true,
+              "sidAttribute": "uid",
+              "jumps": ["department"]
+            },
+            "department@develop-and-test": {
+              "sidAttribute": "code",
+              "jumps": ["superior"]
+            }
+          }
+        }
+      },
+      "fileStorage": {
+        "module": "core/impl/resource/OwnCloudStorage",
+        "options": {
+          "url": "https://owncloud.iondv.ru/",
+          "login": "api",
+          "password": "apiapi"
+          }
+      },
+      "customProfile": {
+        "module": "lib/plugins/customProfile",
+        "options": {
+          "metaRepo": "ion://metaRepo",
+          "dataRepo": "ion://dataRepo",
+          "propertyMap": {
+            "person@develop-and-test": {
+              "filter": "user",
+              "properties": {
+                "person": "id"
+              }
+            }
+          }
+        }
+      },
+      "regPrep" : {
+        "module": "lib/plugins/customProfile",
+        "initLevel": 2,
+        "options": {
+          "fields": {
+            "firstname": {
+              "caption": "Name",
+              "required": true
+            },
+            "lastname": {
+              "caption": "Surname",
+              "required": false
+            },
+            "org": {
+              "caption": "Organisation",
+              "required": false,
+              "selection": "title@develop-and-test"
+            }
+          },
+          "auth": "ion://auth",
+          "metaRepo": "ion://metaRepo",
+          "dataRepo": "ion://dataRepo"
+        }
+      },
+      "cachedDataRepo": {
+        "options": {
+          "cachedClasses": [
+            "adress@develop-and-test"
+          ]
+        }
+      },
+      "auth": {
+        "module": "lib/auth",
+        "initMethod": "init",
+        "initLevel": 2,
+        "options": {
+          "app": "ion://application",
+          "logger": "ion://sysLog",
+          "dataSource": "ion://Db",
+          "acl": "ion://aclProvider"
+        }
+      },
+      "htmlFiles": {
+        "module": "core/impl/resource/FsStorage",
+        "initMethod":"init",
+        "initLevel": 3,
+        "options": {
+          "storageBase": "./htmlFiles",
+          "urlBase": "/htmlFiles",
+          "dataSource": "ion://Db",
+          "log": "ion://sysLog",
+          "app": "ion://application",
+          "auth": "ion://auth"
+        }
+      },
+      "htmlImages": {
+        "module": "core/impl/resource/ImageStorage",
+        "initMethod": "init",
+        "initLevel": 3,
+        "options": {
+          "fileStorage": "ion://htmlFiles",
+          "app": "ion://application",
+          "auth": "ion://auth",
+          "log": "ion://sysLog",
+          "urlBase": "/htmlFiles",
+          "thumbnails": {
+            "small": {
+              "width": 100,
+              "height": 100
+            }
+          }
+        }
+      }
+    },
+    "jobs": {
+      "dummy": {
+        "notify": ["admin@local", "user@local"],
+        "sender": "admin@local",
+        "launch": {
+          "sec": 30
+        },
+        "worker": "dummy",
+        "di": {
+          "dummy": {
+            "executable": "applications/develop-and-test/jobs/dummy"
+          }
+        }
+      }
+    }
+  },
+  "deployer": "built-in",
+  "modules": {
+    "registry": {
+      "globals": {
+        "inlineForm": true,
+        "concurencyCheck": 10000,
+        "listSearchOptions": {
+          "searchSimple@develop-and-test": {
+            "*": {
+              "searchBy": [
+                "searchSimple_text"
+              ],
+              "splitBy": "\\s+",
+              "mode": [
+                "like"
+              ],
+              "joinBy": "and"
+            }
+          },
+          "searchRefs@develop-and-test": {
+            "*": {
+              "searchByRefs": [
+                {
+                  "class": "backref_searchRefs@develop-and-test",
+                  "idProperties": [
+                    "backref_searchRefs_backref"
+                  ],
+                  "searchBy": [
+                    "backref_searchRefs_text"
+                  ],
+                  "splitBy": "\\s+",
+                  "mode": [
+                    "like"
+                  ],
+                  "joinBy": "and"
+                }
+              ]
+            }
+          },
+          "searchMany@develop-and-test": {
+            "*": {
+              "searchBy": [
+                "searchMany_name",
+                "searchMany_surname",
+                "searchMany_patronymic"
+              ],
+              "splitBy": "\\s+",
+              "mode": [
+                "starts",
+                "like",
+                "end"
+              ],
+              "joinBy": "and"
+            }
+          },
+          "searchText@develop-and-test": {
+            "*": {
+              "searchBy": [
+                "searchText_text"
+              ],
+              "splitBy": "\\s+",
+              "mode": [
+                "contains"
+              ],
+              "joinBy": "and"
+            }
+          }
+        },
+        "listSearchMinLength": 3,
+        "listSearchDelay": 2000,
+        "dashboard": {
+          "develop-and-test": {
+            "modules": {
+              "dashboard": {}
+            }
+          }
+        },
+        "templates" : [
+          "applications/develop-and-test/attrTemplates",
+          "applications/develop-and-test/registry"
+        ],
+        "storage": {
+          "class_file@develop-and-test": {
+            "file_file": "/${class}/example_${attr}/${dddd}/"
+          },
+          "fileColContainer@develop-and-test.files": {
+            "file": "/${class}/example-files/${dddd}/"
+          }
+        },
+        "defaultPath": "develop-and-test@class_string",
+        "navigation": {
+          "namespaces": {
+            "develop-and-test": "Meta for testing and development"
+          },
+          "menus": {
+            "left": [
+              "develop-and-test@simpleTypes",
+              "develop-and-test@involvedTypes",
+              "develop-and-test@classProperties",
+              "develop-and-test@formAction",
+              "develop-and-test@navigation",
+              "develop-and-test@propertiesAttr",
+              "develop-and-test@functional",
+              "develop-and-test@modulesData",
+              "develop-and-test@workflow",
+              "develop-and-test@searchTypes",
+              "develop-and-test@security"
+            ],
+            "types": {
+              "left": {
+                "namespaces": {
+                  "develop-and-test":"tree"
+                },
+                "sections": {
+                  "simple_types": {
+                    "type": "combo",
+                    "nodes": {
+                      "class_boolean": {
+                        "type": "tree"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "refShortViewDelay": 1000,
+        "defaultImageDir": "images",
+        "contentImageStorage": "htmlImages",
+        "di":{
+          "fileCollectionController": {
+            "module": "applications/viewlib/lib/controllers/api/file-collection",
+            "initMethod": "init",
+            "initLevel": 0,
+            "options": {
+              "module": "ion://module",
+              "fileStorage": "ion://fileStorage"
+            }
+          },
+          "fileshareController": {
+            "module": "applications/viewlib/lib/controllers/api/fileshare",
+            "initMethod": "init",
+            "initLevel": 0,
+            "options": {
+              "module": "ion://module",
+              "fileStorage": "ion://fileStorage"
+            }
+          }
+        }
+      }
+    },
+    "geomap": {
+      "globals": {
+        "theme": "develop-and-test/themes/geomap",
+        "namespaces": {
+          "develop-and-test": "Meta for testing and development"
+        },
+        "start": [
+          135.07,
+          48.48
+        ],
+        "zoom": 10,
+        "regions": {
+          "osmIds" : [
+            "151223"
+          ]
+        },
+        "defaultNav": {
+          "namespace": "develop-and-test",
+          "node": "doubleLayerNode"
+        }
+      },
+      "import" : {
+        "src": "applications/develop-and-test/geo",
+        "namespace": "develop-and-test"
+      }
+    },
+    "report": {
+      "globals": {
+        "namespaces": {
+          "develop-and-test": "Meta for testing and development"
+        },
+        "defaultNav": {
+          "namespace": "develop-and-test",
+          "mine": "mine1",
+          "report": "report1"
+        },
+        "mineBuilders": {
+          "develop-and-test": {
+            "mine1": {
+              "streetData": "mineBuilder",
+              "cityData": "mineBuilder"
+            }
+          }
+        },
+        "templates" : ["applications/develop-and-test/publicSheets"],
+        "di": {
+        }
+      },
+      "import" : {
+        "src": "applications/develop-and-test/bi",
+        "namespace": "develop-and-test"
+      }
+    },
+    "dashboard": {
+      "globals": {
+        "namespaces": {
+          "develop-and-test": "Meta for testing and development"
+        },
+        "root": {
+          "develop-and-test": "applications/develop-and-test/dashboard"
+        }
+      }
+    },
+    "soap": {
+      "globals": {
+        "authMode": {
+          "simple": "token"
+        },
+        "di": {
+          "simple": {
+            "module": "applications/develop-and-test/service/Simple"
+          }
+        }
+      }
+    },
+    "rest": {
+      "globals": {
+        "authMode": {
+          "simple": "token"
+        },
+        "di": {
+          "simple": {
+            "module": "applications/develop-and-test/service/SimpleRest"
+          }
+        }
+      }
+    },
+    "portal": {
+      "import" : {
+        "src": "applications/develop-and-test/portal",
+        "namespace": "develop-and-test"
+      },
+      "globals": {
+        "portalName": "Develop And Test",
+        "templates":["applications/develop-and-test/portal/view/templates"],
+        "statics":{
+          "dnt": "applications/develop-and-test/portal/view/static"
+        },
+        "pageTemplates": {
+          "navigation": {
+            "*": "dnt_page"
+          },
+          "resources": {
+            "guids": "dnt_resource",
+            "texts": "dnt_text"
+          },
+          "errors": {
+            "404": "dnt_404"
+          }
+        },
+        "di": {
+          "markdownAdapter": {
+            "module": "modules/portal/lib/impl/adapter/FileAdapter",
+            "initMethod": "init",
+            "initLevel": 0,
+            "options": {
+              "dir": "applications/develop-and-test/portal/markdown",
+              "type": "markdown",
+              "log": "ion://sysLog"
+            }
+          },
+          "provider":{
+            "options": {
+              "adapters": {
+                "strings":{
+                  "name": "classStringAdapter",
+                  "module":"modules/portal/lib/impl/adapter/ClassAdapter",
+                  "options": {
+                    "dataRepo": "ion://dataRepo",
+                    "className": "class_string@develop-and-test",
+                    "map": {
+                      "title": "string_text",
+                      "content": "string_miltilinetext"
+                    }
+                  }
+                },
+                "guids":{
+                  "name": "classGuidAdapter",
+                  "module":"modules/portal/lib/impl/adapter/ClassAdapter",
+                  "options": {
+                    "dataRepo": "ion://dataRepo",
+                    "className": "class_guid@develop-and-test",
+                    "map": {
+                      "title": "id",
+                      "content": "class_guid"
+                    }
+                  }
+                },
+                "texts": "ion://markdownAdapter"
+              }
+            }
+          }
+        }
+      }
+    },
+    "lk": {
+      "globals": {
+        "templates": ["applications/develop-and-test/lk/templates"],
+        "default": "lk-profile",
+        "toolbar": {
+          "lk-profile": "Profile editor"
+        },
+        "di": {
+          "profileEditor": {
+            "module": "applications/develop-and-test/lk/backend/profile",
+            "initMethod": "init",
+            "options": {
+              "module": "ion://module",
+              "auth": "ion://auth",
+              "ds": "ion://Db"
+            }
+          }
+        }
+      }
+    },
+    "graph":{
+      "import" : {
+        "src": "applications/develop-and-test/graph",
+        "namespace": "develop-and-test"
+      },
+      "globals": {
+        "templates":["applications/develop-and-test/graph/templates"]
+      }
+    },
+    "ionadmin": {
+      "globals": {
+        "defaultPath": "ionadmin",
+        "manuallyCheckInterval": 10000,
+        "securityParams": {
+          "resourceTypes": {
+            "*": {
+              "title": "Outside groups"
+            },
+            "n:::": {
+              "title": "Navigation"
+            },
+            "c:::": {
+              "title": "Classes"
+            },
+            "ionadmin:::": {
+              "title": "Administration"
+            },
+            "ws:::": {
+              "title": "Services"
+            },
+            "sys:::url": null
+          }
+        }
+      }
+    },
+    "gantt-chart": {
+      "globals": {
+        "config": {
+          "columns": [
+            {
+              "name": "text",
+              "caption": "Name"
+            },
+            {
+              "name": "owner",
+              "caption": "Owner",
+              "align": "center"
+            },
+            {
+              "name": "priority",
+              "caption": "Priority",
+              "align": "center"
+            },
+            {
+              "name": "progress",
+              "caption": "Progress",
+              "align": "center"
+            },
+            {
+              "name": "start",
+              "caption": "Start",
+              "align": "center",
+              "format": "time"
+            }
+          ],
+          "preConfigurations": {
+            "config1": {
+              "caption": "First configuration",
+              "showPlan": true,
+              "units": "day",
+              "days_mode": "full",
+              "hours_mode": "full",
+              "default": true
+            },
+            "config2": {
+              "caption": "Second configuration",
+              "showPlan": false,
+              "units": "hour",
+              "days_mode": "full",
+              "hours_mode": "work",
+              "columnDisplay": {
+                "text": true,
+                "owner": true
+              },
+              "filters": {
+                "priority": "High"
+              }
+            },
+            "config3": {
+              "caption": "Third configuration",
+              "showPlan": true,
+              "units": "year",
+              "step": 5,
+              "days_mode": "full",
+              "hours_mode": "full",
+              "columnDisplay": {
+                "text": true,
+                "owner": true,
+                "priority": true
+              },
+              "filters": {
+                "priority": "Ordinary"
+              }
+            }
+          },
+          "fetch": [
+            "task@develop-and-test"
+          ],
+          "createUrl": "registry/develop-and-test@tasks",
+          "map": {
+            "employee@develop-and-test": {
+              "eager": [
+                "person",
+                "department"
+              ]
+            },
+            "project@develop-and-test": {
+              "type": "project",
+              "open": true,
+              "color": "#e3fcef",
+              "textColor": "#000",
+              "override": {
+                "owner": "head"
+              }
+            },
+            "basicObj@develop-and-test": {
+              "start": "dateStart",
+              "end": "dateEnd",
+              "duration": "duration",
+              "url": "registry/develop-and-test@tasks/view/:class/:id?modal=1",
+              "parents": [
+                "basicObj"
+              ]
+            },
+            "task@develop-and-test": {
+              "planStart": "datePlannedStart",
+              "planEnd": "datePlannedEnd",
+              "progress": "progress",
+              "percentProgress": true,
+              "blocked": [
+                "blocked"
+              ],
+              "blocks": [
+                "blocks"
+              ]
+            },
+            "event@develop-and-test": {
+              "color": "#41bed0bf",
+              "textColor": "#000"
+            }
+          }
+        },
+        "rootParamNeeded": true
+      }
+    }
+  }
+}

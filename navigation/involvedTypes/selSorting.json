@@ -1,0 +1,16 @@
+{
+  "code": "selSorting",
+  "orderNumber": 0,
+  "type": 0,
+  "title": "",
+  "caption": " Sorting a sample of valid values [selSorting]",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

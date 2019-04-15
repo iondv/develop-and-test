@@ -1,0 +1,25 @@
+resources:
+  - id: test:::resource1
+    name: The first test resource
+  - id: test:::resource2
+    name: The second test resource
+  - id: test:::resource3
+    name: The third test resource
+roles:
+  - id: admin@local
+    name: Administrator
+    permissions:
+      "*":
+        - full
+  - id: tester1@local
+    name: Tester 1
+    permissions:
+      test:::resource1:
+        - write
+      test:::resource2:
+        - read
+  - id: tester2@local
+    name: Tester 2
+    permissions:
+      test:::resource3:
+        - full

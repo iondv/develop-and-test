@@ -1,0 +1,6 @@
+{
+  "content":{
+        "serverRendering": false,
+        "homeRedirect": "/registry"
+    }
+}

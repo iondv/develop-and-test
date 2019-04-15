@@ -1,0 +1,16 @@
+{
+  "code": "hierarchySearch.p2",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Loop chain (second level)",
+  "classname": "modregistr_147_class_i@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

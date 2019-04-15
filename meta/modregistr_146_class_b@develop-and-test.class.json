@@ -1,0 +1,382 @@
+{
+  "namespace": "develop-and-test",
+  "isStruct": false,
+  "key": [
+    "key"
+  ],
+  "semantic": "|key|: |data|",
+  "name": "modregistr_146_class_b",
+  "version": "",
+  "caption": "Reference class to check the refining search",
+  "ancestor": null,
+  "container": null,
+  "creationTracker": "",
+  "changeTracker": "",
+  "creatorTracker": "",
+  "editorTracker": "",
+  "history": 0,
+  "journaling": false,
+  "compositeIndexes": null,
+  "properties": [
+    {
+      "orderNumber": 10,
+      "name": "key",
+      "caption": "Identifier",
+      "type": 6,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 20,
+      "name": "selProvSimple",
+      "caption": "Attribute to check the simple selectionProvider",
+      "type": 6,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": {
+        "type": "SIMPLE",
+        "list": [
+          {
+            "key": "3",
+            "value": "Three"
+          },
+          {
+            "key": "15",
+            "value": "Fifteen"
+          },
+          {
+            "key": "10",
+            "value": "Ten"
+          },
+          {
+            "key": "20",
+            "value": "Twenty"
+          }
+        ],
+        "matrix": [],
+        "parameters": [],
+        "hq": ""
+      },
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 30,
+      "name": "selProvMatrix",
+      "caption": "Attribute to check the matrix selectionProvider",
+      "type": 7,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": {
+        "type": "MATRIX",
+        "list": [],
+        "matrix": [
+          {
+            "comment": "m1",
+            "conditions": null,
+            "result": [
+              {
+                "key": "3.14",
+                "value": "Three and fourteen hundredths"
+              },
+              {
+                "key": "9.8",
+                "value": "Nine and eight tenths"
+              }
+            ]
+          },
+          {
+            "comment": "m2",
+            "conditions": null,
+            "result": [
+              {
+                "key": "1.5",
+                "value": "One and a half"
+              },
+              {
+                "key": "3.14",
+                "value": "Pi"
+              }
+            ]
+          },
+          {
+            "comment": "m3",
+            "conditions": null,
+            "result": [
+              {
+                "key": "5.5",
+                "value": "Five and a half"
+              },
+              {
+                "key": "1.5",
+                "value": "One and a half"
+              }
+            ]
+          }
+        ],
+        "parameters": [],
+        "hq": ""
+      },
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 40,
+      "name": "referenceToOneKey",
+      "caption": "Attribute to check reference to the simple class",
+      "type": 13,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "modregistr_146_class_c@develop-and-test",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 50,
+      "name": "referenceToCompositeKey",
+      "caption": "Attribute to check reference to the class with a composite key",
+      "type": 13,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "modregistr_146_class_d@develop-and-test",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 60,
+      "name": "ordinaryAttribute",
+      "caption": "Ordinary attribute",
+      "type": 6,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 70,
+      "name": "data",
+      "caption": "Data",
+      "type": 0,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 80,
+      "name": "collectionAttr",
+      "caption": "Collection for aggregation",
+      "type": 14,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": null,
+      "itemsClass": "modregistr_146_class_b@develop-and-test",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 35,
+      "name": "refSelProvMatrix",
+      "caption": "Reference attribute to check the matrix selectionProvider",
+      "type": 13,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": false,
+      "unique": false,
+      "autoassigned": false,
+      "hint": "In matrix the conditions works only with object number 3",
+      "defaultValue": null,
+      "refClass": "modregistr_146_class_b@develop-and-test",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": {
+        "type": "MATRIX",
+        "list": [],
+        "matrix": [
+          {
+            "comment": "If key \u003d 3",
+            "conditions": {
+              "eq": [
+                "$key",
+                3
+              ]
+            },
+            "result": [
+              {
+                "key": "2",
+                "value": "You opened the object 3, to choose object 2 select this value"
+              },
+              {
+                "key": "5",
+                "value": "You opened the object 3, to choose object 5 select this value"
+              }
+            ]
+          }
+        ],
+        "parameters": [],
+        "hq": ""
+      },
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    }
+  ],
+  "metaVersion": "2.0.61"
+}

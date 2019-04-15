@@ -1,0 +1,16 @@
+{
+  "code": "graph.rome_empire.re_soldier",
+  "orderNumber": 50,
+  "type": 1,
+  "title": "",
+  "caption": "Soldier",
+  "classname": "re_soldier@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61.17674"
+}

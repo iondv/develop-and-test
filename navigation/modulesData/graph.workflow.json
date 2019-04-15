@@ -1,0 +1,16 @@
+{
+  "code": "graph.workflow",
+  "orderNumber": 10,
+  "type": 0,
+  "title": "",
+  "caption": "Workflows",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": "Римская армия",
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61.17674"
+}

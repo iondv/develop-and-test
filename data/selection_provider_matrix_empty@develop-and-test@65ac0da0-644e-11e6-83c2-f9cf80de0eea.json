@@ -1,0 +1,7 @@
+{
+  "id": "65ac0da0-644e-11e6-83c2-f9cf80de0eea",
+  "matrix_base": "Any string",
+  "selection_provider_matrix": "Not empty",
+  "_class": "selection_provider_matrix_empty@develop-and-test",
+  "_classVer": ""
+}

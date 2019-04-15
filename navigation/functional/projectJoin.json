@@ -1,0 +1,17 @@
+{
+  "namespace": "develop-and-test",
+  "code": "projectJoin",
+  "orderNumber": 0,
+  "type": 0,
+  "title": "",
+  "caption": "Binding of namespaces",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61.21119"
+}

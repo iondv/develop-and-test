@@ -1,0 +1,16 @@
+{
+  "namespace": null,
+  "code": "schedule",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Class \"Schedule [210]\"",
+  "classname": "classSchedule@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

@@ -1,0 +1,16 @@
+{
+  "code": "selectionProvider.simple.string",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "String key",
+  "classname": "selection_provider_simple_string@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

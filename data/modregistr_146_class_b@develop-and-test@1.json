@@ -1,0 +1,14 @@
+{
+  "key": 1,
+  "selProvSimple": 3,
+  "selProvMatrix": 9.8,
+  "referenceToOneKey": 2,
+  "referenceToCompositeKey": "2_Tue Dec 20 2016 00:00:00 GMT+1000 (RTZ 9 (winter))_false",
+  "ordinaryAttribute": 1,
+  "data": "CONTAINS",
+  "collectionAttr": [
+    1
+  ],
+  "_class": "modregistr_146_class_b@develop-and-test",
+  "_classVer": ""
+}

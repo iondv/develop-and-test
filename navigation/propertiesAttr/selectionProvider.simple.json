@@ -1,0 +1,16 @@
+{
+  "code": "selectionProvider.simple",
+  "orderNumber": 0,
+  "type": 0,
+  "title": "",
+  "caption": "Simple selection list [simple]",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

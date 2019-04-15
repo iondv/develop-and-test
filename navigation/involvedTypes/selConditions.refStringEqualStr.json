@@ -1,0 +1,16 @@
+{
+  "code": "selConditions.refStringEqualStr",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Reference String \u003d str",
+  "classname": "selConditionsRefStringEqualStr@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

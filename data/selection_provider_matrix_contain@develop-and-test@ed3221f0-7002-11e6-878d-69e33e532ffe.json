@@ -1,0 +1,7 @@
+{
+  "id": "ed3221f0-7002-11e6-878d-69e33e532ffe",
+  "matrix_base": "integer - integer",
+  "selection_provider_matrix": "The first value available for the base not containing str",
+  "_class": "selection_provider_matrix_contain@develop-and-test",
+  "_classVer": ""
+}

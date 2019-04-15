@@ -1,0 +1,40 @@
+{
+  "path": {
+    "modulePrefix": "/registry",
+    "authorization": "/auth",
+    "register": "/register",
+    "logout": "/sign-out"
+  },
+  "title": {
+    "authorization": "Платформа ION: Вход",
+    "registration": "Платформа ION: регистрация",
+    "startPage": "ION Platform"
+  },
+  "captions": {
+    "authFormTitle": "Вход в систему",
+    "registerFormTitle": "Регистрация в системе",
+    "authButton": "Войти",
+    "registerButton": "Регистрация",
+    "authLink": "Вход в систему",
+    "registerLink": "Зарегистрироваться",
+    "errorMessage": "Не удалось выполнить вход.",
+    "errorNoPassword": "Не указан пароль пользователя!",
+    "logout": "Выйти",
+    "startPageHeader": "Населенные пункты"
+  },
+  "requiredAttribute": {
+    "path": "/develop-and-test@attr_views_fields.required",
+    "title": "\"required\" - обязательное к заполнению поле",
+    "formErrorMessage": "Исправьте ошибки на форме",
+    "attrErrorMessage": "Поле обязательно для заполнения"
+  },
+  "search": {
+    "searchingPhrase" : [
+      "08/10/2016",
+      "10/08/2016",
+      "15648",
+      "06.660",
+      "5120"
+    ]
+  }
+}

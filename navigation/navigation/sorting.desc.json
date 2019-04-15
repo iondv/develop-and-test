@@ -1,0 +1,26 @@
+{
+  "namespace": "develop-and-test",
+  "code": "sorting.desc",
+  "orderNumber": 0,
+  "type": 1,
+  "title": "",
+  "caption": "Back sorting",
+  "classname": "navCond@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [
+    {
+      "property": "integer",
+      "mode": 1
+    },
+    {
+      "property": "data",
+      "mode": 1
+    }
+  ],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

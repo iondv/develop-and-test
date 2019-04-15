@@ -1,0 +1,102 @@
+{
+  "columns": [
+    {
+      "sorted": true,
+      "caption": "Identifier",
+      "type": 1,
+      "property": "id",
+      "size": 2,
+      "maskName": null,
+      "mask": null,
+      "mode": null,
+      "fields": [],
+      "hierarchyAttributes": null,
+      "columns": [],
+      "actions": null,
+      "commands": [],
+      "orderNumber": 10,
+      "required": false,
+      "visibility": null,
+      "enablement": null,
+      "obligation": null,
+      "readonly": true,
+      "selectionPaginated": true,
+      "validators": null,
+      "hint": "",
+      "historyDisplayMode": 0,
+      "tags": null
+    },
+    {
+      "sorted": true,
+      "caption": "Integer number from 0 to 100",
+      "type": 14,
+      "property": "integer",
+      "size": 2,
+      "maskName": null,
+      "mask": null,
+      "mode": null,
+      "fields": [],
+      "hierarchyAttributes": null,
+      "columns": [],
+      "actions": null,
+      "commands": [],
+      "orderNumber": 20,
+      "required": false,
+      "visibility": null,
+      "enablement": null,
+      "obligation": null,
+      "readonly": false,
+      "selectionPaginated": true,
+      "validators": null,
+      "hint": "numbers in the range from 0 to 25 are highlighted in green, from 25 to 50 - yellow, from 50 to 75 - orange, from 75 to 100 - blue",
+      "historyDisplayMode": 0,
+      "tags": null
+    }
+  ],
+  "styles": {
+    "attention-6": "lte($integer, 25)",
+    "attention-2": "gte($integer, 26)",
+    "attention-3": "gte($integer, 51)",
+    "attention-5": "gte($integer, 76)",
+    "attention-4": "gte($integer, 101)"
+  },
+  "actions": null,
+  "commands": [
+    {
+      "id": "CREATE",
+      "caption": "Create",
+      "visibilityCondition": null,
+      "enableCondition": null,
+      "needSelectedItem": false,
+      "signBefore": false,
+      "signAfter": false,
+      "isBulk": false
+    },
+    {
+      "id": "EDIT",
+      "caption": "Edit",
+      "visibilityCondition": null,
+      "enableCondition": null,
+      "needSelectedItem": true,
+      "signBefore": false,
+      "signAfter": false,
+      "isBulk": false
+    },
+    {
+      "id": "DELETE",
+      "caption": "Delete",
+      "visibilityCondition": null,
+      "enableCondition": null,
+      "needSelectedItem": false,
+      "signBefore": false,
+      "signAfter": false,
+      "isBulk": true
+    }
+  ],
+  "allowSearch": false,
+  "pageSize": null,
+  "useEditModels": true,
+  "version": null,
+  "overrideMode": null,
+  "metaVersion": "2.0.7"
+}

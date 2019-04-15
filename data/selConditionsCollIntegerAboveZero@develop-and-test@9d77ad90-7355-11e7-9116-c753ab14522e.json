@@ -1,0 +1,10 @@
+{
+  "id": "9d77ad90-7355-11e7-9116-c753ab14522e",
+  "coll": [
+    "aa2a2400-87ce-11e6-a2e9-d92fff476319",
+    "bb942600-87ce-11e6-a2e9-d92fff476319",
+    "c3de3030-87ce-11e6-a2e9-d92fff476319"
+  ],
+  "_class": "selConditionsCollIntegerAboveZero@develop-and-test",
+  "_classVer": ""
+}
