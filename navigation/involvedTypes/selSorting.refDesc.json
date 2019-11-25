@@ -2,7 +2,6 @@
   "code": "selSorting.refDesc",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Reference with sorting in descending the String",
   "classname": "selSortingRefDesc@develop-and-test",
   "container": null,

@@ -2,7 +2,6 @@
   "code": "graph.workflow.re_kogorta",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Cohort",
   "classname": "re_kogorta@develop-and-test",
   "container": null,

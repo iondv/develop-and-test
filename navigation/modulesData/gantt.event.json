@@ -2,7 +2,6 @@
     "code": "gantt.event",
     "orderNumber": 0,
     "type": 1,
-    "title": "",
     "caption": "Data for the Gantt chart - Events",
     "classname": "event@develop-and-test",
     "container": null,

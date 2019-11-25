@@ -2,7 +2,6 @@
   "code": "keys.keyInteger",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Integer autoincrement",
   "classname": "keyInteger@develop-and-test",
   "container": null,

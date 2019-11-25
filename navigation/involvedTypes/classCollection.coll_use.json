@@ -2,7 +2,6 @@
   "code": "classCollection.coll_use",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Container class",
   "classname": "coll_container@develop-and-test",
   "container": null,

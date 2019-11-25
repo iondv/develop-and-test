@@ -46,7 +46,7 @@
           "visibility": null,
           "enablement": null,
           "obligation": null,
-          "readonly": true,
+          "readonly": false,
           "selectionPaginated": true,
           "validators": null,
           "hint": null,

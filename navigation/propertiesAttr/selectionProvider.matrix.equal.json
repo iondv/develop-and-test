@@ -2,7 +2,6 @@
   "code": "selectionProvider.matrix.equal",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "With vectors in equality of values from the selection list - the base",
   "classname": "selection_provider_matrix_equal@develop-and-test",
   "container": null,

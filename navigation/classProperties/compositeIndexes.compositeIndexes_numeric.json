@@ -2,7 +2,6 @@
   "code": "compositeIndexes.compositeIndexes_numeric",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Three numeric fields",
   "classname": "compositeIndexes_numeric@develop-and-test",
   "container": null,

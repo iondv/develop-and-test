@@ -1,62 +1,29 @@
 {
   "columns": [
     {
-      "sorted": true,
-      "caption": "Identifier",
-      "type": 1,
-      "property": "id",
-      "size": 2,
-      "maskName": null,
-      "mask": null,
-      "mode": null,
-      "fields": [],
-      "hierarchyAttributes": null,
-      "columns": [],
-      "actions": null,
-      "commands": [],
-      "orderNumber": 10,
-      "required": false,
-      "visibility": null,
-      "enablement": null,
-      "obligation": null,
-      "readonly": true,
-      "selectionPaginated": true,
-      "validators": null,
-      "hint": "",
-      "historyDisplayMode": 0,
-      "tags": null
-    },
-    {
-      "sorted": true,
-      "caption": "Any number",
-      "type": 15,
       "property": "real",
-      "size": 2,
-      "maskName": null,
-      "mask": null,
-      "mode": null,
-      "fields": [],
-      "hierarchyAttributes": null,
-      "columns": [],
-      "actions": null,
-      "commands": [],
+      "caption": "Any number",
+      "type": 1,
+      "hint": "",
       "orderNumber": 20,
+      "size": null,
+      "maskName": "",
+      "mask": "",
+      "mode": 0,
       "required": false,
-      "visibility": null,
-      "enablement": null,
-      "obligation": null,
       "readonly": false,
-      "selectionPaginated": true,
-      "validators": null,
-      "hint": "negative numbers are highlighted in red",
+      "sorted": false,
+      "selectionPaginated": false,
+      "visibility": "",
+      "enablement": "",
+      "obligation": "",
       "historyDisplayMode": 0,
-      "tags": null
+      "tags": ""
     }
   ],
   "styles": {
     "attention-1": "lt($real, 0)"
   },
-  "actions": null,
   "commands": [
     {
       "id": "CREATE",
@@ -77,22 +44,6 @@
       "signBefore": false,
       "signAfter": false,
       "isBulk": false
-    },
-    {
-      "id": "DELETE",
-      "caption": "Delete",
-      "visibilityCondition": null,
-      "enableCondition": null,
-      "needSelectedItem": false,
-      "signBefore": false,
-      "signAfter": false,
-      "isBulk": true
     }
-  ],
-  "allowSearch": false,
-  "pageSize": null,
-  "useEditModels": true,
-  "version": null,
-  "overrideMode": null,
-  "metaVersion": "2.0.7"
+  ]
 }

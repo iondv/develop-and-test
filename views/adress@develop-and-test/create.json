@@ -283,7 +283,7 @@
           "property": "flat",
           "size": 2,
           "maskName": null,
-          "mask": null,
+          "mask": "9{10,12}",
           "mode": 0,
           "fields": [],
           "columns": [],

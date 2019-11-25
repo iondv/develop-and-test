@@ -2,7 +2,6 @@
     "code": "gantt.task",
     "orderNumber": 0,
     "type": 1,
-    "title": "",
     "caption": "Data for the Gantt chart - Tasks",
     "classname": "task@develop-and-test",
     "container": null,

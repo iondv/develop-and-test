@@ -3,7 +3,6 @@
   "code": "employee",
   "orderNumber": 2,
   "type": 1,
-  "title": "",
   "caption": "Employees",
   "classname": "employee@develop-and-test",
   "container": null,

@@ -2,7 +2,6 @@
   "code": "kladrDict.searchTest",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Address (text search)",
   "classname": "adress@develop-and-test",
   "container": null,

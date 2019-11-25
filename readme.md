@@ -1,29 +1,56 @@
-Эта страница на [Русском](/docs/ru/readme.md)
-
 # IONDV. Develop-and-test
 
 Develop-and-test is a IONDV. Framework application. 
 
-### Start with IONDV. Framework
+<h1 align="center"> <a href="https://www.iondv.com/"><img src="/dnt.png" height="500px" alt="IONDV. Develop-and-test" align="center"></a>
+</h1> 
+
+## Start with IONDV. Framework
+
+**IONDV. Framework** - is a node.js open source framework for developing accounting applications
+or microservices based on metadata and individual modules. Framework is a part of 
+instrumental digital platform to create enterprise 
+(ERP) apps. This platform consists of the following open-source components: the [IONDV. Framework](https://github.com/iondv/framework), the
+[modules](https://github.com/topics/iondv-module) и ready-made applications expanding it
+functionality, visual development environment [Studio](https://github.com/iondv/studio) to create metadata for the app.
 
 * [IONDV. Framework](https://github.com/iondv/framework/)
 * [IONDV. Framework Docs](https://github.com/iondv/framework/blob/master/docs/en/index.md)
 
 ## Description 
 
-**Develop-and-test** - is created to show you the type of metadata and  basic functional modules of the IONDV. Framework and to 
-highlight the most powerful features. It has some of the components from the full version to get you a walkthrough of our
- app development framework to build top quality web applications. 
+**Develop-and-test** - is created to show you the type of metadata and basic functional modules of the IONDV. Framework and to 
+highlight the most powerful features. It has most of the components from the full version to get you a walkthrough of our framework to build top quality web applications. 
 
 ### Demo
-Go to <a href="https://dnt.demo.iondv.com">dnt.demo.iondv.com</a>. No registration needed. The login for access is - `demo` and the password is - `ion-demo`.
+Go to <a href="https://dnt.iondv.com">dnt.iondv.com</a>. No registration needed. The login for access is - `demo` and the password is - `ion-demo`.
 
-### GitHub
-#### System environment
+### Software requirements
 
 Install [Node.js](<https://nodejs.org/en/>) runtime and npm package manager to run the IONDV.Framework. Version 10.x.x.   
 
-Install and run the [MongoDB](https://www.mongodb.org/) DBMS to store the data. Version 3.6.
+Install and run the [MongoDB](https://www.mongodb.org/) DBMS to store the data. Version 3.6.  
+
+### Installer
+
+You can use IONDV. Framework apps installer, requiring installed node.js, mongodb and git. During the installation, all other dependencies will be checked and installed, and the application itself will be built and run.
+
+Install in one line:
+
+```
+bash <(curl -sL https://raw.githubusercontent.com/iondv/iondv-app/master/iondv-app) -q -i -m localhost:27017 develop-and-test
+```
+Where  `localhost: 27017` is the MongoDB address, and `develop-and-test` is the app name.
+
+Also the other way is to clone - (`git clone https://github.com/iondv/iondv-app.git`) and install the app by using the `bash iondv-app -m localhost:27017 develop-and-test` command.
+
+<details>
+  <summary> 
+    <h3> 
+      Gitclone with repository
+    </h3> 
+  </summary>
+
 
 #### Global dependencies
 
@@ -37,6 +64,8 @@ it is additionally necessary to install the windows-build-tools package `npm ins
 #### Core, modules and application
 
 The dependencies are listed in the [`package.json`](https://github.com/iondv/develop-and-test/blob/master/package.json) file.
+
+*Example of the `package.json` file:*
 
 ```
   "engines": {
@@ -117,6 +146,7 @@ Run the app, executing the `npm start` or `node bin/www` command.
 
 Open this link `http://localhost:8888` in a browser and log in. `8888` —  is a port in the `server.ports` parameter.
 
+ </details>
 
 ### Docker
 Follow these steps to deploy [docker container](https://hub.docker.com/r/iondv/dnt):
@@ -161,9 +191,9 @@ Open `http://localhost/` in your browser.
 --------------------------------------------------------------------------  
 
 
- #### [License](/LICENSE) &ensp;  [Contact us](https://iondv.com) &ensp;  [Russian](/docs/ru/readme.md)   &ensp; [FAQs](/faqs.md)          
+ #### [License](/LICENSE) &ensp;  [Contact us](https://iondv.com) &ensp;   &ensp; [FAQs](/faqs.md)          
 
-<div><img src="https://mc.iondv.com/watch/github/docs/app/dnt" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
+<div><img src="https://mc.iondv.com/watch/local/docs/app/dnt" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
 
 --------------------------------------------------------------------------  
 

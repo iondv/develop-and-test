@@ -1,0 +1,56 @@
+<% var id = `n_${node.id.replace('.', '_')}`; %>
+<% var params = {
+  code: node.code,
+  ns: node.ns,
+  hasFilter: node.hasFilter,
+  viewer: node.viewer,
+  title: node.caption
+}; %>
+
+<%
+  var icon = '';
+  var hint = node.hint || node.caption;
+  if (node.icon) {
+    if (node.icon.image) {
+      icon = '<img src="/'+ module +'/'+ node.icon.image +'" class="menu-item-icon" title="' + hint + '">';
+    } else if (node.icon.url) {
+      icon = '<img src="'+ node.icon.url +'" class="menu-item-icon" title="'+ hint +'">';
+    } else if (node.icon.css) {
+      icon = '<i class="main-icon '+ node.icon.css +'" title="'+ hint +'"></i>';
+    }
+  } else if (node.nodes.length) {
+    icon = '<i class="main-icon fa fa-bank" title="'+ hint +'"></i>';
+  }
+%>
+
+<li class="<%- node.nodes.length ? 'treeview' :'' %>">
+  <a id="<%= id %>" data-params="<%= JSON.stringify(params) %>"
+    <% if (node.type === 'url') { %>
+     href="<%= node.url %>"
+     target="_blank"
+     class="menu-link"
+     <% } else if (node.url) { %>
+     href="/<%- module %>/<%= node.url %>"
+     class="menu-link menu-link-data"
+     <% } else { %>
+     href="#"
+     <% } %>
+     title="<%= node.hint || node.caption %>">
+    <%- icon %>
+    <% if (node.nodes.length) { %>
+    <i class="fa fa-menu-arrow pull-right toggler" style="position:relative; z-index:99"></i>
+    <% } %>
+    <span><%= node.caption %></span>
+  </a>
+  <% if (node.nodes.length) { %>
+  <ul class="treeview-menu">
+   <%
+   for (var i = 0; i < node.nodes.length; i++){
+     %>
+    <%- partial("./menu_node.ejs",{node:node.nodes[i]}) %>
+    <%
+   }
+    %>
+  </ul>
+  <% } %>
+</li>

@@ -2,7 +2,6 @@
   "code": "CALC_ATTRS.linkFunc",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Computation by reference",
   "classname": "calcLinkAttr@develop-and-test",
   "container": null,

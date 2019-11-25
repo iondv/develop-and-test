@@ -1,0 +1,52 @@
+{
+  "name": "serviceAttribute",
+  "caption": "serviceAttribute",
+  "wfClass": "serviceAttribute@develop-and-test",
+  "startState": null,
+  "states": [
+    {
+      "name": "state",
+      "caption": "state",
+      "maxPeriod": null,
+      "conditions": {
+      	"contains": [
+      		"$coll", 
+      		{"contains" : [
+      			"$1-coll", 
+      			{"and" : [
+      				{"nempty": ["$2-coll"]}, 
+      				{"nempty": ["$2-ref"]}
+  				]}
+  			]}
+		]},
+      "itemPermissions": [],
+      "propertyPermissions": [],
+      "selectionProviders": [
+        {
+          "role": null,
+          "property": null,
+          "type": "MATRIX",
+          "list": [],
+          "matrix": [
+            {
+              "comment": "",
+              "conditions": {
+      			"contains": [
+      				"$coll", 
+  					{"contains" : [
+  						"$1-coll",
+  						{"nempty": ["$2-coll"]}
+					]}
+  				]},
+              "result": []
+            }
+          ],
+          "parameters": [],
+          "hq": null
+        }
+      ]
+    }
+  ],
+  "transitions": [],
+  "metaVersion": "2.0.61"
+}

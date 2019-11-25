@@ -51,6 +51,10 @@
           "validators": null,
           "hint": null,
           "historyDisplayMode": 0,
+          "options": {
+            "min": "-34.35",
+            "max": 35.35
+          },
           "tags": null
         }
       ],

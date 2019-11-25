@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>Платформа ION: Вход</title>
+<head><title>Platform ION: Login</title>
   <meta name="robots" content="noindex,nofollow">
   <base id="baseUrl" href="<%=baseUrl%>">
   <link rel="shortcut icon" href="favicon.ico">
@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="demo">
-  <h3>Смена пароля</h3>
+  <h3>Change password</h3>
 
   <div class="auth-form">
     <div class="msg-container">
@@ -24,18 +24,18 @@
     %>
     </div>
     <form action="chpwd" method="post" id="reg-form">
-      <div><input type="password" name="password" placeholder="пароль" class="input password"></div>
-      <div><input type="password" name="password2" placeholder="повторите пароль" class="input password"></div>
+      <div><input type="password" name="password" placeholder="password" class="input password"></div>
+      <div><input type="password" name="password2" placeholder="confirm password" class="input password"></div>
       <div class="buttons">
-        <button id="submit-btn" type="button">Изменить пароль</button>
+        <button id="submit-btn" type="button">Change password</button>
         <div class="forgot-password pull-left">
-          <a href="<%=baseUrl%>"><b>Вернуться в приложение</b></a>
+          <a href="<%=baseUrl%>"><b>Return to app</b></a>
         </div>
       </div>
     </form>
   </div>
 </div>
-<%- pageEndContent %>
+<%- typeof pageEndContent !== 'undefined' ? pageEndContent : "" %>
 </body>
 <script>
   jQuery(function(){
@@ -55,12 +55,12 @@
         if (options.pwdMinLength) {
            if (pwd.length < options.pwdMinLength) {
              valid = false;
-             messages.push('Минимальная длина пароля ' + options.pwdMinLength + ' символов');
+             messages.push('Minimum password length ' + options.pwdMinLength + ' characters');
            }
         }
       } else {
         valid = false;
-        messages.push('Неверный повтор пароля');
+        messages.push('Invalid password replay');
       }
       if (valid) {
         $regForm.submit();

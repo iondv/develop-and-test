@@ -10,11 +10,13 @@
       "matchMode": "intersect",
       "options": {
         "clusterHasBalloon": false,
+        "clusterDisableClickZoom" : false,
         "clusterPreset": "islands#invertedDarkGreenClusterIcons",
         "geoObjectHasBalloon": true,
         "geoObjectOpenBalloonOnClick": true,
         "geoObjectPreset": "islands#greenRepairShopIcon"
       },
+      "params": {},
       "query": {
         "className": "geomapLayerGreenRepairShopIcon@develop-and-test"
       }

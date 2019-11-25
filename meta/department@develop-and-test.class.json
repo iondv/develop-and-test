@@ -29,7 +29,7 @@
       "maxFileCount": 0,
       "nullable": false,
       "readonly": false,
-      "indexed": false,
+      "indexed": true,
       "unique": true,
       "autoassigned": false,
       "hint": null,

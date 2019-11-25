@@ -1,0 +1,10 @@
+<%
+let params = JSON.stringify({
+  panel: node.panel,
+  defaultNav: defaultNode
+});
+%>
+
+<ul class="nav-section treeview" data-params="<%= params %>">
+  <%- partial('./default-node', {node}) %>
+</ul>

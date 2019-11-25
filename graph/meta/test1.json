@@ -2,7 +2,7 @@
   "code": "test1",
   "caption": "Test",
   "type": 1,
-  "rootClass": "modregistr_147_class_e",
+  "rootClass": "hierarchySearch_class_e",
   "template" : "nodes/hierarchy/default",
   "relations": null
 }

@@ -2,7 +2,6 @@
   "code": "group.color.date",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "For date",
   "classname": "date@develop-and-test",
   "container": null,

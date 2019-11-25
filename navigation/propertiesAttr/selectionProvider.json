@@ -3,7 +3,6 @@
   "code": "selectionProvider",
   "orderNumber": 0,
   "type": 0,
-  "title": "",
   "caption": "Selection list of valid values [selectionProvider]",
   "classname": null,
   "container": null,

@@ -2,7 +2,6 @@
   "code": "selectionProvider.matrix.notEqual",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "With vectors equal, not equal",
   "classname": "selection_provider_matrix_not_equal@develop-and-test",
   "container": null,

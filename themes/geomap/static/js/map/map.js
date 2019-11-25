@@ -8,8 +8,8 @@
     this.params = this.$map.data('params');
     this.$zone = this.$map.closest('.map-zone');
     this.zoneParams = this.$zone.data('params');
-    this.$sideNav = $('#sideNav');
-    this.$sideNav.find('.menu-link-data').click(this.clickNav.bind(this));
+    this.$sideBarNav = $('#sideBarNav');
+    this.$sideBarNav.find('.menu-link-data').click(this.clickNav.bind(this));
     this.$imodal = $('#imodal-frame');
     this.$map.on('click', '.map-modal-link', this.clickModalLink.bind(this));
     this.navs = {};
@@ -105,13 +105,13 @@
     // NAV
 
     initDefaultNav: function () {
-      var id = 'n_' + this.$sideNav.data('default');
+      var id = 'n_' + this.$sideBarNav.data('default');
       id = id.replace(/\./g, '_');
       var def = document.getElementById(id);
       if (def) {
         $(def).click().parents('.treeview').addClass('menu-open');
       } else {
-        this.$sideNav.find('.treeview').eq(0).find('>a .toggler').click();
+        this.$sideBarNav.find('.treeview').eq(0).find('>a .toggler').click();
       }
     },
 
@@ -135,7 +135,7 @@
         if (event.ctrlKey) {
           $a.toggleClass('active');
         } else {
-          this.$sideNav.find('.active').removeClass('active');
+          this.$sideBarNav.find('.active').removeClass('active');
           this.hideNavs();
           $a.addClass('active');
         }
@@ -163,7 +163,7 @@
 
     renderHeader: function () {
       var title = [];
-      this.$sideNav.find('.active').each(function () {
+      this.$sideBarNav.find('.active').each(function () {
         title.push($(this).find('span').html());
       });
       $('#page-header').find('h1').html(title.length ? title.join(', ') : 'Гео-карта');

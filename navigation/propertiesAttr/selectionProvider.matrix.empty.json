@@ -2,7 +2,6 @@
   "code": "selectionProvider.matrix.empty",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "With vectors empty, not empty",
   "classname": "selection_provider_matrix_empty@develop-and-test",
   "container": null,

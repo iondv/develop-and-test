@@ -67,20 +67,7 @@
       "assignments": [],
       "conditions": null,
       "confirm": true,
-      "confirmMessage": "\u003ch2\u003eАЗАЗА\u003c/h2\u003e\nВы уверены?"
-    },
-    {
-      "name": "tt",
-      "caption": "Done",
-      "startState": "ts",
-      "finishState": "endState",
-      "signBefore": false,
-      "signAfter": false,
-      "roles": [],
-      "assignments": [],
-      "conditions": null,
-      "confirm": false,
-      "confirmMessage": null
+      "confirmMessage": "\u003ch2\u003eGo to the next stage\u003c/h2\u003e\nAre you sure?"
     }
   ],
   "metaVersion": "2.0.61"

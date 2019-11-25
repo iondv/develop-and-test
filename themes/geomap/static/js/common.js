@@ -185,7 +185,7 @@ window.Helper = {
 // ASIDE NAV
 
 (function () {
-  var $nav = $('#sideNav');
+  var $nav = $('#sideBarNav');
   $nav.find('.menu-link-data').click(function (event) {
     event.preventDefault();
   });

@@ -26,7 +26,7 @@
       "maxFileCount": 0,
       "nullable": false,
       "readonly": false,
-      "indexed": false,
+      "indexed": true,
       "unique": true,
       "autoassigned": true,
       "hint": null,

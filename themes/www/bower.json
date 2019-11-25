@@ -12,9 +12,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "bowerOtherVersionDependencies": {
     "bootstrap": "3.3.5",
     "moment": "latest",
     "moment-timezone": "latest"
-  }
+  },
+  "dependencies": {}
 }

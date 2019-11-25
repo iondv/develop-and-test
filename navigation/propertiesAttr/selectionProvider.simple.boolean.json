@@ -2,7 +2,6 @@
   "code": "selectionProvider.simple.boolean",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Logical key",
   "classname": "selection_provider_simple_boolean@develop-and-test",
   "container": null,

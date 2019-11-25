@@ -3,7 +3,6 @@
   "code": "search_text",
   "orderNumber": 40,
   "type": 1,
-  "title": "",
   "caption": "Search by text",
   "classname": "searchText",
   "container": null,

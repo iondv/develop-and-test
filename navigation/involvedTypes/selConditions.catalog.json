@@ -2,7 +2,6 @@
   "code": "selConditions.catalog",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "\"selSorting\" - catalog for checking the sorting of selection lists",
   "classname": "selSortingCatalog@develop-and-test",
   "container": null,

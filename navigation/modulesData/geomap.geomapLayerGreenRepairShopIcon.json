@@ -2,7 +2,6 @@
   "code": "geomap.geomapLayerGreenRepairShopIcon",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Data for geomodule layer with green service icons",
   "classname": "geomapLayerGreenRepairShopIcon@develop-and-test",
   "container": null,

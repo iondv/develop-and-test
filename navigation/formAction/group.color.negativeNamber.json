@@ -2,7 +2,6 @@
   "code": "group.color.negativeNamber",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "For real numbers",
   "classname": "negativeNamber@develop-and-test",
   "container": null,

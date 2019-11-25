@@ -2,7 +2,6 @@
   "code": "kladrDict.adressDistrict",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Districts in the address",
   "classname": "adressDistrict@develop-and-test",
   "container": null,

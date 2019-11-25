@@ -2,7 +2,6 @@
   "code": "selectionProvider.simple.integerNull",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "nteger key with \"empty\" value",
   "classname": "selection_provider_simple_null@develop-and-test",
   "container": null,

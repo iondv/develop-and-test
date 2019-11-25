@@ -6,7 +6,7 @@ resources:
   - id: test:::resource3
     name: The third test resource
 roles:
-  - id: admin@local
+  - id: demo@local
     name: Administrator
     permissions:
       "*":

@@ -2,7 +2,6 @@
   "code": "selConditions.collStringEmpty",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Collection String empty",
   "classname": "selConditionsCollStringEmpty@develop-and-test",
   "container": null,

@@ -2,7 +2,6 @@
   "code": "graph.rome_empire.re_soldier",
   "orderNumber": 50,
   "type": 1,
-  "title": "",
   "caption": "Soldier",
   "classname": "re_soldier@develop-and-test",
   "container": null,

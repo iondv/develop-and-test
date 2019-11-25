@@ -65,7 +65,7 @@
           "className": "reportCity",
           "filter": {
             "gt": [
-              {"size": ["$districts"]},
+              "$sizeDistricts",
               3
             ]
           },
@@ -76,7 +76,7 @@
             },
             {
               "field": "districtCount",
-              "expr": {"size": ["$districts"]}
+              "expr": "$sizeDistricts"
             }
           ]
         }

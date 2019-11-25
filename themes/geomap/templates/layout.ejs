@@ -14,7 +14,7 @@
 
   <script src="<%= module %>/vendor/jquery/jquery.min.js"></script>
   <script src="<%= module %>/vendor/js-cookie/src/js.cookie.js"></script>
-  <script src="<%= module %>/vendor/store-js/store.min.js"></script>
+  <script src="<%= module %>/vendor/store/store.min.js"></script>
   <script src="<%= module %>/vendor/regions/regions.js"></script>
   <script src="<%= module %>/js/preload.js"></script>
 </head>
@@ -31,14 +31,6 @@
   window.sidebarSplitter && sidebarSplitter.init();
 </script>
 
-<div id="imodal-loader"></div>
-<div id="imodal-side" class="imodal-side">
-  <div class="imodal-side-toggle">
-    <span class="glyphicon glyphicon-option-vertical"></span>
-  </div>
-  <iframe id="imodal-frame" name="imodal" class="imodal-frame" data-blank="about:blank"></iframe>
-</div>
-
 <div id="global-overlay" class="global-overlay">
   <div class="global-overlay-body">
     <div class="loader"><span class="fa fa-refresh fa-spin"></span></div>
@@ -51,7 +43,7 @@
 </script>
 <script src="<%=module%>/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="<%=module%>/vendor/moment/moment.min.js" type="text/javascript"></script>
-<script src="<%=module%>/vendor/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="<%=module%>/vendor/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="<%=module%>/vendor/icheck/icheck.min.js" type="text/javascript"></script>
 <script>
   var plugin_path = '<%=module%>/js/plugins/';
@@ -61,6 +53,6 @@
 <script src="<%=module%>/vendor/paper/paper-core.min.js"></script>
 <script src="<%=module%>/js/common.js"></script>
 <%- scripts %>
-<%- pageEndContent %>
+<%- typeof pageEndContent !== 'undefined' ? pageEndContent : "" %>
 </body>
 </html>

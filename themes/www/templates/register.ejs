@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Платформа ION: регистрация</title>
+  <title>Platform ION: Check in</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
   <meta name="robots" content="noindex,nofollow">
@@ -23,33 +23,33 @@
       <% }); %>
     </div>
     <% } %>
-    <form id="reg-form" action="register" method="post" class="sky-form boxed">
-      <header><i class="fa fa-users"></i> Регистрация в системе</header>
+    <form id="reg-form" action="register" method="post" class="dlg-form boxed">
+      <header><i class="fa fa-users"></i> Registration in the system</header>
       <fieldset>
         <section>
-          <label class="label">Логин</label>
+          <label class="label">Login</label>
           <label class="input">
             <i class="icon-append fa fa-user"></i>
             <input id="username" type="login" name="username">
-            <span class="tooltip tooltip-top-right">Логин</span>
+            <span class="tooltip tooltip-top-right">Login</span>
           </label>
         </section>
 
         <section>
-          <label class="label">Пароль</label>
+          <label class="label">Password</label>
           <label class="input">
             <i class="icon-append fa fa-lock"></i>
             <input id="password" type="password" name="password">
-            <b class="tooltip tooltip-top-right">Пароль</b>
+            <b class="tooltip tooltip-top-right">Password</b>
           </label>
         </section>
 
         <section>
-          <label class="label">Повтор пароля</label>
+          <label class="label">Password replay</label>
           <label class="input">
             <i class="icon-append fa fa-lock"></i>
             <input id="password2" type="password" name="password2">
-            <b class="tooltip tooltip-top-right">Повтор пароля</b>
+            <b class="tooltip tooltip-top-right">Password replay</b>
           </label>
         </section>
 
@@ -74,9 +74,9 @@
         <% }) %>
       </fieldset>
       <footer>
-        <button id="authbutton" type="submit" class="btn btn-primary pull-right">Регистрация</button>
+        <button id="authbutton" type="submit" class="btn btn-primary pull-right">Check in</button>
         <div class="forgot-password pull-left">
-          <a href="auth"><b>Вход в систему</b></a>
+          <a href="auth"><b>Log in</b></a>
         </div>
       </footer>
     </form>
@@ -103,18 +103,18 @@
       var messages = [];
       var field;
       if (!username) {
-        messages.push('Поле логина обязательно для заполнения');
+        messages.push('Login field is required');
       }
       if (pwd && pwd2 && pwd === pwd2) {
         if (options.pwdMinLength) {
            if (pwd.length < options.pwdMinLength) {
              valid = false;
-             messages.push('Минимальная длина пароля ' + options.pwdMinLength + ' символов');
+             messages.push('Minimum password length ' + options.pwdMinLength + ' characters');
            }
         }
       } else {
         valid = false;
-        messages.push('Неверный повтор пароля');
+        messages.push('Invalid password replay');
       }
       for (fieldName in fields) {
         if (fields.hasOwnProperty(fieldName)) {
@@ -122,8 +122,8 @@
             field = $regForm.find('[name='+fieldName+']');
             if (!field.val()) {
               valid = false;
-              messages.push('Поле ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
-                + ' обязательно для заполнения');
+              messages.push('Field ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
+                + ' required');
             }
           }
         }

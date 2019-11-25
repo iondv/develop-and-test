@@ -1,6 +1,7 @@
 /**
  * Created by kras on 11.11.16.
  */
+// SOAP service
 function SimpleService() {
   this.getMeta = function () {
     return {

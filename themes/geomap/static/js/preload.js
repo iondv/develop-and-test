@@ -60,7 +60,7 @@ window.sidebarSplitter = (function () {
     },
 
     initMobile: function () {
-      $mobile = $('#mobileMenuBtn');
+      $mobile = $('#moreMenuBtn');
       $mobile.click(function () {
         toggle(!$mobile.hasClass('active'));
         $(window).trigger('resize');

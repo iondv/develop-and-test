@@ -3,7 +3,6 @@
   "code": "simple_workflow",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Simple workflow",
   "classname": "workflowBase@develop-and-test",
   "container": null,

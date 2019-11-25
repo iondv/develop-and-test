@@ -2,14 +2,20 @@
   "code": "conditions.stringNotEmpty",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "String not empty",
   "classname": "navCond@develop-and-test",
   "container": null,
   "collection": null,
   "url": null,
   "hint": null,
-  "conditions": {"nempty": ["$data"]},
+  "conditions": [
+    {
+      "property": "data",
+      "operation": 3,
+      "value": null,
+      "nestedConditions": []
+    }
+  ],
   "sorting": [],
   "pathChains": [],
   "metaVersion": "2.0.61"

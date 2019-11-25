@@ -2,7 +2,6 @@
   "code": "classRef.backcoll.refBeckcollRef",
   "orderNumber": 0,
   "type": 1,
-  "title": "",
   "caption": "Reference with back collection",
   "classname": "ref_backcoll_ref@develop-and-test",
   "container": null,
