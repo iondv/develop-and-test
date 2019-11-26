@@ -1,0 +1,15 @@
+{
+  "code": "hierarchySearch.classRefTestHS-p",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Reference class for checking hierarchical search (loop chain of containers from one class)",
+  "classname": "hierarchySearch_class_f@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

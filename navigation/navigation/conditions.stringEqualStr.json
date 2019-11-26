@@ -1,0 +1,22 @@
+{
+  "code": "conditions.stringEqualStr",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "String \u003d str",
+  "classname": "navCond@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": [
+    {
+      "property": "data",
+      "operation": 0,
+      "value": "str",
+      "nestedConditions": []
+    }
+  ],
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

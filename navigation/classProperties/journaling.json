@@ -1,0 +1,15 @@
+{
+  "code": "journaling",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Journaling user actions [journaling]",
+  "classname": "journaling@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

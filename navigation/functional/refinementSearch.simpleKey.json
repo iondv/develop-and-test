@@ -1,0 +1,15 @@
+{
+  "code": "refinementSearch.simpleKey",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Class with a simple key",
+  "classname": "refinementSearch_class_c@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

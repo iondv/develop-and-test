@@ -1,0 +1,27 @@
+<header id="header">
+
+ <span class="logo pull-left">
+   <a href="<%=module%>"><img src="/<%=module%>/<%- logo || 'img/logo_light.png'%>" alt="admin panel" height="40"/></a>
+  </span>
+
+  <nav>
+    <% include top-menu %>
+
+    <ul class="nav pull-right">
+      <!-- USER OPTIONS -->
+      <li class="dropdown pull-left">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+				    <span class="user-name">
+              <span class="hidden-xs"><%= (typeof user !== 'undefined' && user && user.name()) || '-' %> <i class="fa fa-angle-down"></i></span>
+            </span>
+        </a>
+        <ul class="dropdown-menu hold-on-click">
+          <li>
+            <a href="<%=module%>/sign-out"><i class="fa fa-power-off"></i> Exit</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+</header>

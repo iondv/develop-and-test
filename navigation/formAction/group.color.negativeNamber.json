@@ -1,0 +1,15 @@
+{
+  "code": "group.color.negativeNamber",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "For real numbers",
+  "classname": "negativeNamber@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": "",
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

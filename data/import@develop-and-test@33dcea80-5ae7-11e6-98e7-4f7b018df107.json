@@ -1,0 +1,12 @@
+{
+  "id": "33dcea80-5ae7-11e6-98e7-4f7b018df107",
+  "string": "String2",
+  "text": "Text2",
+  "html": "HTML2",
+  "url": "URL2",
+  "integer": 7,
+  "real": 18.32,
+  "decimal": 20.74,
+  "_class": "import@develop-and-test",
+  "_classVer": ""
+}

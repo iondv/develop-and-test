@@ -1,0 +1,15 @@
+{
+  "code": "classColl",
+  "orderNumber": 0,
+  "type": 0,
+  "caption": "Collection",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

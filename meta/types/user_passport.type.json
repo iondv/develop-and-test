@@ -1,0 +1,11 @@
+{
+  "name": "user_passport",
+  "caption": "Passport number",
+  "type": 0,
+  "mask": "99 99 999999",
+  "maskName": "passport",
+  "size": 12,
+  "decimals": null,
+  "validators": null,
+  "metaVersion": "2.0.7"
+}

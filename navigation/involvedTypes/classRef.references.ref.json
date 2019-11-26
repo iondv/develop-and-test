@@ -1,0 +1,15 @@
+{
+  "code": "classRef.references.ref",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Reference for connection 1to1",
+  "classname": "otorbrRef@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

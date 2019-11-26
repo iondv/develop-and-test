@@ -1,0 +1,22 @@
+{
+  "code": "conditions.stringContainStr",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "String contains str",
+  "classname": "navCond@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": [
+    {
+      "property": "data",
+      "operation": 10,
+      "value": "str",
+      "nestedConditions": []
+    }
+  ],
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

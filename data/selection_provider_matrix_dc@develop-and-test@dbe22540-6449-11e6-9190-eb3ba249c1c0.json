@@ -1,0 +1,8 @@
+{
+  "id": "dbe22540-6449-11e6-9190-eb3ba249c1c0",
+  "matrix_base_1": -1,
+  "matrix_base_2": 0,
+  "selection_provider_matrix": "First negative second non-negative",
+  "_class": "selection_provider_matrix_dc@develop-and-test",
+  "_classVer": ""
+}

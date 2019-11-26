@@ -1,0 +1,17 @@
+{
+  "code": "re_kogorta",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Cohort",
+  "classname": "re_kogorta@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61",
+  "itemType": "node",
+  "section": "rome_empire"
+}

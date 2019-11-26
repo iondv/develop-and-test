@@ -1,0 +1,52 @@
+{
+  "namespace": "develop-and-test",
+  "isStruct": false,
+  "key": [
+    "id"
+  ],
+  "semantic": "",
+  "name": "IONCORE-134",
+  "version": "",
+  "caption": "Hint for the WF status",
+  "ancestor": null,
+  "container": null,
+  "creationTracker": "",
+  "changeTracker": "",
+  "creatorTracker": "",
+  "editorTracker": "",
+  "history": 0,
+  "journaling": false,
+  "compositeIndexes": null,
+  "properties": [
+    {
+      "orderNumber": 10,
+      "name": "id",
+      "caption": "ID",
+      "type": 6,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": false,
+      "readonly": false,
+      "indexed": true,
+      "unique": true,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    }
+  ],
+  "metaVersion": "2.0.61"
+}

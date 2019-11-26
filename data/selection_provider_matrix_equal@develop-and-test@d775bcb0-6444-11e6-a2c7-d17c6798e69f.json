@@ -1,0 +1,7 @@
+{
+  "id": "d775bcb0-6444-11e6-a2c7-d17c6798e69f",
+  "matrix_base": 1,
+  "selection_provider_matrix": 1000,
+  "_class": "selection_provider_matrix_equal@develop-and-test",
+  "_classVer": ""
+}

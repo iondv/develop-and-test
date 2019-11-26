@@ -1,0 +1,13 @@
+{
+  "id": "f857bd80-85ea-11e6-b5f6-2dbfc288085d",
+  "position": {
+    "type": "Point",
+    "coordinates": [
+      135.041365,
+      48.491504
+    ]
+  },
+  "description": "Object 01",
+  "_class": "geomapLayerRedFuelStationIcon@develop-and-test",
+  "_classVer": ""
+}

@@ -1,0 +1,15 @@
+{
+  "code": "userCreateEdit",
+  "orderNumber": 0,
+  "type": 0,
+  "caption": "Display of the user who created objects and committed changes",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

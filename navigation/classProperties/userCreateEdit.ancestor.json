@@ -1,0 +1,15 @@
+{
+  "code": "userCreateEdit.ancestor",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "For each action",
+  "classname": "ioncore-288-anc@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

@@ -1,0 +1,86 @@
+{
+  "columns": [
+    {
+      "property": "dataNow",
+      "caption": "Current date",
+      "type": 6,
+      "hint": "",
+      "orderNumber": 20,
+      "size": null,
+      "maskName": "",
+      "mask": "",
+      "mode": 0,
+      "required": false,
+      "readonly": false,
+      "sorted": false,
+      "selectionPaginated": false,
+      "visibility": "",
+      "enablement": "",
+      "obligation": "",
+      "historyDisplayMode": 0,
+      "tags": ""
+    },
+    {
+      "property": "dataHand",
+      "caption": "Manual date selection",
+      "type": 6,
+      "hint": "",
+      "orderNumber": 30,
+      "size": null,
+      "maskName": "",
+      "mask": "",
+      "mode": 0,
+      "required": false,
+      "readonly": false,
+      "sorted": false,
+      "selectionPaginated": false,
+      "visibility": "",
+      "enablement": "",
+      "obligation": "",
+      "historyDisplayMode": 0,
+      "tags": ""
+    },
+    {
+      "property": "dataEvent",
+      "caption": "Event date",
+      "type": 6,
+      "hint": "",
+      "orderNumber": 40,
+      "size": null,
+      "maskName": "",
+      "mask": "",
+      "mode": 0,
+      "required": false,
+      "readonly": false,
+      "sorted": false,
+      "selectionPaginated": false,
+      "visibility": "",
+      "enablement": "",
+      "obligation": "",
+      "historyDisplayMode": 0,
+      "tags": ""
+    }
+  ],
+  "commands": [
+    {
+      "id": "CREATE",
+      "caption": "Create",
+      "visibilityCondition": null,
+      "enableCondition": null,
+      "needSelectedItem": false,
+      "signBefore": false,
+      "signAfter": false,
+      "isBulk": false
+    },
+    {
+      "id": "EDIT",
+      "caption": "Edit",
+      "visibilityCondition": null,
+      "enableCondition": null,
+      "needSelectedItem": true,
+      "signBefore": false,
+      "signAfter": false,
+      "isBulk": false
+    }
+  ]
+}

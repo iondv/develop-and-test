@@ -1,0 +1,15 @@
+{
+  "namespace": "",
+  "code": "workflowHint",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Hint for WF status",
+  "classname": "IONCORE-134",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

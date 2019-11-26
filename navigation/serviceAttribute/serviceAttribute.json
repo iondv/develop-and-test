@@ -1,0 +1,30 @@
+{
+  "code": "serviceAttribute",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "serviceAttribute",
+  "classname": "serviceAttribute@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": {
+	"contains": [
+		"$coll", 
+		{"contains" : [
+			"$1-coll",
+			{"contains": [
+				"$2-coll", 
+				{"nempty": ["$3-attr2"]}
+			]}
+		]}
+	]},
+  "sorting": [
+    {
+      "property": "coll",
+      "mode": 0
+    }
+  ],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

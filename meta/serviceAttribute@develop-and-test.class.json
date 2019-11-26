@@ -1,0 +1,189 @@
+{
+  "namespace": "develop-and-test",
+  "isStruct": false,
+  "key": null,
+  "semantic": "",
+  "name": "serviceAttribute",
+  "version": "",
+  "caption": "serviceAttribute",
+  "ancestor": "serviceAttribute-ancestor",
+  "container": "ref",
+  "creationTracker": "",
+  "changeTracker": "",
+  "history": 0,
+  "journaling": false,
+  "compositeIndexes": [
+    {
+      "properties": [
+        "attr1",
+        "attr2"
+      ],
+      "unique": false
+    }
+  ],
+  "properties": [
+    {
+      "orderNumber": 10,
+      "name": "attr1",
+      "caption": "attr1",
+      "type": 6,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": true,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 20,
+      "name": "attr2",
+      "caption": "attr2",
+      "type": 0,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": true,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 30,
+      "name": "ref",
+      "caption": "ref",
+      "type": 13,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": true,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "serviceAttribute-1@develop-and-test",
+      "itemsClass": "",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": {
+	      	"contains": [
+	      		"$1-coll", 
+	      		{
+	      			"contains": [
+	      				"$2-coll", 
+	  					{
+	  						"nempty": ["$3-attr2"]
+						}
+					]
+				}
+			]
+		},
+      "selSorting": [
+        {
+          "property": "id",
+          "mode": 0
+        }
+      ],
+      "selectionProvider": {
+        "type": "MATRIX",
+        "list": [
+          {
+            "key": "",
+            "value": ""
+          }
+        ],
+        "matrix": [
+          {
+            "comment": "",
+            "conditions": {
+		      	"contains": [
+		      		"$coll", 
+		      		{
+		      			"contains": [
+		      				"$1-coll", 
+		  					{
+		  						"nempty": ["$2-coll"]
+							}
+						]
+					}
+				]
+			},
+            "result": []
+          }
+        ],
+        "parameters": [],
+        "hq": ""
+      },
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    },
+    {
+      "orderNumber": 40,
+      "name": "coll",
+      "caption": "coll",
+      "type": 14,
+      "size": null,
+      "decimals": 0,
+      "allowedFileTypes": null,
+      "maxFileCount": 0,
+      "nullable": true,
+      "readonly": false,
+      "indexed": true,
+      "unique": false,
+      "autoassigned": false,
+      "hint": null,
+      "defaultValue": null,
+      "refClass": "",
+      "itemsClass": "serviceAttribute-1@develop-and-test",
+      "backRef": "",
+      "backColl": "",
+      "binding": "",
+      "semantic": null,
+      "selConditions": null,
+      "selSorting": [],
+      "selectionProvider": null,
+      "indexSearch": false,
+      "eagerLoading": false,
+      "formula": null
+    }
+  ],
+  "metaVersion": "2.0.61"
+}

@@ -1,0 +1,15 @@
+{
+  "code": "selSorting.catalog",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Сatalog to check the sotring of selection lists",
+  "classname": "selSortingCatalog@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

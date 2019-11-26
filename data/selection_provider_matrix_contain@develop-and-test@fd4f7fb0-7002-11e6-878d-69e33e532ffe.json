@@ -1,0 +1,7 @@
+{
+  "id": "fd4f7fb0-7002-11e6-878d-69e33e532ffe",
+  "matrix_base": "real - real",
+  "selection_provider_matrix": "The second value available for the base not containing str",
+  "_class": "selection_provider_matrix_contain@develop-and-test",
+  "_classVer": ""
+}

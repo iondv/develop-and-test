@@ -1,0 +1,15 @@
+{
+  "code": "selectionProvider.matrix.equal",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "With vectors in equality of values from the selection list - the base",
+  "classname": "selection_provider_matrix_equal@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

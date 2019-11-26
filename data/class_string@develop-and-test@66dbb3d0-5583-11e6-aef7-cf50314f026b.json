@@ -1,0 +1,8 @@
+{
+  "id": "66dbb3d0-5583-11e6-aef7-cf50314f026b",
+  "string_text": "Example of the \"String [0]\" type in the \"Text [1]\" view",
+  "string_miltilinetext": "Example of the \"String [0]\"\r\n in the Multiline text [7] view",
+  "string_formattext": "Example of the \r\n \"String [0]\" type \r\n in the \r\nFormatted text [7] view",
+  "_class": "class_string@develop-and-test",
+  "_classVer": ""
+}

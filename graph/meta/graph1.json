@@ -1,0 +1,11 @@
+{
+  "code": "graph1",
+  "caption": "Test graph",
+  "type": 2,
+  "template" : "nodes/hierarchy/default",
+  "tooltip" : "nodes/graph/tooltip",
+  "relations": {
+   "re_centuriya": ["container"],
+   "re_manipula": ["container"]
+  }
+}

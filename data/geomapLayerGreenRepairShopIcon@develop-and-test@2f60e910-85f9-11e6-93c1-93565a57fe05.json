@@ -1,0 +1,13 @@
+{
+  "id": "2f60e910-85f9-11e6-93c1-93565a57fe05",
+  "description": "Object 10",
+  "position": {
+    "type": "Point",
+    "coordinates": [
+      135.126615,
+      48.477601
+    ]
+  },
+  "_class": "geomapLayerGreenRepairShopIcon@develop-and-test",
+  "_classVer": ""
+}

@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title>
+    <%=sheet.name%>
+  </title>
+</head>
+<body>
+<style>
+
+  body {
+    background-color: #01FF70;
+  }
+
+</style>
+<% if (sheet.type === 'aggregation') { %>
+
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+
+<table id="<%=sheet.name%>" class="aggregation-sheet">
+  <thead>
+  <%
+    var fields = [];
+    header.forEach(function (row) {
+  %>
+  <tr>
+    <%
+      row.forEach(function (h) {
+        if (h.field) {
+          fields.push(h.field);
+        }
+    %>
+    <th rowspan="<%=h.rowSpan%>" colspan="<%=h.colSpan%>"><%=h.caption%></th>
+    <%
+    });
+     %>
+  </tr>
+  <%
+    });
+  %>
+  </thead>
+  <%
+    if (Array.isArray(data)) {
+      data.forEach(function(row){
+  %>
+
+  <tr>
+    <%
+      fields.forEach(function(field){
+    %>
+      <td><%= row[field] ? row[field] : ''%></td>
+    <%
+      });
+    %>
+  </tr>
+
+  <%
+  });}
+  %>
+
+  <tbody>
+  </tbody>
+</table>
+
+<% } else { %>
+<div id="<%=sheet.name%>" class="pivot-sheet"
+     pivot-cols="<%=JSON.stringify(sheet.columns)%>"
+     pivot-rows="<%=JSON.stringify(sheet.rows)%>"
+     pivot-data="<%=JSON.stringify(sheet.data)%>"
+     pivot-aggregations="<%=JSON.stringify(sheet.aggregations)%>"
+     pivot-customizable="false"
+     pivot-captions="<%=JSON.stringify(sheet.captions)%>"
+     pivot-results="<%=JSON.stringify(data)%>"
+></div>
+
+<script src="/<%= module %>/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/<%= module %>/vendor/pivottable/pivot.min.js"></script>
+<script type="text/javascript" src="/<%= module %>/vendor/pivottable/pivot.ru.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/<%= module %>/vendor/pivottable/pivot.css">
+<script type="text/javascript" src="/<%= module %>/js/pivot<%= staticsSuffix %>.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  $('.pivot-sheet').ionPivot(
+    {
+      locale: {
+        name:'ru',
+        operations: {
+          "Count": "Number",
+          "Count Unique Values": "Number of unique values",
+          "List Unique Values": "List of unique values",
+          "Sum": "Sum",
+          "Integer Sum": "Sum of integers",
+          "Average": "Average",
+          "Minimum": "Minimum",
+          "Maximum": "Maximum",
+          "Sum over Sum": "Sum over Sum",
+          "80% Upper Bound": "80% upper bound",
+          "80% Lower Bound": "80% lower bound",
+          "Sum as Fraction of Total": "Total sum",
+          "Sum as Fraction of Rows": "Sum by string",
+          "Sum as Fraction of Columns": "Sum by column",
+          "Count as Fraction of Total": "Total number",
+          "Count as Fraction of Rows": "Number by string",
+          "Count as Fraction of Columns": "Number by column"
+        }
+      }
+    }).ionPivot('reload');
+});
+</script>
+<% } %>
+
+</body>
+</html>

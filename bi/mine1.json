@@ -1,0 +1,184 @@
+{
+  "name": "mine1",
+  "caption": "Example of building analytics",
+  "sources": [
+    {
+      "name": "streetData",
+      "caption": "Streets",
+      "load": [
+        {
+          "className": "reportStreet",
+          "filter": {
+            "and": [
+              {"nempty": ["$houses"]},
+              {"nempty": ["$length"]}
+            ]
+          },
+          "results": [
+            {
+              "field": "city",
+              "expr": "$district.city.name"
+            },
+            {
+              "field": "district",
+              "expr": "$district.name"
+            },
+            {
+              "field": "inhabitanceGroup",
+              "expr": {
+                "if": [
+                  {"lt": ["$houses", 10]},
+                  "low density",
+                  {"if": [
+                    {"and": [{"gte": ["$houses", 10]}, {"lt": ["$houses", 50]}]},
+                    "moderate density",
+                    {"if": [
+                      {"gte": ["$houses", 50]},
+                      "high density",
+                      "not take into account"
+                    ]}
+                  ]}
+                ]
+              }
+            },
+            {
+              "field": "length",
+              "expr": "$length"
+            },
+            {
+              "field": "houses",
+              "expr": "$houses"
+            },
+            {
+              "field": "accidents",
+              "expr": "$accidents"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cityData",
+      "caption": "Cities",
+      "load": [
+        {
+          "className": "reportCity",
+          "filter": {
+            "gt": [
+              "$sizeDistricts",
+              3
+            ]
+          },
+          "results": [
+            {
+              "field": "name",
+              "expr": "$name"
+            },
+            {
+              "field": "districtCount",
+              "expr": "$sizeDistricts"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "name": "report1",
+      "caption": "Example of building a report",
+      "sheets": [
+        {
+          "name": "avgLength",
+          "caption": "Average length of streets",
+          "type": "aggregation",
+          "source": "streetData",
+          "fetch": {
+            "city": "$city",
+            "district": "$district",
+            "avgLength": {"avg": ["$length"]},
+            "totalLength": {"sum": ["$length"]}
+          },
+          "columns": [
+            {
+              "field": "city",
+              "caption": "City"
+            },
+            {
+              "field": "district",
+              "caption": "District"
+            },
+            {
+              "caption": "Length",
+              "columns": [
+                {
+                  "field": "avgLength",
+                  "caption": "average"
+                },
+                {
+                  "field": "totalLength",
+                  "caption": "Total"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "accidents",
+          "caption": "Accident rate",
+          "type": "pivot",
+          "source": "streetData",
+          "fetch": {
+            "city": "$city",
+            "district": "$district",
+            "group": "$inhabitanceGroup",
+            "accidents": {"sum": ["$accidents"]},
+            "houses": {"sum": ["$houses"]}
+          },
+          "process": {
+            "accidentLevel": "div($accidents,$houses)"
+          },
+          "columns": ["group"],
+          "rows": ["city", "district"],
+          "data": ["accidentLevel"],
+          "aggregations": ["avg"],
+          "customizable": true,
+          "captions": {
+            "group": "Density of population",
+            "city": "City",
+            "district": "District",
+            "houses": "Number of houses",
+            "accidentLevel": "Accident rate"
+          },
+          "exclude": ["accidents"]
+        }
+      ]
+    },
+    {
+      "name": "bigCities",
+      "caption": "Cities with more than 3 districts",
+      "sheets": [
+        {
+          "name": "list",
+          "caption": "Cities with more than 3 districts",
+          "type": "aggregation",
+          "source": "cityData",
+          "fetch": {
+            "city": "$name",
+            "districtCount": "$districtCount"
+          },
+          "columns": [
+            {
+              "field": "city",
+              "caption": "City"
+            },
+            {
+              "field": "districtCount",
+              "caption": "Districts"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

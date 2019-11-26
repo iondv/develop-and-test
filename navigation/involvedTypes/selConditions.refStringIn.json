@@ -1,0 +1,15 @@
+{
+  "code": "selConditions.refStringIn",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Reference String is a part of [\"str\", \"kttc\"]",
+  "classname": "selConditionsRefStringIn@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

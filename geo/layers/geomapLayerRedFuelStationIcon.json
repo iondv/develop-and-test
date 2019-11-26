@@ -1,0 +1,23 @@
+{
+  "code": "geomapLayerRedFuelStationIcon",
+  "order": 0,
+  "caption": "Geo module layer with red icons of petrol stations",
+  "hint": "Geo module layer with red icons of petrol stations",
+  "data": [
+    {
+      "type": "Point",
+      "locationAttribute": "position",
+      "matchMode": "within",
+      "options": {
+        "clusterHasBalloon": false,
+        "clusterPreset": "islands#invertedRedClusterIcons",
+        "geoObjectHasBalloon": true,
+        "geoObjectOpenBalloonOnClick": true,
+        "geoObjectPreset": "islands#redFuelStationIcon"
+      },
+      "query": {
+        "className": "geomapLayerRedFuelStationIcon@develop-and-test"
+      }
+    }
+  ]
+}

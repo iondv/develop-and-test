@@ -1,0 +1,15 @@
+{
+  "code": "selectionProvider.simple.booleanCheckbox",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Logical key displayed as a flag in create and edit views and as a selection list in a list view",
+  "classname": "selection_provider_simple_boolean_checkbox@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

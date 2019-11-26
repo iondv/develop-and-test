@@ -1,0 +1,15 @@
+{
+  "namespace": null,
+  "code": "search_ref",
+  "orderNumber": 10,
+  "type": 1,
+  "caption": "Search by reference attributes",
+  "classname": "searchRefs",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

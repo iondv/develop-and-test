@@ -1,0 +1,7 @@
+{
+  "id": "cdfe0100-7002-11e6-878d-69e33e532ffe",
+  "matrix_base": "string - string",
+  "selection_provider_matrix": "The first available value for the base containing str",
+  "_class": "selection_provider_matrix_contain@develop-and-test",
+  "_classVer": ""
+}

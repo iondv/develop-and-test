@@ -1,0 +1,8 @@
+{
+  "id": "9ab89190-5584-11e6-aef7-cf50314f026b",
+  "required_string": "Mandatory field is indicated with red asterisk next to the name of the input field (attribute name) when creating and editing",
+  "required_real": 3.14,
+  "required_datatime": "2016-07-18T17:03:00.000Z",
+  "_class": "required@develop-and-test",
+  "_classVer": ""
+}

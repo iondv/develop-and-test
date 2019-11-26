@@ -1,0 +1,11 @@
+{
+  "id": "0a16c160-5893-11e6-814c-51ad33b91129",
+  "string": "g",
+  "date": "2016-08-03T14:00:00.000Z",
+  "datetime": "2016-08-03T18:04:00.000Z",
+  "integer": 4,
+  "real": 2.22,
+  "decimal": 6.66,
+  "_class": "allowsearch_noindexed@develop-and-test",
+  "_classVer": ""
+}

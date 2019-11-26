@@ -1,0 +1,15 @@
+{
+  "namespace": null,
+  "code": "employee",
+  "orderNumber": 2,
+  "type": 1,
+  "caption": "Employees",
+  "classname": "employee@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

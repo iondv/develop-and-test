@@ -1,0 +1,25 @@
+{
+  "code": "geomapLayerGreenRepairShopIcon",
+  "order": 0,
+  "caption": "Geo module layer with green service icons",
+  "hint": "Geo module layer with green service icons",
+  "data": [
+    {
+      "type": "Point",
+      "locationAttribute": "position",
+      "matchMode": "intersect",
+      "options": {
+        "clusterHasBalloon": false,
+        "clusterDisableClickZoom" : false,
+        "clusterPreset": "islands#invertedDarkGreenClusterIcons",
+        "geoObjectHasBalloon": true,
+        "geoObjectOpenBalloonOnClick": true,
+        "geoObjectPreset": "islands#greenRepairShopIcon"
+      },
+      "params": {},
+      "query": {
+        "className": "geomapLayerGreenRepairShopIcon@develop-and-test"
+      }
+    }
+  ]
+}

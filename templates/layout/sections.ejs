@@ -1,0 +1,16 @@
+<div id="nav-sections" class="hide">
+    <% for (let node of leftMenu) { %>
+    <% if (node.isSection) { %>
+    <%- partial(`./nav-sections/${node.template || 'default'}`, {
+      node,
+      parent: null
+    }) %>
+    <% } %>
+    <% for (let child of node.nodes) { %>
+    <% if (child.isSection) { %>
+      <%- partial(`./nav-sections/${child.template || 'default'}`, {
+        node: child,
+        parent: node
+      }) %>
+    <% }}} %>
+</div>  

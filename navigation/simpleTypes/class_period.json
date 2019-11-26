@@ -1,0 +1,15 @@
+{
+  "namespace": null,
+  "code": "class_period",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Class \"Period [60]\"",
+  "classname": "class_period@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

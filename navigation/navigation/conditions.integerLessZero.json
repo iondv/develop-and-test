@@ -1,0 +1,22 @@
+{
+  "code": "conditions.integerLessZero",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Integer \u003c 0",
+  "classname": "navCond@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": [
+    {
+      "property": "integer",
+      "operation": 5,
+      "value": 0,
+      "nestedConditions": []
+    }
+  ],
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

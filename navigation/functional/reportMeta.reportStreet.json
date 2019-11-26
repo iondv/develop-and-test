@@ -1,0 +1,15 @@
+{
+  "code": "reportMeta.reportStreet",
+  "orderNumber": 20,
+  "type": 1,
+  "caption": "Street",
+  "classname": "reportStreet@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

@@ -1,0 +1,15 @@
+{
+  "namespace": null,
+  "code": "simple_workflow",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Simple workflow",
+  "classname": "workflowBase@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+  "conditions": null,
+  "sorting": [],
+  "pathChains": []
+}

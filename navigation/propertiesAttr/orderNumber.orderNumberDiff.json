@@ -1,0 +1,15 @@
+{
+  "code": "orderNumber.orderNumberDiff",
+  "orderNumber": 0,
+  "type": 1,
+  "caption": "Sets a different display order in views",
+  "classname": "order_number_diff@develop-and-test",
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}

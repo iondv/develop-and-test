@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "demo",
+      "name": "Administrator",
+      "type": "local",
+      "pwd": "ion-admin",
+      "roles": [
+        "demo"
+      ]
+    }
+  ]
+}

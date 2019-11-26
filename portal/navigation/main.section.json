@@ -1,0 +1,6 @@
+{
+  "code": "main",
+  "caption": "Main menu",
+  "itemType": "section",
+  "subNodes":["classes", "texts"]
+}

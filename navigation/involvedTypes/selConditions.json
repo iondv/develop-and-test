@@ -1,0 +1,15 @@
+{
+  "code": "selConditions",
+  "orderNumber": 0,
+  "type": 0,
+  "caption": "Conditions of sorting the valid values [selConditions]",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
+"conditions": null,
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61"
+}
