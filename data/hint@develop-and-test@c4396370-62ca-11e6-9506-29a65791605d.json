@@ -1,7 +1,0 @@
-{
-  "id": "c4396370-62ca-11e6-9506-29a65791605d",
-  "class_hint": "Hint in the meta class",
-  "view_hint": "Hint in the meta view redefines the hint in the meta class.",
-  "_class": "hint@develop-and-test",
-  "_classVer": ""
-}

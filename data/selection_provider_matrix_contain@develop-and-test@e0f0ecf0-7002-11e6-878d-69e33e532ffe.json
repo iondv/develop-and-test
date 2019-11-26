@@ -1,7 +1,0 @@
-{
-  "id": "e0f0ecf0-7002-11e6-878d-69e33e532ffe",
-  "matrix_base": "!string - not string",
-  "selection_provider_matrix": "The second available value for the base containing str",
-  "_class": "selection_provider_matrix_contain@develop-and-test",
-  "_classVer": ""
-}

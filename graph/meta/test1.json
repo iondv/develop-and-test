@@ -1,8 +1,0 @@
-{
-  "code": "test1",
-  "caption": "Test",
-  "type": 1,
-  "rootClass": "hierarchySearch_class_e",
-  "template" : "nodes/hierarchy/default",
-  "relations": null
-}

@@ -1,8 +1,0 @@
-{
-  "type": "data",
-  "code": "doubleLayerNode.geomapLayerRedFuelStationIcon",
-  "parent": "doubleLayerNode",
-  "caption": "Geo module layer with red icons of petrol stations",
-  "hint": "Geo module layer with red icons of petrol stations",
-  "layers": ["geomapLayerRedFuelStationIcon"]
-}

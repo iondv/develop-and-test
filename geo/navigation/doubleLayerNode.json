@@ -1,7 +1,0 @@
-{
-  "type": "data",
-  "code": "doubleLayerNode",
-  "caption": "Node displaying two layers",
-  "hint": "Display two layers",
-  "layers": ["geomapLayerRedFuelStationIcon", "geomapLayerGreenRepairShopIcon"]
-}

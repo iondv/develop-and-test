@@ -1,8 +1,0 @@
-{
-  "type": "data",
-  "code": "doubleLayerNode.geomapLayerGreenRepairShopIcon",
-  "parent": "doubleLayerNode",
-  "caption": "Geo module layer with green service icons",
-  "hint": "Geo module layer with green service icons",
-  "layers": ["geomapLayerGreenRepairShopIcon"]
-}

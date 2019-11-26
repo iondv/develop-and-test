@@ -1,8 +1,0 @@
-{
-  "id": "20594e60-644a-11e6-9190-eb3ba249c1c0",
-  "matrix_base_1": 1,
-  "matrix_base_2": 1,
-  "selection_provider_matrix": "Both non-negative",
-  "_class": "selection_provider_matrix_dc@develop-and-test",
-  "_classVer": ""
-}

@@ -1,9 +1,0 @@
-{
-  "id": "e4074150-7353-11e7-9116-c753ab14522e",
-  "coll_data": "Data for collection 2",
-  "backcoll": [
-    "e66fb5d0-7353-11e7-9116-c753ab14522e"
-  ],
-  "_class": "coll_backcoll_backcoll@develop-and-test",
-  "_classVer": ""
-}

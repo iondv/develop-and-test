@@ -1,7 +1,0 @@
-{
-  "id": "20dc6770-6452-11e6-bb4a-5348a4f82ac4",
-  "matrix_base": 12,
-  "selection_provider_matrix": "Not equals to 3",
-  "_class": "selection_provider_matrix_not_equal@develop-and-test",
-  "_classVer": ""
-}

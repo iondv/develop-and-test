@@ -1,8 +1,0 @@
-{
-  "title": "Main menu",
-  "code": "main",
-  "nodes": ["doubleLayerNode"],
-  "template" : null,
-  "panel" : "navFloat",
-  "view": "layers"
-}
