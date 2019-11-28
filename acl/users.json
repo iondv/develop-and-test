@@ -4,7 +4,7 @@
       "id": "demo",
       "name": "Administrator",
       "type": "local",
-      "pwd": "ion-admin",
+      "pwd": "ion-demo",
       "roles": [
         "demo"
       ]

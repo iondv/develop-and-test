@@ -3,7 +3,7 @@
   "slowPageLoad": 2000,
   "waitElementLoad": 15000,
   "auth": {
-    "username": "admin",
-    "password": "123"
+    "username": "demo",
+    "password": "ion-demo"
   }
 }
