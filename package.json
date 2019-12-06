@@ -33,10 +33,9 @@
     "viewlib": "0.12.3"
   },
   "dependencies": {
-    "esia": "git+https://git.iondv.ru/node-modules/esia.git"
+
   },
   "devDependencies": {
-    "ion-e2e-lib": "git+https://git.iondv.ru/node-modules/ion-e2e-lib.git",
-    "puppeteer": "^1.11.0"
+    "request-promise-native": "^1.0.8"
   }
 }
