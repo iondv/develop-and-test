@@ -277,11 +277,11 @@ describe('Проверяем сервис token', function() {
     });
     it('authorization by token is passed', async function() {
     const res = await request(reqOptions)
-        .catch();
-      assert.strictEqual(res.echo, 'peekaboo');
+    .catch();
+        assert.strictEqual(res.echo, 'peekaboo');
     });
   });
-  describe('# check if a random token is not passing the authorization (using echo-token)', function() {
+  describe('# check if auth is not passed with a random token (using echo-token)', function() {
     let reqOptions;
     let res;
     before(function() {
