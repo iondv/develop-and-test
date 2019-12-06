@@ -1,6 +1,7 @@
 const assert = require('assert');
 const request = require('request-promise-native');
-const {serverURL, adminUsername, adminPassword, anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword,
+  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
 
 describe('Проверяем сервис token', function() {
   let giventoken;
@@ -174,9 +175,8 @@ describe('Проверяем сервис token', function() {
           .catch();
       } catch (e) {
         res = e.response;
-        console.log('### пользователь без full прав получает 500 - Invalid Password');
       }
-      assert.strictEqual(res.statusCode, 403);
+      assert.strictEqual(res.statusCode, 403, 'Если прав на ws::gen-ws-token, то должен выдавать код 403');
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
@@ -200,7 +200,6 @@ describe('Проверяем сервис token', function() {
           .catch();
       } catch (e) {
         res = e.response;
-        console.log('### пользователь без full прав получает 500 - Invalid Password');
       }
       assert.strictEqual(res.statusCode, 200);
     });
@@ -237,7 +236,6 @@ describe('Проверяем сервис token', function() {
   });
   describe('# check if the generated token is valid (baseAuth) (using echo-token)', function() {
     let reqOptions;
-    let res;
     before(function() {
       reqOptions = {method: 'GET', headers: {'Accept': 'application/json'},
         url: `${serverURL}/rest/echo-token`,
@@ -278,9 +276,9 @@ describe('Проверяем сервис token', function() {
       };
     });
     it('authorization by token is passed', async function() {
-        const res = await request(reqOptions)
-          .catch();
-        assert.strictEqual(res.echo, 'peekaboo');
+    const res = await request(reqOptions)
+        .catch();
+      assert.strictEqual(res.echo, 'peekaboo');
     });
   });
   describe('# check if a random token is not passing the authorization (using echo-token)', function() {

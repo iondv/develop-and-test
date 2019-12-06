@@ -1,9 +1,0 @@
-{
-  "waitPageLoad": 20000,
-  "slowPageLoad": 2000,
-  "waitElementLoad": 15000,
-  "auth": {
-    "username": "demo",
-    "password": "ion-demo"
-  }
-}

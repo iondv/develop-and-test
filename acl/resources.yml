@@ -1,0 +1,886 @@
+- id: '*'
+- id: 'ionadmin:::dashboard'
+  name: Control panel
+- id: 'ionadmin:::security-roles'
+  name: Security Roles
+- id: 'ionadmin:::security-users'
+  name: Security Users
+- id: 'ionadmin:::security-resources'
+  name: Security Resources
+- id: 'ionadmin:::security-sync'
+  name: Security Security
+- id: 'ionadmin:::profiling-slow-query'
+  name: Profiling Slow queries
+- id: 'ws:::gen-ws-token'
+  name: Generate security tokens via web services
+- id: 'ionadmin:::changelog'
+  name: Change log
+- id: 'ionadmin:::token'
+  name: Security token generator
+- id: 'ionadmin:::backup'
+  name: Reservation
+- id: 'ionadmin:::schedule'
+  name: Scheduled tasks
+- id: 'ionadmin:::notify'
+  name: Notification
+- id: 'ionadmin:::recache'
+  name: Recalculation of semantics caches
+- id: 'n:::develop-and-test@compositeIndexes'
+  name: 'Сomposite keys [compositeIndexes]'
+- id: 'n:::develop-and-test@compositeIndexes.compositeIndexes_date'
+  name: 'String, number, date ["compositeIndexes" - string, integer, date]'
+- id: 'n:::develop-and-test@compositeIndexes.compositeIndexes_numeric'
+  name: 'Three numeric fields ["compositeIndexes" - three numeric fields]'
+- id: 'n:::develop-and-test@compositeIndexes.compositeIndexes_string'
+  name: 'Three string fields ["compositeIndexes" - three string fields]'
+- id: 'n:::develop-and-test@journaling'
+  name: >-
+    Journaling user actions [journaling] ["journaling" - journaling all user
+    actions]
+- id: 'n:::develop-and-test@keys'
+  name: 'Key attributes [key]'
+- id: 'n:::develop-and-test@keys.keyGuid'
+  name: 'Guid [Globally unique identifier]'
+- id: 'n:::develop-and-test@keys.keyInteger'
+  name: 'Integer autoincrement [Integer autoincrement]'
+- id: 'n:::develop-and-test@keys.keyString'
+  name: 'String key [String key]'
+- id: 'n:::develop-and-test@semantic'
+  name: 'Display semantics [semantic]'
+- id: 'n:::develop-and-test@semantic.semErrCatalog'
+  name: >-
+    Catalog for checking semantics (string1| |string2| |string3| |date|
+    |integer) [Semantic catalog to check the semantics (string1| |string2|
+    |string3| |date| |integer)]
+- id: 'n:::develop-and-test@semantic.semErrClass'
+  name: >-
+    Attribute semantics is taken from reference class [Attribute semantics is
+    taken from reference class]
+- id: 'n:::develop-and-test@semantic.semErrFunction'
+  name: >-
+    Semantics are given by the formula, as a calculated value [Semantics are set
+    by the formula as the default calculated value (concat(datetime(created))]
+- id: 'n:::develop-and-test@semantic.semErrLimit'
+  name: >-
+    Semantics is limited to attribute values output (String1[0,5]|
+    |integer[2,6]) [Attribute semantics is limited by number of characters
+    (string1[0,5]| |integer[0,10])]
+- id: 'n:::develop-and-test@semantic.semErrProperty'
+  name: >-
+    Semantics is set in the attribute (Data: |string1| |date| |integer)
+    [Semantics are set in the attribute (Data: |string1| |date| |integer)]
+- id: 'n:::develop-and-test@semantic.semErrRef'
+  name: >-
+    Semantics of the class attribute by reference (Ref.String1) [Attribute
+    semantics of the class by reference (ref.string1)]
+- id: 'n:::develop-and-test@semantic.semErrString'
+  name: 'Semantics with line break [Semantics with line break (<br>)]'
+- id: 'n:::develop-and-test@timetrackers'
+  name: >-
+    Time tag of created objects and committed changes [creationTracker and
+    changeTracker] ["creationTracker" and "changeTracker" - time tag of created
+    objects and committed changes]
+- id: 'n:::develop-and-test@userCreateEdit'
+  name: Display of the user who created objects and committed changes
+- id: 'n:::develop-and-test@userCreateEdit.ancestor'
+  name: 'For each action [For each action]'
+- id: 'n:::develop-and-test@userCreateEdit.ownerChild'
+  name: 'For all actions [For each action]'
+- id: 'n:::develop-and-test@allowSearch'
+  name: 'Displaying the search form [allowSearch]'
+- id: 'n:::develop-and-test@allowSearch.false'
+  name: >-
+    Search denied, field indexing enabled [Search disabled, field indexation
+    enabled]
+- id: 'n:::develop-and-test@allowSearch.noindexed'
+  name: >-
+    Search is enabled, the field is not indexed [Search enabled, fields not
+    indexed]
+- id: 'n:::develop-and-test@allowSearch.true'
+  name: >-
+    Search allowed, field indexing enabled [Search enabled, field indexation
+    enabled]
+- id: 'n:::develop-and-test@filtersInTheList'
+  name: 'Filters in the list [Filters in the list]'
+- id: 'n:::develop-and-test@group'
+  name: Work with lists
+- id: 'n:::develop-and-test@group.color'
+  name: Highlighting objects in the list
+- id: 'n:::develop-and-test@group.color.color'
+  name: 'For logical attributes [Using the lists]'
+- id: 'n:::develop-and-test@group.color.date'
+  name: 'For date [For date]'
+- id: 'n:::develop-and-test@group.color.negativeNamber'
+  name: 'For real numbers [Real numbers]'
+- id: 'n:::develop-and-test@group.color.range'
+  name: 'For a range of numbers [Numerical range]'
+- id: 'n:::develop-and-test@group.sorting'
+  name: 'Grouping lists [Using the lists]'
+- id: 'n:::develop-and-test@tabs'
+  name: 'Tabs [tabs] ["tabs" - tabs]'
+- id: 'n:::develop-and-test@CALC_ATTRS'
+  name: 'Computable attributes [CALC_ATTRS]'
+- id: 'n:::develop-and-test@CALC_ATTRS.linkFunc'
+  name: 'Computation by reference [Calculation by reference]'
+- id: 'n:::develop-and-test@CALC_ATTRS.parabolicFunc'
+  name: 'Parabola [Cuspidal function]'
+- id: 'n:::develop-and-test@hierarchySearch'
+  name: 'Hierarchical search [hierarchySearch]'
+- id: 'n:::develop-and-test@hierarchySearch.l3'
+  name: 'Linear chain (third level) [Linear chain (third level)]'
+- id: 'n:::develop-and-test@hierarchySearch.classRefTestHS-chP'
+  name: >-
+    Reference class for checking hierarchical search (partially loop chain of
+    containers) [Reference class to check the hierarchical search (partially
+    loop chain of containers)]
+- id: 'n:::develop-and-test@hierarchySearch.classRefTestHS-p'
+  name: >-
+    Reference class for checking hierarchical search (loop chain of containers
+    from one class) [Reference class to check the hierarchical search (loop
+    chain of containers of one class)]
+- id: 'n:::develop-and-test@hierarchySearch.classRefTestHS'
+  name: >-
+    Reference class for checking hierarchical search [Reference class to check
+    the hierarchical search]
+- id: 'n:::develop-and-test@hierarchySearch.l1'
+  name: 'Linear chain (first level) [Linear chain (first level)]'
+- id: 'n:::develop-and-test@hierarchySearch.l2'
+  name: 'Linear chain (second level) [Linear chain (second level)]'
+- id: 'n:::develop-and-test@hierarchySearch.classRefTestHS-l'
+  name: >-
+    Reference class for checking hierarchical search (linear chain of
+    containers) [Reference class to check the hierarchical search (linear chain
+    of containers)]
+- id: 'n:::develop-and-test@hierarchySearch.p1'
+  name: 'Loop chain (first level) [loop chain (first level)]'
+- id: 'n:::develop-and-test@hierarchySearch.p2'
+  name: 'Loop chain (second level) [Loop chain (second level)]'
+- id: 'n:::develop-and-test@hierarchySearch.p3'
+  name: 'Loop chain (third level) [Loop chain (third level)]'
+- id: 'n:::develop-and-test@hierarchySearch.p4'
+  name: 'Loop chain (fourth level) [Loop chain (fourth level)]'
+- id: 'n:::develop-and-test@hierarchySearch.p5'
+  name: 'Loop chain (fifth level) [Loop chain (fith level)]'
+- id: 'n:::develop-and-test@import'
+  name: 'Data import sample [import] [Data import sample]'
+- id: 'n:::develop-and-test@kladrDict'
+  name: FIAS/ARCA
+- id: 'n:::develop-and-test@kladrDict.adress'
+  name: 'Address ["adress" - Address]'
+- id: 'n:::develop-and-test@kladrDict.adressDistrict'
+  name: 'Districts in the address ["adressDistrict" - Districts in address]'
+- id: 'n:::develop-and-test@kladrDict.adressRegion'
+  name: 'Regions in the address ["adressRegion" - Regions in address]'
+- id: 'n:::develop-and-test@kladrDict.adressStreet'
+  name: 'Streets in the address ["adressStreet" - Streets in address]'
+- id: 'n:::develop-and-test@kladrDict.adressTown'
+  name: 'Cities in the address ["adressTown" - Cities in address]'
+- id: 'n:::develop-and-test@kladrDict.searchTest'
+  name: 'Address (text search) ["adress" - Address]'
+- id: 'n:::develop-and-test@refinementSearch'
+  name: 'Refining search [refinementSearch]'
+- id: 'n:::develop-and-test@refinementSearch.compositeKey'
+  name: >-
+    Class with a composite key [Class with a composite key to check the refining
+    search]
+- id: 'n:::develop-and-test@refinementSearch.reference'
+  name: 'Class of the reference [Reference class to check the refining search]'
+- id: 'n:::develop-and-test@refinementSearch.ReferenceClass'
+  name: 'Reference class [Reference class to check the refining search]'
+- id: 'n:::develop-and-test@refinementSearch.simpleKey'
+  name: >-
+    Class with a simple key [Class with a simple key to check the refining
+    search]
+- id: 'n:::develop-and-test@sign'
+  name: 'Electronic signature [sign]'
+- id: 'n:::develop-and-test@sign.signAfter'
+  name: >-
+    Electronic signature of outgoing data [Digital signature of the outgoing
+    data]
+- id: 'n:::develop-and-test@sign.signBefore'
+  name: >-
+    Electronic signature of incoming data [Digital signature of the incoming
+    data]
+- id: 'n:::develop-and-test@catalog'
+  name: >-
+    Catalog for collection and reference [Catalog for collection and reference
+    [collRefCatalog]]
+- id: 'n:::develop-and-test@classColl'
+  name: Collection
+- id: 'n:::develop-and-test@classColl.backcoll'
+  name: Collection with back collection
+- id: 'n:::develop-and-test@classColl.backcoll.collBackcollBackcoll'
+  name: 'Back collection for a collection [Back collection class for collection]'
+- id: 'n:::develop-and-test@classColl.backcoll.collBackcollColl'
+  name: 'Collection with back collection [Collection class with back collection]'
+- id: 'n:::develop-and-test@classColl.classColl'
+  name: 'Display modes of the Collection type [Class "Collection [14]"]'
+- id: 'n:::develop-and-test@classColl.hashtags'
+  name: 'Tags [Catalog for collection and reference [collRefCatalog]]'
+- id: 'n:::develop-and-test@classRef'
+  name: 'Reference [classRef]'
+- id: 'n:::develop-and-test@classRef.backcoll'
+  name: Reference with back collection
+- id: 'n:::develop-and-test@classRef.backcoll.refBackcollBackcoll'
+  name: 'Back collection for reference [Back collection class for reference]'
+- id: 'n:::develop-and-test@classRef.backcoll.refBeckcollRef'
+  name: 'Reference with back collection [Reference class with back collection]'
+- id: 'n:::develop-and-test@classRef.classRef'
+  name: 'Display modes of the Reference type [Class "Reference [13]"]'
+- id: 'n:::develop-and-test@classRef.references'
+  name: Back reference
+- id: 'n:::develop-and-test@classRef.references.backRef'
+  name: 'Back reference for connection 1to1 [Back reference for 1to1 connection]'
+- id: 'n:::develop-and-test@classRef.references.ref'
+  name: 'Reference for connection 1to1 [Reference for 1to1 connection]'
+- id: 'n:::develop-and-test@classCollection'
+  name: 'Containers [classCollection]'
+- id: 'n:::develop-and-test@classCollection.coll_base'
+  name: 'Class of the collection content [Class of the collection content]'
+- id: 'n:::develop-and-test@classCollection.coll_use'
+  name: 'Container class [Container class]'
+- id: 'n:::develop-and-test@class_struct'
+  name: Strcuture
+- id: 'n:::develop-and-test@class_struct.class_struct'
+  name: >-
+    Class "Struture [16]" (class with the attribute type 16 - structure) [Class
+    "Structure [16]" (class with the attribute type 16 - structure)]
+- id: 'n:::develop-and-test@class_struct.is_struct'
+  name: '"is_struct" class-structure ["is_struct" Structure-class]'
+- id: 'n:::develop-and-test@class_struct.columns'
+  name: 'Columns [columns] ["columns" - columns]'
+- id: 'n:::develop-and-test@fields'
+  name: 'Nested attributes [fields]'
+- id: 'n:::develop-and-test@fields.fieldsRef'
+  name: 'Class with reference ["fields" - class with a reference]'
+- id: 'n:::develop-and-test@fields.fields_reference'
+  name: 'Catalog ["fields" - Catalog]'
+- id: 'n:::develop-and-test@file_collection'
+  name: 'File collection [File Collection (Container)]'
+- id: 'n:::develop-and-test@selConditions'
+  name: 'Conditions of sorting the valid values [selConditions]'
+- id: 'n:::develop-and-test@selConditions.catalog'
+  name: >-
+    "selSorting" - catalog for checking the sorting of selection lists
+    ["selSorting" - catalog to check the sotring of selection lists]
+- id: 'n:::develop-and-test@selConditions.collAll'
+  name: >-
+    Collection without selection conditions ["selConditions" - reference without
+    conditions of sorting ]
+- id: 'n:::develop-and-test@selConditions.collIntegerAboveZero'
+  name: 'Collection Integer > 0 ["selConditions" - collection Integer > 0]'
+- id: 'n:::develop-and-test@selConditions.collStringEmpty'
+  name: 'Collection String empty ["selConditions" - collection String empty]'
+- id: 'n:::develop-and-test@selConditions.collStringNotEmpty'
+  name: 'Collection String not empty ["selConditions" - collection String not empty]'
+- id: 'n:::develop-and-test@selConditions.refAll'
+  name: >-
+    Reference without the selection conditions ["selConditions" - reference
+    without conditions of sorting ]
+- id: 'n:::develop-and-test@selConditions.refStringEqualStr'
+  name: 'Reference String = str ["selConditions" - reference String = str]'
+- id: 'n:::develop-and-test@selConditions.refStringIn'
+  name: >-
+    Reference String is a part of ["str", "kttc"] ["selConditions" - reference
+    String included in ["str", "kttc"]]
+- id: 'n:::develop-and-test@selSorting'
+  name: ' Sorting a sample of valid values [selSorting]'
+- id: 'n:::develop-and-test@selSorting.catalog'
+  name: >-
+    Сatalog to check the sotring of selection lists ["selSorting" - catalog to
+    check the sotring of selection lists]
+- id: 'n:::develop-and-test@selSorting.collAsc'
+  name: >-
+    Collection with sorting by increasing the Integer ["selSorting" - collection
+    with sorting by increasing the Integer]
+- id: 'n:::develop-and-test@selSorting.refDesc'
+  name: >-
+    Reference with sorting in descending the String ["selSorting" - reference
+    with sorting by descending the String]
+- id: 'n:::develop-and-test@reportMeta'
+  name: Report
+- id: 'n:::develop-and-test@reportMeta.reportCity'
+  name: 'City [City]'
+- id: 'n:::develop-and-test@reportMeta.reportDistrict'
+  name: 'District [Districts]'
+- id: 'n:::develop-and-test@reportMeta.reportStreet'
+  name: 'Street [Street]'
+- id: 'n:::develop-and-test@gantt'
+  name: Gantt-chart
+- id: 'n:::develop-and-test@gantt.event'
+  name: 'Data for the Gantt chart - Events [Event]'
+- id: 'n:::develop-and-test@gantt.project'
+  name: 'Data for the Gantt chart - Projects [Project]'
+- id: 'n:::develop-and-test@gantt.task'
+  name: 'Data for the Gantt chart - Tasks [Task]'
+- id: 'n:::develop-and-test@geomap'
+  name: Geomap
+- id: 'n:::develop-and-test@geomap.geomapLayerGreenRepairShopIcon'
+  name: >-
+    Data for geomodule layer with green service icons [Data for geomodule layer
+    with green icons for service]
+- id: 'n:::develop-and-test@geomap.geomapLayerRedFuelStationIcon'
+  name: >-
+    Data for geomodule layer with red icons of petrol stations [Data for a
+    geomodule layer with red icons for a gas station]
+- id: 'n:::develop-and-test@graph'
+  name: Graph
+- id: 'n:::develop-and-test@graph.workflow'
+  name: Workflows
+- id: 'n:::develop-and-test@graph.workflow.re_kogorta'
+  name: 'Cohort [Cohort]'
+- id: 'n:::develop-and-test@graph.rome_empire'
+  name: Hierarchy - Roman army
+- id: 'n:::develop-and-test@graph.rome_empire.re_kontuberiya'
+  name: 'Kontuberiya [Kontuberiya]'
+- id: 'n:::develop-and-test@graph.rome_empire.re_centuriya'
+  name: 'Century [Century]'
+- id: 'n:::develop-and-test@graph.rome_empire.re_manipula'
+  name: 'Maniple [Maniple]'
+- id: 'n:::develop-and-test@graph.rome_empire.re_kogorta'
+  name: 'Cohort [Cohort]'
+- id: 'n:::develop-and-test@graph.rome_empire.re_soldier'
+  name: 'Soldier [Soldier]'
+- id: 'n:::develop-and-test@graph.line'
+  name: (URL) Hierarchy - Linear chain
+- id: 'n:::develop-and-test@conditions'
+  name: 'Filters in the class page navigation node [conditions]'
+- id: 'n:::develop-and-test@conditions.all'
+  name: >-
+    Class page without filters ["conditions" - class to display filters in the
+    navigation node of the class page]
+- id: 'n:::develop-and-test@conditions.integerAboveZero'
+  name: >-
+    Integer > 0 ["conditions" - class to display filters in the navigation node
+    of the class page]
+- id: 'n:::develop-and-test@conditions.integerLessZero'
+  name: >-
+    Integer < 0 ["conditions" - class to display filters in the navigation node
+    of the class page]
+- id: 'n:::develop-and-test@conditions.stringContainStr'
+  name: >-
+    String contains str ["conditions" - class to display filters in the
+    navigation node of the class page]
+- id: 'n:::develop-and-test@conditions.stringEmpty'
+  name: >-
+    String empty ["conditions" - class to display filters in the navigation node
+    of the class page]
+- id: 'n:::develop-and-test@conditions.stringEqualStr'
+  name: >-
+    String = str ["conditions" - class to display filters in the navigation node
+    of the class page]
+- id: 'n:::develop-and-test@conditions.stringNotEmpty'
+  name: >-
+    String not empty ["conditions" - class to display filters in the navigation
+    node of the class page]
+- id: 'n:::develop-and-test@conditions.stringNotEqualStr'
+  name: >-
+    String <> str ["conditions" - class to display filters in the navigation
+    node of the class page]
+- id: 'n:::develop-and-test@hint'
+  name: 'Hint [hint] ["hint" - hint]'
+- id: 'n:::develop-and-test@link'
+  name: 'Reference field for navigation node type "Hyperlink" [link] '
+- id: 'n:::develop-and-test@sorting'
+  name: Sorting by navigation
+- id: 'n:::develop-and-test@sorting.asc'
+  name: >-
+    Direct sorting ["conditions" - class to display filters in the navigation
+    node of the class page]
+- id: 'n:::develop-and-test@sorting.desc'
+  name: >-
+    Back sorting ["conditions" - class to display filters in the navigation node
+    of the class page]
+- id: 'n:::develop-and-test@title'
+  name: 'Page title [title]'
+- id: 'n:::develop-and-test@title.InCaption'
+  name: 'In field "caption" ["title" - page title]'
+- id: 'n:::develop-and-test@title.InReference'
+  name: 'When opening a catalog ["title" - page title when opening the catalog]'
+- id: 'n:::develop-and-test@title.InTitle'
+  name: 'In field "title" ["title" - page title]'
+- id: 'n:::develop-and-test@defaultValue'
+  name: 'Default value [defaultValue] ["defaultValue" - Default value]'
+- id: 'n:::develop-and-test@enablement'
+  name: 'Activity condition [enablement] ["enablement" - activity condition]'
+- id: 'n:::develop-and-test@mask'
+  name: 'Automask on inputmask [mask] plugin'
+- id: 'n:::develop-and-test@mask.inputmask'
+  name: 'Mask with a unique validator ["mask" - mask with the unique validator]'
+- id: 'n:::develop-and-test@mask.mask'
+  name: 'Simple masks ["mask" - simple masks]'
+- id: 'n:::develop-and-test@obligation'
+  name: 'Obligation condition [obligation] ["obligation" - obligation condition]'
+- id: 'n:::develop-and-test@orderNumber'
+  name: 'Sorting order of the attributes in the meta view [orderNumber]'
+- id: 'n:::develop-and-test@orderNumber.orderNumber'
+  name: >-
+    Sets the back order of display ["order_number" sets the inverse display
+    order]
+- id: 'n:::develop-and-test@orderNumber.orderNumberDiff'
+  name: >-
+    Sets a different display order in views ["order_number" sets different
+    display order in views]
+- id: 'n:::develop-and-test@orderNumber.orderNumberNo'
+  name: >-
+    Does not set the display order ["order_number" does not set the display
+    order]
+- id: 'n:::develop-and-test@orderNumber.orderNumberSimilar'
+  name: 'Duplicated within class ["order_number" is duplicated within class]'
+- id: 'n:::develop-and-test@readonly'
+  name: 'Read only fields [readonly] ["readonly" - read only field]'
+- id: 'n:::develop-and-test@required'
+  name: 'Required field [required] ["required" - required field]'
+- id: 'n:::develop-and-test@selectionProvider'
+  name: 'Selection list of valid values [selectionProvider]'
+- id: 'n:::develop-and-test@selectionProvider.matrix'
+  name: 'Selection lists of the matrix type [matrix]'
+- id: 'n:::develop-and-test@selectionProvider.matrix.contain'
+  name: >-
+    With vectors "empty, contains, does not contain" of string types ["MATRIX" -
+    with vectors "empty, contain, not contain" string type]
+- id: 'n:::develop-and-test@selectionProvider.matrix.dc'
+  name: 'From two bases ["MATRIX" of two bases]'
+- id: 'n:::develop-and-test@selectionProvider.matrix.empty'
+  name: 'With vectors empty, not empty ["MATRIX" with vectors empty, not empty]'
+- id: 'n:::develop-and-test@selectionProvider.matrix.equal'
+  name: >-
+    With vectors in equality of values from the selection list - the base
+    ["MATRIX" with vectors in equality of values from the selection list - base]
+- id: 'n:::develop-and-test@selectionProvider.matrix.in'
+  name: >-
+    With vectors "Similar, not similar" os string type ["MATRIX" - with vectors
+    "Similar, not similar" of the string type]
+- id: 'n:::develop-and-test@selectionProvider.matrix.notEqual'
+  name: 'With vectors equal, not equal ["MATRIX" with vectors equal, not equal]'
+- id: 'n:::develop-and-test@selectionProvider.matrix.real'
+  name: 'With vectors from real ["MATRIX" with vectors <, >, <=, >=, = from the real]'
+- id: 'n:::develop-and-test@selectionProvider.simple'
+  name: 'Simple selection list [simple]'
+- id: 'n:::develop-and-test@selectionProvider.simple.boolean'
+  name: 'Logical key ["SIMPLE" - boolean]'
+- id: 'n:::develop-and-test@selectionProvider.simple.booleanCheckbox'
+  name: >-
+    Logical key displayed as a flag in create and edit views and as a selection
+    list in a list view ["SIMPLE" - boolean displayed as a flag in create and
+    edit view modes and as a selection list in a list view mode]
+- id: 'n:::develop-and-test@selectionProvider.simple.datetime'
+  name: 'Date-time key ["SIMPLE" - data-time key]'
+- id: 'n:::develop-and-test@selectionProvider.simple.integerNull'
+  name: 'nteger key with "empty" value ["SIMPLE" - integer key with "empty" value]'
+- id: 'n:::develop-and-test@selectionProvider.simple.real'
+  name: 'Real key ["SIMPLE" - real key]'
+- id: 'n:::develop-and-test@selectionProvider.simple.string'
+  name: 'String key ["SIMPLE" - string key]'
+- id: 'n:::develop-and-test@visibility'
+  name: 'Visibility condition [visibility] ["visibility" - visibility condition]'
+- id: 'n:::develop-and-test@search_simple'
+  name: 'Search by simple fields [Search by simple fields]'
+- id: 'n:::develop-and-test@search_ref'
+  name: 'Search by reference attributes [Search by reference attributes]'
+- id: 'n:::develop-and-test@search_many'
+  name: 'Search by multiple fields [Search by multiple fields]'
+- id: 'n:::develop-and-test@search_text'
+  name: 'Search by text [Search by text]'
+- id: 'n:::develop-and-test@department'
+  name: 'Department [Department]'
+- id: 'n:::develop-and-test@employee'
+  name: 'Employees [Employee]'
+- id: 'n:::develop-and-test@serviceAttribute'
+  name: 'serviceAttribute [serviceAttribute]'
+- id: 'n:::develop-and-test@class_multifile'
+  name: 'Class "File collection [110]" [Class "File collection [110]"]'
+- id: 'n:::develop-and-test@class_boolean'
+  name: 'Class "Boolean [10]"'
+- id: 'n:::develop-and-test@class_boolean.double'
+  name: >-
+    Class "Boolean [10]" nullable:false - two-position [Class "Boolean [10]"
+    nullable:false - two-position]
+- id: 'n:::develop-and-test@class_boolean.triple'
+  name: >-
+    Class "Boolean [10]" nullable:true - three-position [Class "Boolean [10]"
+    nullable:true - three-position]
+- id: 'n:::develop-and-test@class_datetime'
+  name: 'Class "Date/time [9]" [Class "Date/Time [9]"]'
+- id: 'n:::develop-and-test@class_decimal'
+  name: 'Class "Decimal [8]" [Class "Decimal [8]"]'
+- id: 'n:::develop-and-test@class_file'
+  name: 'Class "File [5]" [Class "Fle [5]"]'
+- id: 'n:::develop-and-test@class_geodata'
+  name: 'Class "Geodata [100]" [Class "Geodata [100]"]'
+- id: 'n:::develop-and-test@class_guid'
+  name: 'Class "Guid [12]" [Class "Globally unique identifier [12]"]'
+- id: 'n:::develop-and-test@class_html'
+  name: 'Class "HTML [2]" [Class "HTML [2]"]'
+- id: 'n:::develop-and-test@class_img'
+  name: 'Class "Image [4]" [Class "Image [4]"]'
+- id: 'n:::develop-and-test@class_integer'
+  name: 'Class "Integer [6]" [Class "Integer [6]"]'
+- id: 'n:::develop-and-test@class_custom'
+  name: 'Class "User type [17]" [Class "User type [17]"]'
+- id: 'n:::develop-and-test@class_password'
+  name: 'Class "Password [11]" [Class "Password [11]"]'
+- id: 'n:::develop-and-test@class_period'
+  name: 'Class "Period [60]" [Class "Period [60]"]'
+- id: 'n:::develop-and-test@class_real'
+  name: 'Class "Real [7]" [Class "Real [7]"]'
+- id: 'n:::develop-and-test@multiplicity'
+  name: 'Class "multiplicity [15]" [Class "Multiplicity [15]"]'
+- id: 'n:::develop-and-test@class_user'
+  name: 'Class "User [18]" [Class "User [18]"]'
+- id: 'n:::develop-and-test@class_url'
+  name: 'Class "URL [3]" [Class "URL [3]"]'
+- id: 'n:::develop-and-test@schedule'
+  name: 'Class "Schedule [210]" [Class "Schedule [210]"]'
+- id: 'n:::develop-and-test@class_string'
+  name: 'Class "String [0]" [Class "String [0]"]'
+- id: 'n:::develop-and-test@class_text'
+  name: 'Class "Text [1]" [Class "Text [1]"]'
+- id: 'n:::develop-and-test@simple_workflow'
+  name: 'Simple workflow [Class of the WF object]'
+- id: 'n:::develop-and-test@workflowHint'
+  name: 'Hint for WF status [Hint for the WF status]'
+- id: 'c:::IONCORE-134@develop-and-test'
+  name: Hint for the WF status
+- id: 'c:::IONCORE-288@develop-and-test'
+  name: For all actions
+- id: 'c:::adress@develop-and-test'
+  name: '"adress" - Address'
+- id: 'c:::adressDistrict@develop-and-test'
+  name: '"adressDistrict" - Districts in address'
+- id: 'c:::adressRegion@develop-and-test'
+  name: '"adressRegion" - Regions in address'
+- id: 'c:::adressStreet@develop-and-test'
+  name: '"adressStreet" - Streets in address'
+- id: 'c:::adressTown@develop-and-test'
+  name: '"adressTown" - Cities in address'
+- id: 'c:::allowsearch_false@develop-and-test'
+  name: 'Search disabled, field indexation enabled'
+- id: 'c:::allowsearch_noindexed@develop-and-test'
+  name: 'Search enabled, fields not indexed'
+- id: 'c:::allowsearch_true@develop-and-test'
+  name: 'Search enabled, field indexation enabled'
+- id: 'c:::backref_searchRefs@develop-and-test'
+  name: Search by reference attributes(Class target)
+- id: 'c:::basicObj@develop-and-test'
+  name: Basic object
+- id: 'c:::calcAttr@develop-and-test'
+  name: Cuspidal function
+- id: 'c:::calcLinkAttr@develop-and-test'
+  name: Calculation by reference
+- id: 'c:::classColl@develop-and-test'
+  name: 'Class "Collection [14]"'
+- id: 'c:::classRef@develop-and-test'
+  name: 'Class "Reference [13]"'
+- id: 'c:::classSchedule@develop-and-test'
+  name: 'Class "Schedule [210]"'
+- id: 'c:::class_boolean@develop-and-test'
+  name: 'Class "Boolean [10]" nullable:false - two-position'
+- id: 'c:::class_booleanTriple@develop-and-test'
+  name: 'Class "Boolean [10]" nullable:true - three-position'
+- id: 'c:::class_custom@develop-and-test'
+  name: 'Class "User type [17]"'
+- id: 'c:::class_datetime@develop-and-test'
+  name: 'Class "Date/Time [9]"'
+- id: 'c:::class_decimal@develop-and-test'
+  name: 'Class "Decimal [8]"'
+- id: 'c:::class_file@develop-and-test'
+  name: 'Class "Fle [5]"'
+- id: 'c:::class_geodata@develop-and-test'
+  name: 'Class "Geodata [100]"'
+- id: 'c:::class_guid@develop-and-test'
+  name: 'Class "Globally unique identifier [12]"'
+- id: 'c:::class_html@develop-and-test'
+  name: 'Class "HTML [2]"'
+- id: 'c:::class_img@develop-and-test'
+  name: 'Class "Image [4]"'
+- id: 'c:::class_integer@develop-and-test'
+  name: 'Class "Integer [6]"'
+- id: 'c:::class_multifile@develop-and-test'
+  name: 'Class "File collection [110]"'
+- id: 'c:::class_multiplicity@develop-and-test'
+  name: 'Class "Multiplicity [15]"'
+- id: 'c:::class_password@develop-and-test'
+  name: 'Class "Password [11]"'
+- id: 'c:::class_period@develop-and-test'
+  name: 'Class "Period [60]"'
+- id: 'c:::class_real@develop-and-test'
+  name: 'Class "Real [7]"'
+- id: 'c:::class_string@develop-and-test'
+  name: 'Class "String [0]"'
+- id: 'c:::class_text@develop-and-test'
+  name: 'Class "Text [1]"'
+- id: 'c:::class_url@develop-and-test'
+  name: 'Class "URL [3]"'
+- id: 'c:::class_user@develop-and-test'
+  name: 'Class "User [18]"'
+- id: 'c:::collRefCatalog@develop-and-test'
+  name: 'Catalog for collection and reference [collRefCatalog]'
+- id: 'c:::coll_backcoll_backcoll@develop-and-test'
+  name: Back collection class for collection
+- id: 'c:::coll_backcoll_coll@develop-and-test'
+  name: Collection class with back collection
+- id: 'c:::coll_container@develop-and-test'
+  name: Container class
+- id: 'c:::coll_content@develop-and-test'
+  name: Class of the collection content
+- id: 'c:::color@develop-and-test'
+  name: Using the lists
+- id: 'c:::columns@develop-and-test'
+  name: '"columns" - columns'
+- id: 'c:::compositeIndexes_date@develop-and-test'
+  name: '"compositeIndexes" - string, integer, date'
+- id: 'c:::compositeIndexes_numeric@develop-and-test'
+  name: '"compositeIndexes" - three numeric fields'
+- id: 'c:::compositeIndexes_string@develop-and-test'
+  name: '"compositeIndexes" - three string fields'
+- id: 'c:::date@develop-and-test'
+  name: For date
+- id: 'c:::defaultValue@develop-and-test'
+  name: '"defaultValue" - Default value'
+- id: 'c:::department@develop-and-test'
+  name: Department
+- id: 'c:::employee@develop-and-test'
+  name: Employee
+- id: 'c:::enablement@develop-and-test'
+  name: '"enablement" - activity condition'
+- id: 'c:::event@develop-and-test'
+  name: Event
+- id: 'c:::fields_ref@develop-and-test'
+  name: '"fields" - class with a reference'
+- id: 'c:::fields_reference@develop-and-test'
+  name: '"fields" - Catalog'
+- id: 'c:::fileCol@develop-and-test'
+  name: File Collection
+- id: 'c:::fileColContainer@develop-and-test'
+  name: File Collection (Container)
+- id: 'c:::filtersInTheList@develop-and-test'
+  name: Filters in the list
+- id: 'c:::geomapLayerGreenRepairShopIcon@develop-and-test'
+  name: Data for geomodule layer with green icons for service
+- id: 'c:::geomapLayerRedFuelStationIcon@develop-and-test'
+  name: Data for a geomodule layer with red icons for a gas station
+- id: 'c:::group@develop-and-test'
+  name: Using the lists
+- id: 'c:::hierarchySearch_class_a@develop-and-test'
+  name: Reference class to check the hierarchical search
+- id: 'c:::hierarchySearch_class_b@develop-and-test'
+  name: >-
+    Reference class to check the hierarchical search (linear chain of
+    containers)
+- id: 'c:::hierarchySearch_class_c@develop-and-test'
+  name: Linear chain (first level)
+- id: 'c:::hierarchySearch_class_d@develop-and-test'
+  name: Linear chain (second level)
+- id: 'c:::hierarchySearch_class_e@develop-and-test'
+  name: Linear chain (third level)
+- id: 'c:::hierarchySearch_class_f@develop-and-test'
+  name: >-
+    Reference class to check the hierarchical search (loop chain of containers
+    of one class)
+- id: 'c:::hierarchySearch_class_g@develop-and-test'
+  name: >-
+    Reference class to check the hierarchical search (partially loop chain of
+    containers)
+- id: 'c:::hierarchySearch_class_h@develop-and-test'
+  name: loop chain (first level)
+- id: 'c:::hierarchySearch_class_i@develop-and-test'
+  name: Loop chain (second level)
+- id: 'c:::hierarchySearch_class_j@develop-and-test'
+  name: Loop chain (third level)
+- id: 'c:::hierarchySearch_class_k@develop-and-test'
+  name: Loop chain (fourth level)
+- id: 'c:::hierarchySearch_class_l@develop-and-test'
+  name: Loop chain (fith level)
+- id: 'c:::hint@develop-and-test'
+  name: '"hint" - hint'
+- id: 'c:::import@develop-and-test'
+  name: Data import sample
+- id: 'c:::inputmask@develop-and-test'
+  name: '"mask" - mask with the unique validator'
+- id: 'c:::ioncore-288-anc@develop-and-test'
+  name: For each action
+- id: 'c:::is_struct@develop-and-test'
+  name: '"is_struct" Structure-class'
+- id: 'c:::journaling@develop-and-test'
+  name: '"journaling" - journaling all user actions'
+- id: 'c:::keyGuid@develop-and-test'
+  name: Globally unique identifier
+- id: 'c:::keyInteger@develop-and-test'
+  name: Integer autoincrement
+- id: 'c:::keyString@develop-and-test'
+  name: String key
+- id: 'c:::mask@develop-and-test'
+  name: '"mask" - simple masks'
+- id: 'c:::navCond@develop-and-test'
+  name: >-
+    "conditions" - class to display filters in the navigation node of the class
+    page
+- id: 'c:::negativeNamber@develop-and-test'
+  name: Real numbers
+- id: 'c:::obligation@develop-and-test'
+  name: '"obligation" - obligation condition'
+- id: 'c:::order_number@develop-and-test'
+  name: '"order_number" sets the inverse display order'
+- id: 'c:::order_number_diff@develop-and-test'
+  name: '"order_number" sets different display order in views'
+- id: 'c:::order_number_no@develop-and-test'
+  name: '"order_number" does not set the display order'
+- id: 'c:::order_number_similar@develop-and-test'
+  name: '"order_number" is duplicated within class'
+- id: 'c:::otorbrBackRef@develop-and-test'
+  name: Back reference for 1to1 connection
+- id: 'c:::otorbrRef@develop-and-test'
+  name: Reference for 1to1 connection
+- id: 'c:::person@develop-and-test'
+  name: Person
+- id: 'c:::project@develop-and-test'
+  name: Project
+- id: 'c:::range@develop-and-test'
+  name: Numerical range
+- id: 'c:::re_centuriya@develop-and-test'
+  name: Century
+- id: 'c:::re_kogorta@develop-and-test'
+  name: Cohort
+- id: 'c:::re_kontuberiya@develop-and-test'
+  name: Kontuberiya
+- id: 'c:::re_manipula@develop-and-test'
+  name: Maniple
+- id: 'c:::re_soldier@develop-and-test'
+  name: Soldier
+- id: 'c:::readonly@develop-and-test'
+  name: '"readonly" - read only field'
+- id: 'c:::ref_backcoll_backcoll@develop-and-test'
+  name: Back collection class for reference
+- id: 'c:::ref_backcoll_ref@develop-and-test'
+  name: Reference class with back collection
+- id: 'c:::refinementSearch_class_a@develop-and-test'
+  name: Reference class to check the refining search
+- id: 'c:::refinementSearch_class_b@develop-and-test'
+  name: Reference class to check the refining search
+- id: 'c:::refinementSearch_class_c@develop-and-test'
+  name: Class with a simple key to check the refining search
+- id: 'c:::refinementSearch_class_d@develop-and-test'
+  name: Class with a composite key to check the refining search
+- id: 'c:::reportCity@develop-and-test'
+  name: City
+- id: 'c:::reportDistrict@develop-and-test'
+  name: Districts
+- id: 'c:::reportStreet@develop-and-test'
+  name: Street
+- id: 'c:::required@develop-and-test'
+  name: '"required" - required field'
+- id: 'c:::searchMany@develop-and-test'
+  name: Search by multiple fields
+- id: 'c:::searchRefs@develop-and-test'
+  name: Search by reference attributes
+- id: 'c:::searchSimple@develop-and-test'
+  name: Search by simple fields
+- id: 'c:::searchText@develop-and-test'
+  name: Search by text
+- id: 'c:::selConditionsCatalog@develop-and-test'
+  name: >-
+    "selConditions" - catalog to check the conditions of sorting the valid
+    values
+- id: 'c:::selConditionsCollAll@develop-and-test'
+  name: '"selConditions" - collection without sorting conditions'
+- id: 'c:::selConditionsCollIntegerAboveZero@develop-and-test'
+  name: '"selConditions" - collection Integer > 0'
+- id: 'c:::selConditionsCollStringEmpty@develop-and-test'
+  name: '"selConditions" - collection String empty'
+- id: 'c:::selConditionsCollStringNotEmpty@develop-and-test'
+  name: '"selConditions" - collection String not empty'
+- id: 'c:::selConditionsRefAll@develop-and-test'
+  name: '"selConditions" - reference without conditions of sorting '
+- id: 'c:::selConditionsRefStringEqualStr@develop-and-test'
+  name: '"selConditions" - reference String = str'
+- id: 'c:::selConditionsRefStringIn@develop-and-test'
+  name: '"selConditions" - reference String included in ["str", "kttc"]'
+- id: 'c:::selSortingCatalog@develop-and-test'
+  name: '"selSorting" - catalog to check the sotring of selection lists'
+- id: 'c:::selSortingCollAsc@develop-and-test'
+  name: '"selSorting" - collection with sorting by increasing the Integer'
+- id: 'c:::selSortingRefDesc@develop-and-test'
+  name: '"selSorting" - reference with sorting by descending the String'
+- id: 'c:::selection_provider_matrix_contain@develop-and-test'
+  name: '"MATRIX" - with vectors "empty, contain, not contain" string type'
+- id: 'c:::selection_provider_matrix_dc@develop-and-test'
+  name: '"MATRIX" of two bases'
+- id: 'c:::selection_provider_matrix_empty@develop-and-test'
+  name: '"MATRIX" with vectors empty, not empty'
+- id: 'c:::selection_provider_matrix_equal@develop-and-test'
+  name: '"MATRIX" with vectors in equality of values from the selection list - base'
+- id: 'c:::selection_provider_matrix_in@develop-and-test'
+  name: '"MATRIX" - with vectors "Similar, not similar" of the string type'
+- id: 'c:::selection_provider_matrix_not_equal@develop-and-test'
+  name: '"MATRIX" with vectors equal, not equal'
+- id: 'c:::selection_provider_matrix_real@develop-and-test'
+  name: '"MATRIX" with vectors <, >, <=, >=, = from the real'
+- id: 'c:::selection_provider_simple_boolean@develop-and-test'
+  name: '"SIMPLE" - boolean'
+- id: 'c:::selection_provider_simple_boolean_checkbox@develop-and-test'
+  name: >-
+    "SIMPLE" - boolean displayed as a flag in create and edit view modes and as
+    a selection list in a list view mode
+- id: 'c:::selection_provider_simple_datetime@develop-and-test'
+  name: '"SIMPLE" - data-time key'
+- id: 'c:::selection_provider_simple_null@develop-and-test'
+  name: '"SIMPLE" - integer key with "empty" value'
+- id: 'c:::selection_provider_simple_real@develop-and-test'
+  name: '"SIMPLE" - real key'
+- id: 'c:::selection_provider_simple_string@develop-and-test'
+  name: '"SIMPLE" - string key'
+- id: 'c:::semErrCatalog@develop-and-test'
+  name: >-
+    Semantic catalog to check the semantics (string1| |string2| |string3| |date|
+    |integer)
+- id: 'c:::semErrClass@develop-and-test'
+  name: Attribute semantics is taken from reference class
+- id: 'c:::semErrFormula@develop-and-test'
+  name: >-
+    Semantics are set by the formula as the default calculated value
+    (concat(datetime(created))
+- id: 'c:::semErrLimit@develop-and-test'
+  name: >-
+    Attribute semantics is limited by number of characters (string1[0,5]|
+    |integer[0,10])
+- id: 'c:::semErrProperty@develop-and-test'
+  name: 'Semantics are set in the attribute (Data: |string1| |date| |integer)'
+- id: 'c:::semErrRef@develop-and-test'
+  name: Attribute semantics of the class by reference (ref.string1)
+- id: 'c:::semErrString@develop-and-test'
+  name: Semantics with line break (<br>)
+- id: 'c:::serviceAttribute@develop-and-test'
+  name: serviceAttribute
+- id: 'c:::serviceAttribute-1@develop-and-test'
+  name: serviceAttribute-1
+- id: 'c:::serviceAttribute-2@develop-and-test'
+  name: serviceAttribute-2
+- id: 'c:::serviceAttribute-3@develop-and-test'
+  name: serviceAttribute-3
+- id: 'c:::serviceAttribute-ancestor@develop-and-test'
+  name: serviceAttribute-ancestor
+- id: 'c:::signAfter@develop-and-test'
+  name: Digital signature of the outgoing data
+- id: 'c:::signBefore@develop-and-test'
+  name: Digital signature of the incoming data
+- id: 'c:::struct@develop-and-test'
+  name: 'Class "Structure [16]" (class with the attribute type 16 - structure)'
+- id: 'c:::tabs@develop-and-test'
+  name: '"tabs" - tabs'
+- id: 'c:::task@develop-and-test'
+  name: Task
+- id: 'c:::timetrackers@develop-and-test'
+  name: >-
+    "creationTracker" and "changeTracker" - time tag of created objects and
+    committed changes
+- id: 'c:::title@develop-and-test'
+  name: '"title" - page title'
+- id: 'c:::titleInReference@develop-and-test'
+  name: '"title" - page title when opening the catalog'
+- id: 'c:::verification@develop-and-test'
+  name: Verification
+- id: 'c:::visibility@develop-and-test'
+  name: '"visibility" - visibility condition'
+- id: 'c:::workflowBase@develop-and-test'
+  name: Class of the WF object
