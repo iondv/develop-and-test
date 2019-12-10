@@ -67,7 +67,7 @@ describe('Проверяем сервис token', function() {
         auth: {username: adminUsername, password: '1234'}
       };
     });
-    it('statusCode has to be 500 (Internal Server Error)', async function() {
+    it('statusCode has to be 401 (Unauthorized)', async function() {
       try {
         res = await request(reqOptions)
           .then(resp => {return resp})
@@ -75,7 +75,7 @@ describe('Проверяем сервис token', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 500);
+      assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
@@ -109,7 +109,7 @@ describe('Проверяем сервис token', function() {
       headersgiventoken = res.body;
     });
   });
-  describe('# authorization using header parameters with non existent user', function() {
+  describe('# authorization using header parameters with a non existent user', function() {
     let reqOptions;
     let res;
     before(function() {
@@ -143,7 +143,7 @@ describe('Проверяем сервис token', function() {
         headers: {'auth-user': adminUsername, 'auth-pwd': '1234'}
       };
     });
-    it('statusCode has to be 500 (Internal Server Error)', async function() {
+    it('statusCode has to be 401 (Unauthorized)', async function() {
       try {
         res = await request(reqOptions)
           .then(resp => {return resp})
@@ -151,7 +151,7 @@ describe('Проверяем сервис token', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 500);
+      assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
