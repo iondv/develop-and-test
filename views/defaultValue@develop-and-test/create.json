@@ -26,8 +26,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Identifier",
@@ -52,8 +53,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": [
@@ -80,7 +82,7 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
+          "selConditions": null,
           "selSorting": []
         }
       ]

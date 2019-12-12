@@ -1,6 +1,7 @@
 const assert = require('assert');
 const request = require('request-promise-native');
-const {serverURL, adminUsername, adminPassword, anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword,
+  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
 
 describe('Проверяем сервис token', function() {
   let giventoken;
@@ -23,6 +24,7 @@ describe('Проверяем сервис token', function() {
       } catch (e) {
         res = e.response;
       }
+      console.log(res.body);
       assert.strictEqual(res.statusCode, 200);
     });
     it('проверяем ответ на соответствие токену', async function() {
@@ -66,7 +68,7 @@ describe('Проверяем сервис token', function() {
         auth: {username: adminUsername, password: '1234'}
       };
     });
-    it('statusCode has to be 500 (Internal Server Error)', async function() {
+    it('statusCode has to be 401 (Unauthorized)', async function() {
       try {
         res = await request(reqOptions)
           .then(resp => {return resp})
@@ -74,7 +76,7 @@ describe('Проверяем сервис token', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 500);
+      assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
@@ -108,7 +110,7 @@ describe('Проверяем сервис token', function() {
       headersgiventoken = res.body;
     });
   });
-  describe('# authorization using header parameters with non existent user', function() {
+  describe('# authorization using header parameters with a non existent user', function() {
     let reqOptions;
     let res;
     before(function() {
@@ -142,7 +144,7 @@ describe('Проверяем сервис token', function() {
         headers: {'auth-user': adminUsername, 'auth-pwd': '1234'}
       };
     });
-    it('statusCode has to be 500 (Internal Server Error)', async function() {
+    it('statusCode has to be 401 (Unauthorized)', async function() {
       try {
         res = await request(reqOptions)
           .then(resp => {return resp})
@@ -150,7 +152,7 @@ describe('Проверяем сервис token', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 500);
+      assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
@@ -174,9 +176,8 @@ describe('Проверяем сервис token', function() {
           .catch();
       } catch (e) {
         res = e.response;
-        console.log('### пользователь без full прав получает 500 - Invalid Password');
       }
-      assert.strictEqual(res.statusCode, 403);
+      assert.strictEqual(res.statusCode, 403, 'Если прав на ws::gen-ws-token, то должен выдавать код 403');
     });
     it('no token should be returned', async function() {
       assert.ok(res.body, 'ожидаем атрибут body');
@@ -200,7 +201,6 @@ describe('Проверяем сервис token', function() {
           .catch();
       } catch (e) {
         res = e.response;
-        console.log('### пользователь без full прав получает 500 - Invalid Password');
       }
       assert.strictEqual(res.statusCode, 200);
     });
@@ -237,7 +237,6 @@ describe('Проверяем сервис token', function() {
   });
   describe('# check if the generated token is valid (baseAuth) (using echo-token)', function() {
     let reqOptions;
-    let res;
     before(function() {
       reqOptions = {method: 'GET', headers: {'Accept': 'application/json'},
         url: `${serverURL}/rest/echo-token`,
@@ -278,12 +277,12 @@ describe('Проверяем сервис token', function() {
       };
     });
     it('authorization by token is passed', async function() {
-        const res = await request(reqOptions)
-          .catch();
+    const res = await request(reqOptions)
+    .catch();
         assert.strictEqual(res.echo, 'peekaboo');
     });
   });
-  describe('# check if a random token is not passing the authorization (using echo-token)', function() {
+  describe('# check if auth is not passed with a random token (using echo-token)', function() {
     let reqOptions;
     let res;
     before(function() {

@@ -126,7 +126,7 @@
       "backRef": "",
       "backColl": "",
       "binding": "",
-      "semantic": "concat(string1,\u0027 дата \u0027,\u003cbr\u003edate(date))",
+      "semantic": "concat(string1,' дата ',<br>date(date))",
       "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,

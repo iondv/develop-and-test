@@ -21,7 +21,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "selProvSimple",
@@ -41,7 +43,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "selProvMatrix",
@@ -61,7 +65,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "refSelProvMatrix",
@@ -81,7 +87,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "referenceToOneKey",
@@ -101,7 +109,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "referenceToCompositeKey",
@@ -121,7 +131,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "ordinaryAttribute",
@@ -141,7 +153,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "data",
@@ -161,7 +175,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "collectionAttr",
@@ -181,7 +197,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         }
       ],
       "shortFields": []
@@ -208,5 +226,6 @@
       "signAfter": false,
       "isBulk": false
     }
-  ]
+  ],
+  "metaVersion": "2.0.0"
 }

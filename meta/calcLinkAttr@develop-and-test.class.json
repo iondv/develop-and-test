@@ -68,7 +68,7 @@
       "backRef": "",
       "backColl": "",
       "binding": "",
-      "semantic": "a \u003d |a| b \u003d |b| c \u003d |c",
+      "semantic": "a = |a| b = |b| c = |c",
       "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
@@ -409,7 +409,7 @@
     {
       "orderNumber": 90,
       "name": "add",
-      "caption": "A + B + C \u003d",
+      "caption": "A + B + C =",
       "type": 0,
       "size": null,
       "decimals": 0,
@@ -444,7 +444,7 @@
     {
       "orderNumber": 100,
       "name": "sub",
-      "caption": "A - B - C \u003d",
+      "caption": "A - B - C =",
       "type": 0,
       "size": null,
       "decimals": 0,
@@ -479,7 +479,7 @@
     {
       "orderNumber": 110,
       "name": "mul",
-      "caption": "A * B * C \u003d",
+      "caption": "A * B * C =",
       "type": 0,
       "size": null,
       "decimals": 0,
@@ -514,7 +514,7 @@
     {
       "orderNumber": 120,
       "name": "div",
-      "caption": "A / B / C \u003d",
+      "caption": "A / B / C =",
       "type": 0,
       "size": null,
       "decimals": 0,

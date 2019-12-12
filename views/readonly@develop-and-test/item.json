@@ -21,7 +21,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "readonlyRef",
@@ -41,7 +43,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "readonlyColl",
@@ -61,7 +65,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "readonlyUrl",
@@ -81,7 +87,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "readonlyBoolean",
@@ -101,7 +109,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "caseUrl",
@@ -121,7 +131,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "data1Url",
@@ -141,7 +153,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "data2Url",
@@ -161,7 +175,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "caseString",
@@ -181,7 +197,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "data1String",
@@ -201,7 +219,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "property": "data2String",
@@ -221,7 +241,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         }
       ],
       "shortFields": []
@@ -258,5 +280,6 @@
       "signAfter": false,
       "isBulk": false
     }
-  ]
+  ],
+  "metaVersion": "2.0.0"
 }

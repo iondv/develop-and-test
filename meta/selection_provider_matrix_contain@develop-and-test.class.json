@@ -39,7 +39,7 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -68,7 +68,7 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -97,15 +97,20 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": {
         "type": "MATRIX",
         "list": [],
         "matrix": [
           {
-            "comment": "Contains \u0027str\u0027",
-            "conditions": {"contains": ["$matrix_base", "str"]},
+            "comment": "Contains 'str'",
+            "conditions": {
+              "contains": [
+                "$matrix_base",
+                "str"
+              ]
+            },
             "result": [
               {
                 "key": "The first available value for the base containing str",
@@ -119,7 +124,11 @@
           },
           {
             "comment": "matrix base empty",
-            "conditions": {"empty": ["$matrix_base"]},
+            "conditions": {
+              "empty": [
+                "$matrix_base"
+              ]
+            },
             "result": [
               {
                 "key": "The base is not filled",
@@ -128,10 +137,17 @@
             ]
           },
           {
-            "comment": "does not contain \u0027str\u0027",
-            "conditions": {"not": [
-            	{"contains": ["$matrix_base", "str"]}
-        	]},
+            "comment": "does not contain 'str'",
+            "conditions": {
+              "not": [
+                {
+                  "contains": [
+                    "$matrix_base",
+                    "str"
+                  ]
+                }
+              ]
+            },
             "result": [
               {
                 "key": "The first available value for the base not containing str",

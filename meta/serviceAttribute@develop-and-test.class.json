@@ -103,18 +103,20 @@
       "binding": "",
       "semantic": null,
       "selConditions": {
-	      	"contains": [
-	      		"$1-coll", 
-	      		{
-	      			"contains": [
-	      				"$2-coll", 
-	  					{
-	  						"nempty": ["$3-attr2"]
-						}
-					]
-				}
-			]
-		},
+        "contains": [
+          "$1-coll",
+          {
+            "contains": [
+              "$2-coll",
+              {
+                "nempty": [
+                  "$3-attr2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "selSorting": [
         {
           "property": "id",
@@ -133,18 +135,20 @@
           {
             "comment": "",
             "conditions": {
-		      	"contains": [
-		      		"$coll", 
-		      		{
-		      			"contains": [
-		      				"$1-coll", 
-		  					{
-		  						"nempty": ["$2-coll"]
-							}
-						]
-					}
-				]
-			},
+              "contains": [
+                "$coll",
+                {
+                  "contains": [
+                    "$1-coll",
+                    {
+                      "nempty": [
+                        "$2-coll"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
             "result": []
           }
         ],

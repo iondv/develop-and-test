@@ -105,7 +105,7 @@
         "list": [],
         "matrix": [
           {
-            "comment": "Similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
+            "comment": "Similar to 'str', '111', 'kttc'",
             "conditions": {
               "in": [
                 "$matrix_base",
@@ -116,12 +116,12 @@
             },
             "result": [
               {
-                "key": "The first available value for a base is similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
-                "value": "The first available value for a base is similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027"
+                "key": "The first available value for a base is similar to 'str', '111', 'kttc'",
+                "value": "The first available value for a base is similar to 'str', '111', 'kttc'"
               },
               {
-                "key": "The second available value for a base is similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
-                "value": "The second available value for a base is similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027"
+                "key": "The second available value for a base is similar to 'str', '111', 'kttc'",
+                "value": "The second available value for a base is similar to 'str', '111', 'kttc'"
               }
             ]
           },
@@ -140,7 +140,7 @@
             ]
           },
           {
-            "comment": "Not similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
+            "comment": "Not similar to 'str', '111', 'kttc'",
             "conditions": {
               "not": [
                 {
@@ -155,12 +155,12 @@
             },
             "result": [
               {
-                "key": "The first available value for a base is not similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
-                "value": "The first available value for a base is not similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027"
+                "key": "The first available value for a base is not similar to 'str', '111', 'kttc'",
+                "value": "The first available value for a base is not similar to 'str', '111', 'kttc'"
               },
               {
-                "key": "The second available value for a base is not similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027",
-                "value": "The second available value for a base is not similar to \u0027str\u0027, \u0027111\u0027, \u0027kttc\u0027"
+                "key": "The second available value for a base is not similar to 'str', '111', 'kttc'",
+                "value": "The second available value for a base is not similar to 'str', '111', 'kttc'"
               }
             ]
           }

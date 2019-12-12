@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {serverURL, adminUsername, adminPassword} = require('./config.js')
+const {serverURL} = require('./config.js')
 const request = require('request-promise-native');
 
 const reqOptions = {
@@ -45,3 +45,5 @@ describe('Проверяем сервис echo', function() {
   describe.skip('# отработка злонамеренных параметров запроса ', function() {
   });
 });
+
+//запросы не json

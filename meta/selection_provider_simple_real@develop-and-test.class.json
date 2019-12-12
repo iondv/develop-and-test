@@ -39,7 +39,7 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -68,30 +68,30 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": {
         "type": "SIMPLE",
         "list": [
           {
             "key": "1.1",
-            "value": "The value displayed in the interface for \u00271.1\u0027"
+            "value": "The value displayed in the interface for '1.1'"
           },
           {
             "key": "2.2",
-            "value": "The value displayed in the interface for \u00272.2\u0027"
+            "value": "The value displayed in the interface for '2.2'"
           },
           {
             "key": "3.3",
-            "value": "The value displayed in the interface for \u00273.3\u0027"
+            "value": "The value displayed in the interface for '3.3'"
           },
           {
             "key": "4",
-            "value": "The value displayed in the interface for \u00274\u0027"
+            "value": "The value displayed in the interface for '4'"
           },
           {
             "key": "5.634",
-            "value": "The value displayed in the interface for \u00275.634\u0027"
+            "value": "The value displayed in the interface for '5.634'"
           }
         ],
         "matrix": [],

@@ -476,12 +476,23 @@
       "globals": {
         "authMode": {
           "echo": "none",
-          "echo-token": "token",
-          "crud": "token"
+          "echo-pwd": "pwd",
+          "echo-errtype": "a7b4e07d",
+          "echo-oauth": "oauth",
+          "echo-token": "token"
         },
         "di": {
           "simple": {
             "module": "applications/develop-and-test/service/SimpleRest"
+          },
+          "echo-pwd": {
+            "module": "applications/develop-and-test/service/EchoRest"
+          },
+          "echo-errtype": {
+            "module": "applications/develop-and-test/service/EchoRest"
+          },
+          "echo-oauth": {
+            "module": "applications/develop-and-test/service/EchoRest"
           },
           "echo-token": {
             "module": "applications/develop-and-test/service/EchoRest"
@@ -507,8 +518,12 @@
             "module": "modules/rest/lib/impl/crud",
             "options": {
               "auth": "ion://auth",
-              "dataRepo": "ion://securedDataRepo"
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo"
             }
+          },
+          "crud-zero": {
+            "module": "modules/rest/lib/impl/crud"
           }
         }
       }

@@ -7,7 +7,7 @@
   "semantic": "",
   "name": "selConditionsRefStringEqualStr",
   "version": "",
-  "caption": "\"selConditions\" - reference String \u003d str",
+  "caption": "\"selConditions\" - reference String = str",
   "ancestor": null,
   "container": null,
   "creationTracker": "",

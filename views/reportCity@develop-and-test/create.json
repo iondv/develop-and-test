@@ -21,7 +21,9 @@
           "enablement": "",
           "obligation": "",
           "historyDisplayMode": 0,
-          "tags": ""
+          "tags": null,
+          "hierarchyAttributes": null,
+          "commands": null
         },
         {
           "caption": "Districts",
@@ -114,7 +116,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []
@@ -141,5 +144,6 @@
       "signAfter": false,
       "isBulk": false
     }
-  ]
+  ],
+  "metaVersion": "2.0.0"
 }

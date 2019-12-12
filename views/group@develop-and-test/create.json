@@ -27,7 +27,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "property": "name",
@@ -53,7 +54,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "property": "area",
@@ -79,7 +81,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

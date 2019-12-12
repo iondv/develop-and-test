@@ -24,7 +24,7 @@
       "hint": "",
       "historyDisplayMode": 0,
       "tags": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": []
     },
     {
@@ -51,7 +51,7 @@
       "hint": "",
       "historyDisplayMode": 0,
       "tags": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": []
     },
     {
@@ -78,7 +78,7 @@
       "hint": "the true value of the Boolean attribute is highlighted in green, the false value - red",
       "historyDisplayMode": 0,
       "tags": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": []
     }
   ],
