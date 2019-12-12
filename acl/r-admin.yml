@@ -1,0 +1,7 @@
+id: admin
+name: admin
+permissions:
+  - _id:
+      _bsontype: ObjectID
+      id: !<tag:yaml.org,2002:binary> XedFtsJV0dY38G+e
+    id: '*'

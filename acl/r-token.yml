@@ -1,0 +1,8 @@
+id: token
+name: Token
+permissions:
+  - _id:
+      _bsontype: ObjectID
+      id: !<tag:yaml.org,2002:binary> XedQb8JV0dY38IQg
+    id: 'ws:::gen-ws-token'
+    name: Generate security tokens via web services

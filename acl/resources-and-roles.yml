@@ -1,6 +1,0 @@
-roles:
-  - id: demo@local
-    name: Administrator
-    permissions:
-      "*":
-        - full
