@@ -17,7 +17,7 @@ const reqBody = [
     string_miltilinetext: "Example10",
     string_formattext: "Example10"
   },
-  { // id is defined, but "_id" is defined
+  { // id is defined, but "_id" is undefined
     id: cryptoRandom(32).toString('hex'),
     _class: `class_string@develop-and-test`,
     string_text: cryptoRandom(8).toString('hex'),

@@ -70,7 +70,7 @@ describe('Проверяем сервис echo-oauth', function() {
       assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
     });
   });
-  describe('# Requesting echo-oauth GET without a cookie', function() {
+  describe('# Requesting echo-oauth GET without the cookie', function() {
     let resRequest;
       it('check if the request can be made without a cookie', async function() {
       try {

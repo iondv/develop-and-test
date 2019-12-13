@@ -1,0 +1,27 @@
+{
+  "name": "mocha test stripts for develop-and-test",
+  "description": "Metaproject for testing and development",
+  "license": "Apache License 2.0",
+  "version": "2.0.2",
+  "homepage": "https://git.iondv.ru/ION-APP/develop-and-test",
+  "bugs": {
+    "url": "https://ion-dv.atlassian.net/projects/IONEXAMPLE/issues"
+  },
+  "repository": {
+  },
+  "engines": {
+  },
+  "scripts": {
+  },
+  "ionModulesDependencies": {
+  },
+  "ionMetaDependencies": {
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "request-promise-native": "^1.0.8",
+    "mocha": "^6.2.2"
+  }
+}
