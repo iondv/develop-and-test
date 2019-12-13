@@ -183,7 +183,7 @@ const modreq = function(props) {
         });
       });
     });
-    describe('# getting a collection with the eager loading of the "table" property', function() {
+    describe('# getting a list of collections with the eager loading of the "table" property', function() {
       before(async function() {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
@@ -241,9 +241,9 @@ const modreq = function(props) {
         assert.strictEqual(res.statusCode, 200);
       });
       it('check if the response contains all three collRefCatalog objects', function() {
-        assert.strictEqual(res.body.table.length, 3);
+        assert.strictEqual(res.body[0].table.length, 3);
         res.body.table.forEach((item,i)=>{
-        assert.strictEqual(res.body.table[i].__class, 'collRefCatalog@develop-and-test');
+        assert.strictEqual(res.body[0].table[i].__class, 'collRefCatalog@develop-and-test');
         });
       });
     });
@@ -305,18 +305,20 @@ const modreq = function(props) {
         assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
       });
     });
-    describe('# getting an object with eager properties (GET)', function() {
+    describe('# getting an object with eager loading of the "table" property (GET)', function() {
       let res;
       let req = modreq({
-      uri: `${serverURL}/rest/crud/class_text@develop-and-test/${tempTextObj}?_eager=text_text`})
+      uri: `${serverURL}/rest/crud/classColl@develop-and-test/${tempId}?_eager=table`})
       it('делаем запрос, статус должен быть 200', async function() {
         //console.log(tempId);
         res = await request(req);
         assert.strictEqual(res.statusCode, 200);
       });
-      it('check if the response contains any text objects', function() {
-        assert.strictEqual(res.body.length > 0, true);
-        assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
+      it('check if the response contains all three collRefCatalog objects', function() {
+        assert.strictEqual(res.body.table.length, 3);
+        res.body.table.forEach((item,i)=>{
+        assert.strictEqual(res.body.table[i].__class, 'collRefCatalog@develop-and-test');
+        });
       });
     });
     describe('# checking if the response is valid on invalid object check (GET)', function() {
