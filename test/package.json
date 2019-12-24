@@ -7,19 +7,12 @@
   "bugs": {
     "url": "https://ion-dv.atlassian.net/projects/IONEXAMPLE/issues"
   },
-  "repository": {
-  },
-  "engines": {
-  },
-  "scripts": {
-  },
-  "ionModulesDependencies": {
-  },
-  "ionMetaDependencies": {
-  },
-  "dependencies": {
-
-  },
+  "repository": {},
+  "engines": {},
+  "scripts": {},
+  "ionModulesDependencies": {},
+  "ionMetaDependencies": {},
+  "dependencies": {},
   "devDependencies": {
     "request-promise-native": "^1.0.8",
     "mocha": "^6.2.2"

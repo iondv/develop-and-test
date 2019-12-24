@@ -482,6 +482,9 @@
           "echo-token": "token"
         },
         "di": {
+          "oauth": {
+            "module": "lib/oAuthAdapter"
+          },
           "simple": {
             "module": "applications/develop-and-test/service/SimpleRest"
           },

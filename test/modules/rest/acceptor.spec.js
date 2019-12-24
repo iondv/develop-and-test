@@ -21,23 +21,23 @@ const reqBody = [
     id: cryptoRandom(32).toString('hex'),
     _class: `class_string@develop-and-test`,
     string_text: cryptoRandom(8).toString('hex'),
-    string_miltilinetext: "Example10",
-    string_formattext: "Example10"
+    string_miltilinetext: "Example11",
+    string_formattext: "Example11"
   },
   {
     _id: cryptoRandom(32).toString('hex'),
     _class: `class_string@develop-and-test`,
     string_text: cryptoRandom(8).toString('hex'),
-    string_miltilinetext: "Example10",
-    string_formattext: "Example10"
+    string_miltilinetext: "Example12",
+    string_formattext: "Example12"
   },
   {
     _id: cryptoRandom(4).toString('hex'),
     id: cryptoRandom(4).toString('hex'),
     _class: `class_string@develop-and-test`,
     string_text: cryptoRandom(8).toString('hex'),
-    string_miltilinetext: "Example10",
-    string_formattext: "Example10"
+    string_miltilinetext: "Example13",
+    string_formattext: "Example13"
   }
 ]
 let giventoken;
@@ -55,10 +55,10 @@ describe('Проверяем сервис acceptor', function() {
         assert.strictEqual(res.body.length, reqBody.length);
       });
       it('the response\'s body has to contain fields of requested objects', async function() {
-        assert.strictEqual(res.body[0].string_text, reqBody[0].string_text);
-        assert.strictEqual(res.body[1].string_text, reqBody[1].string_text);
-        assert.strictEqual(res.body[2].string_text, reqBody[2].string_text);
-        assert.strictEqual(res.body[3].string_text, reqBody[3].string_text); // TODO Нет атрибутов в возвращаемом объекте - только id и _id:  { id: '1f1ca1d7', _id: '1f1ca1d7' }
+        assert.strictEqual(res.body[0].string_text, reqBody[0].string_text, '#0');
+        assert.strictEqual(res.body[1].string_text, reqBody[1].string_text, '#1');
+        assert.strictEqual(res.body[2].string_text, reqBody[2].string_text, '#2');
+        assert.strictEqual(res.body[3].string_text, reqBody[3].string_text, '#3'); // TODO Нет атрибутов в возвращаемом объекте - только id и _id:  { id: '1f1ca1d7', _id: '1f1ca1d7' }
       });
       it('the response\'s objects has id, also first object requested without id or _id', async function() {
         assert.ok(res.body[0].id);
@@ -76,8 +76,8 @@ describe('Проверяем сервис acceptor', function() {
         assert.strictEqual(res.body[2]._id, reqBody[2]._id);
       });
       it('the request\'s fourth object has not equal "id" and "_id", but response both equal _id', async function() {
-        assert.strictEqual(res.body[3].id, reqBody[3]._id);
-        assert.strictEqual(res.body[3]._id, reqBody[3]._id);
+        assert.strictEqual(res.body[3].id, reqBody[3].id);
+        assert.strictEqual(res.body[3]._id, reqBody[3].id);
       });
     });
     describe('# check created objects', function() {
@@ -192,12 +192,7 @@ describe('Проверяем сервис acceptor', function() {
 // ]
 
 async function requestBody(reqBody) {
-  try {
-      return request(Object.assign(BASE_REQUEST, {body: reqBody}))
-  .then(resp => {return resp}).catch();
-  } catch (e) {
-      return res = e.response;
-  }
+  return request(Object.assign(BASE_REQUEST, {body: reqBody}));
 }
 
 // запрос plaintext или другого класса
