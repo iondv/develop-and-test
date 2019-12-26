@@ -101,7 +101,7 @@ describe('Проверяем сервис echo-errtype', function() {
       })
     });
 
-    describe('## using cookie auth', async function () {
+    /*describe('## using cookie auth', async function () {
       before(async function () {
         let res;
         try {
@@ -134,6 +134,6 @@ describe('Проверяем сервис echo-errtype', function() {
       it('the response\'s body should not contain echo "peekaboo"', function () {
         assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
       })
-    });
+    });*/
   });
 });
