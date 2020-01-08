@@ -1,0 +1,9 @@
+users:
+  - id: ext
+    name: ext
+    pwd:
+      hash: >-
+        pbkdf2$10000$f276ae5926c08bb4098fdcc88fade56c520e508f0f47735d2c8826a3e218b4f928760f9fbcc654306b72ba77ae3a8277ac050d273c15f24708cc3951fe17caea$c6938f9c850081e303a5c308828363d54e959deb78b4bca083b62b6d3c6aaf7f80c1bea66880e6d59f1930c5e893f9e13f0523c0e517751e76782bedad0afbe2
+    type: system
+    roles:
+      - token
