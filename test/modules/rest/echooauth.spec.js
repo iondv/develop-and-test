@@ -1,230 +1,134 @@
 const assert = require('assert');
-const {serverURL, adminUsername, adminPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword, extSystemUsername, extSystemSecret} = require('./config.js');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
+const url = require('url');
+const base64 = require('base64-js');
 // спецификация - https://www.npmjs.com/package/oauth2-server
 
-describe('Проверяем сервис echo-oauth', function() {
-  describe('# Trying to POST', function () {
+describe('Проверяем сервис echo-oauth', async function () {
+  let sess = '';
+  let dlg = false;
+  let auth_code = '';
+  let token = '';
+  before(async function () {
     let res;
-    before(async function () {
+    try {
+      res = await request({
+        method: 'POST',
+        uri: `${serverURL}/auth`,
+        form: {username: adminUsername, password: adminPassword}
+      });
+    } catch (e) {
+      res = e.response;
+    }
+
+    sess = res.headers['set-cookie'][0];
+
+    if (sess) {
+      try {
+        res = await request({
+          method: 'GET',
+          uri: `${serverURL}/oauth2/grant?client_id=${extSystemUsername}&response_type=code`,
+          headers: {
+            Cookie: sess
+          },
+          resolveWithFullResponse: true
+        });
+        dlg = res.statusCode === 200;
+      } catch (e) {
+        res = e.response;
+        console.error(res);
+      }
+
       try {
         res = await request({
           method: 'POST',
-          uri: `${serverURL}/rest/oauth/grant`,
-          auth: {username: adminUsername, password: adminPassword},
+          uri: `${serverURL}/oauth2/grant?client_id=${extSystemUsername}&response_type=code&state=123`,
+          headers: {
+            Cookie: sess
+          },
           resolveWithFullResponse: true
         });
-        console.log(res)
       } catch (e) {
         res = e.response;
-        console.error(res)
       }
-      console.log(res);
-    });
-    it('check if /grant is POSTed with auth', function () {
-      assert.strictEqual(res.statusCode,200);
-    });
-  });
-});
 
-// GET
-
-
-    /*describe.skip('# Requesting echo-oauth GET', function () {
-      describe('check if the request can be made using the oauth cookie', function () {
-        console.log(cookie);
-        let resRequest;
-        before(async function () {
-          try {
-            resRequest = await request({
-              method: 'GET',
-              uri: `${serverURL}/rest/echo-oauth`,
-              resolveWithFullResponse: true,
-              json: true,
-              headers: {cookie: cookie}
-            });
-          } catch (e) {
-            resRequest = e.response;
-            //console.log(e);
-            console.log(e);
-          }
-        });
-        it.skip('ожидаем отказ в доступе', function () {
-          assert.strictEqual(resRequest.statusCode, 403);
-        });
-        it('ожидаем тип объект у результата запроса', function () {
-          assert.strictEqual(typeof resRequest.body, 'object');
-        });
-        it('ожидаем значение свойства echo "peekaboo"', function () {
-          assert.strictEqual(resRequest.body.echo, 'peekaboo');
-        });
-      });
-    });
-    describe.skip('# Requesting echo-oauth GET with the modified cookie', function () {
-      describe('# check if the request can be made using the oauth cookie with a wrong sid', function () {
-        let resRequest;
-        cookie[0] = cookie[0].slice(0, 15) + cryptoRandom(5).toString('hex') + cookie[0].slice(25);
-        before(async function () {
-          try {
-            resRequest = await request({
-              method: 'GET',
-              uri: `${serverURL}/rest/echo-oauth`,
-              resolveWithFullResponse: true,
-              json: true,
-              headers: {Сookie: cookie}
-            });
-          } catch (e) {
-            resRequest = e.response;
-          }
-        });
-        it('statusCode expected to be 403 (Access denied)', function () {
-          assert.strictEqual(resRequest.statusCode, 403);
-        });
-        it('the response should not contain echo "peekaboo"', function () {
-          assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
-        });
-      });
-    });
-  });
-  describe('# Requesting echo-oauth GET without the cookie', function () {
-    describe('check if the request can be made without a cookie', function () {
-      let resRequest;
-      before(async function () {
+      const redirect = url.parse(res.headers['location'], true);
+      auth_code = redirect.query.code;
+      if (auth_code) {
         try {
-          resRequest = await request({
-            method: 'GET',
-            uri: `${serverURL}/rest/echo-oauth`,
-            resolveWithFullResponse: true,
-            json: true
+          res = await request({
+            method: 'POST',
+            uri: `${serverURL}/oauth2/token`,
+            headers: {
+              'Authorization': 'Basic ' + base64.fromByteArray(Buffer.from(extSystemUsername + ':' + extSystemSecret, 'utf8'))
+            },
+            form: {
+              'grant_type': 'authorization_code',
+              'code': auth_code
+            },
+            json: true,
+            resolveWithFullResponse: true
           });
+          token = res.body.access_token;
         } catch (e) {
-          resRequest = e.response;
-          console.log(e);
+          res = e.response;
+          console.error(res);
         }
-      });
-      it('statusCode expected to be 403 (Access denied)', function () {
-        assert.strictEqual(resRequest.statusCode, 403);
-      });
-      it('the response should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
-      });
-    });
-  });
-});
-*/
-/*describe('Проверяем сервис echo-oauth', function() {
-let cookie = ['ololo'];
-describe('# Getting a cookie', function() {
-before(async function() {
-let res;
-try {
-  res = await request({
-    method: 'POST',
-    uri: `${serverURL}/rest/oauth`,
-    auth: {username: adminUsername, password: adminPassword},
-    resolveWithFullResponse: true
-  });
-  console.log(res)
-} catch (e) {
-  res = e.response;
-  console.error(res)
-}
-cookie = res.headers['set-cookie'];
-console.log(cookie);
-console.log(cookie[0].slice(0,cookie[0].indexOf(';')));
-cookie = [cookie[0].slice(0,cookie[0].indexOf(';'))];
-console.log(cookie);
-proccess.exit(1)
-});
-it('check if the cookie can be retrieved', function() {
-assert.ok(cookie);
-});
-describe('# Requesting echo-oauth GET', function () {
-describe('check if the request can be made using the oauth cookie', function () {
-  console.log(cookie);
-  let resRequest;
-  before(async function () {
-    try {
-      resRequest = await request({
-        method: 'GET',
-        uri: `${serverURL}/rest/echo-oauth`,
-        resolveWithFullResponse: true,
-        json: true,
-        headers: {cookie: cookie}
-      });
-    } catch (e) {
-      resRequest = e.response;
-      //console.log(e);
-      console.log(e);
+      }
     }
   });
-  it('ожидаем отказ в доступе', function () {
-    assert.strictEqual(resRequest.statusCode, 403);
-  });
+  it('check OAuth2 process', function () {
+    assert.ok(sess, 'check if user authenticated');
+    assert.ok(dlg, 'check if oauth2 grant dialog displayed');
+    assert.ok(auth_code, 'auth code obtained');
+    assert.ok(token, 'auth token obtained');
 
-  /*
-
-   TODO: Не очень понятно почему вы тут ожидаете ответ, если не выполняете аутентификацию по OAuth в первом запросе
-   TODO: И вообще при чем тут куки? :)
-
-   it('ожидаем тип объект у результата запроса', function() {
-   assert.strictEqual(typeof resRequest.body, 'object');
-   });
-   it('ожидаем значение свойства echo "peekaboo"', function() {
-   assert.strictEqual(resRequest.body.echo, 'peekaboo');
-   });
-   */
-      /*});
-    });
-    describe('# Requesting echo-oauth GET with the modified cookie', function () {
-      describe('# check if the request can be made using the oauth cookie with a wrong sid', function () {
-        let resRequest;
-        cookie[0] = cookie[0].slice(0, 15) + cryptoRandom(5).toString('hex') + cookie[0].slice(25);
-        before(async function () {
-          try {
-            resRequest = await request({
-              method: 'GET',
-              uri: `${serverURL}/rest/echo-oauth`,
-              resolveWithFullResponse: true,
-              json: true,
-              headers: {Сookie: cookie}
-            });
-          } catch (e) {
-            resRequest = e.response;
-          }
-        });
-        it('statusCode expected to be 403 (Access denied)', function () {
-          assert.strictEqual(resRequest.statusCode, 403);
-        });
-        it('the response should not contain echo "peekaboo"', function () {
-          assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
-        });
-      });
-    });
-  });
-  describe('# Requesting echo-oauth GET without the cookie', function() {
-    describe('check if the request can be made without a cookie', function () {
-      let resRequest;
+    describe('Проверяем аутентификацию по верному OAuth2 токену', async function () {
+      let res;
       before(async function () {
         try {
-          resRequest = await request({
+          res = await request({
             method: 'GET',
             uri: `${serverURL}/rest/echo-oauth`,
             resolveWithFullResponse: true,
-            json: true
+            json: true,
+            headers: {
+              'Authorization': 'Bearer ' + token
+            }
           });
         } catch (e) {
-          resRequest = e.response;
-          console.log(e);
+          res = e.response;
+        }
+        console.log('bingo');
+      });
+      it('проверка содержимого ответа', function () {
+        assert.strictEqual(typeof res.body, 'object', 'тип содержимого - обьект');
+        assert.strictEqual(res.body.echo, 'peekaboo', 'атрибут echo равен peekaboo');
+      });
+    });
+
+    describe('Проверяем аутентификацию по неверному OAuth2 токену', async function () {
+      let res;
+      before(async function () {
+        try {
+          res = await request({
+            method: 'GET',
+            uri: `${serverURL}/rest/echo-oauth`,
+            resolveWithFullResponse: true,
+            json: true,
+            headers: {
+              'Authorization': 'Bearer aaa'
+            }
+          });
+        } catch (e) {
+          res = e.response;
         }
       });
-      it('statusCode expected to be 403 (Access denied)', function () {
-        assert.strictEqual(resRequest.statusCode, 403);
-      });
-      it('the response should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+      it('проверка статуса ответа', function () {
+        assert.strictEqual(res.statusCode, 401);
       });
     });
   });
-});*/
+});
