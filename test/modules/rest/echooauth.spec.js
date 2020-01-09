@@ -101,7 +101,6 @@ describe('Проверяем сервис echo-oauth', async function () {
         } catch (e) {
           res = e.response;
         }
-        console.log('bingo');
       });
       it('проверка содержимого ответа', function () {
         assert.strictEqual(typeof res.body, 'object', 'тип содержимого - обьект');
