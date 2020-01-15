@@ -5,7 +5,7 @@ const request = require('request-promise-native');
 let giventoken;
 let cookie;
 
-describe('Проверяем сервис echo-errtype', function() {
+describe('Checking echo-errtype service', function() {
   before(async function() {
     giventoken = (await request({
       method: 'GET',

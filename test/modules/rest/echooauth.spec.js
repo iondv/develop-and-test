@@ -6,7 +6,7 @@ const url = require('url');
 const base64 = require('base64-js');
 // спецификация - https://www.npmjs.com/package/oauth2-server
 
-describe('Проверяем сервис echo-oauth', async function () {
+describe('Checking echo-oauth service', async function () {
   let sess = '';
   let dlg = false;
   let auth_code = '';
@@ -57,12 +57,13 @@ describe('Проверяем сервис echo-oauth', async function () {
       const redirect = url.parse(res.headers['location'], true);
       auth_code = redirect.query.code;
       if (auth_code) {
+        var test;
         try {
           res = await request({
             method: 'POST',
             uri: `${serverURL}/oauth2/token`,
             headers: {
-              'Authorization': 'Basic ' + base64.fromByteArray(Buffer.from(extSystemUsername + ':' + extSystemSecret, 'utf8'))
+              'Authorization': test='Basic ' + base64.fromByteArray(Buffer.from(extSystemUsername + ':' + extSystemSecret, 'utf8'))
             },
             form: {
               'grant_type': 'authorization_code',
@@ -76,6 +77,7 @@ describe('Проверяем сервис echo-oauth', async function () {
           res = e.response;
           console.error(res);
         }
+        console.log(test);
       }
     }
   });
@@ -85,7 +87,7 @@ describe('Проверяем сервис echo-oauth', async function () {
     assert.ok(auth_code, 'auth code obtained');
     assert.ok(token, 'auth token obtained');
 
-    describe('Проверяем аутентификацию по верному OAuth2 токену', async function () {
+    describe('Checking auth with valid OAuth2 token', async function () {
       let res;
       before(async function () {
         try {
@@ -103,13 +105,13 @@ describe('Проверяем сервис echo-oauth', async function () {
         }
         console.log('bingo');
       });
-      it('проверка содержимого ответа', function () {
-        assert.strictEqual(typeof res.body, 'object', 'тип содержимого - обьект');
-        assert.strictEqual(res.body.echo, 'peekaboo', 'атрибут echo равен peekaboo');
+      it('check the response body', function () {
+        assert.strictEqual(typeof res.body, 'object', 'type of the body is object');
+        assert.strictEqual(res.body.echo, 'peekaboo', 'field "echo" equals to "peekaboo"');
       });
     });
 
-    describe('Проверяем аутентификацию по неверному OAuth2 токену', async function () {
+    describe('Checking auth with invalid OAuth2 token', async function () {
       let res;
       before(async function () {
         try {
@@ -126,7 +128,7 @@ describe('Проверяем сервис echo-oauth', async function () {
           res = e.response;
         }
       });
-      it('проверка статуса ответа', function () {
+      it('statusCode has to be 401', function () {
         assert.strictEqual(res.statusCode, 401);
       });
     });

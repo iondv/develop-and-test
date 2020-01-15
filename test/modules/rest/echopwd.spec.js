@@ -2,7 +2,7 @@ const assert = require('assert');
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
 const request = require('request-promise-native');
 
-describe('Проверяем сервис echo-pwd', function() {
+describe('Checking echo-pwd service', function() {
   describe('# Requesting echo-pwd GET', function() {
     describe('check if the request can be made using the baseAuth', function () {
       let resRequest;
@@ -15,10 +15,10 @@ describe('Проверяем сервис echo-pwd', function() {
           auth: {username: adminUsername, password: adminPassword}
         });
       });
-      it('ожидаем тип объект у результата запроса', function () {
+      it('expecting an object type in the response', function () {
         assert.strictEqual(typeof resRequest.body, 'object');
       });
-      it('ожидаем значение свойства echo "peekaboo"', function () {
+      it('expecting field "echo" containing "peekaboo"', function () {
         assert.strictEqual(resRequest.body.echo, 'peekaboo');
       });
     });
@@ -34,10 +34,10 @@ describe('Проверяем сервис echo-pwd', function() {
           headers: {'auth-user': adminUsername, 'auth-pwd': adminPassword}
         });
       });
-      it('ожидаем тип объект у результата запроса', function () {
+      it('expecting an object type in the response', function () {
         assert.strictEqual(typeof resRequest.body, 'object');
       });
-      it('ожидаем значение свойства echo "peekaboo"', function () {
+      it('expecting field "echo" containing "peekaboo"', function () {
         assert.strictEqual(resRequest.body.echo, 'peekaboo');
       });
     });

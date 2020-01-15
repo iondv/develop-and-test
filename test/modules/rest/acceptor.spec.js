@@ -8,7 +8,7 @@ const BASE_REQUEST = {
   method: 'POST', resolveWithFullResponse: true, json: true,
   uri: `${serverURL}/rest/acceptor`, headers: {'Content-Type': 'application/json'},
   auth: {username: adminUsername, password: adminPassword}
-}
+};
 
 const reqBody = [
   { // key field "id" or "_id" not defined
@@ -39,15 +39,15 @@ const reqBody = [
     string_miltilinetext: "Example13",
     string_formattext: "Example13"
   }
-]
+];
 let giventoken;
 let tempId;
 
-describe('Проверяем сервис acceptor', function() {
-  describe('# baseAuth authorization with admin rights, getting a string', function() {
-    describe('# result of create objects', function() {
+describe('Checking acceptor service', function() {
+  describe('# baseAuth authorization with admin rights, POSTing strings', function() {
+    describe('# result of creation of objects', function() {
       let res;
-      it('делаем запрос, статус должен быть 200', async function() {
+      it('making the request, statusCode has to be 200', async function() {
         res = await requestBody(reqBody);
         assert.strictEqual(res.statusCode, 200);
       });
@@ -137,6 +137,63 @@ describe('Проверяем сервис acceptor', function() {
           // TODO get crud
         });
       });
+    });
+    describe('# POSTing objects, request is not JSON', function() {
+      let res;
+      let text;
+      it('making the request, statusCode has to be 400', async function() {
+        res = await request({
+          method: 'POST', resolveWithFullResponse: true, json: false,
+          uri: `${serverURL}/rest/acceptor`, headers: {'Content-Type': 'text/plain'},
+          auth: {username: adminUsername, password: adminPassword},
+          body: text = cryptoRandom(8).toString('hex')
+        });
+        assert.strictEqual(res.statusCode, 400);
+      });
+      it(`check if the object was not created`, async function() {
+        res = await request({
+          method: 'GET',
+          resolveWithFullResponse: true,
+          uri: `${serverURL}/rest/crud/class_string@develop-and-test/?${text}`,
+          headers: {
+            'auth-token': giventoken
+          },
+          json: true
+        });
+        assert.notStrictEqual(res.body, text);
+      });
+    });
+  });
+  describe('# invalid authorization', function() {
+    let reqOptions;
+    let res;
+    before(function() {
+      reqOptions = {method: 'POST', headers: {
+          'auth-token': '123',
+          'Content-Type': 'application/json'},
+        resolveWithFullResponse: true,
+        url: `${serverURL}/rest/acceptor`,
+        _id: `10101010-5583-11e6-aef7-cf50314f026b`,
+        _class: `class_string@develop-and-test`,
+        _classVer: null,
+        string_text: "Example10",
+        string_miltilinetext: "Example10",
+        string_formattext: "Example10"
+      };
+    });
+    it('the response statusCode should be 403 (Forbidden)', async function() {
+      try {
+        res = await request(reqOptions)
+          .then(resp => {return resp})
+          .catch();
+      } catch (e) {
+        res = e.response;
+      }
+      assert.strictEqual(res.statusCode, 403);
+    });
+    it('the response body should not contain the requested object', async function() {
+      assert.notStrictEqual(res.body,
+        [{"id":"10101010-5583-11e6-aef7-cf50314f026b","_class":"class_string@develop-and-test","_classVer":"","string_formattext":"Example10","string_miltilinetext":"Example10","string_text":"Example10","_id":"10101010-5583-11e6-aef7-cf50314f026b"}]);
     });
   });
   describe('# no authorization', function() {

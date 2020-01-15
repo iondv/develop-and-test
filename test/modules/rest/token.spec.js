@@ -3,7 +3,7 @@ const request = require('request-promise-native');
 const {serverURL, adminUsername, adminPassword,
   anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
 
-describe('Проверяем сервис token', function() {
+describe('Checking token service', function() {
   let giventoken;
   let headersgiventoken;
   let genwsgiventoken;
@@ -26,13 +26,13 @@ describe('Проверяем сервис token', function() {
         res = e.response;
       }
     });
-    it('делаем запрос, статус должен быть 200', function () {
+    it('making the request, statusCode has to be 200', function () {
       assert.strictEqual(res.statusCode, 200);
     });
-    it('проверяем ответ на соответствие токену', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.strictEqual(res.body.length, 40, 'длина токена не равна 40');
+    it('check if the response indeed contains a token', function () {
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
+      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
     });
 
     describe('# check if the generated token is valid (baseAuth) (using echo-token)', function () {
@@ -71,9 +71,9 @@ describe('Проверяем сервис token', function() {
       assert.strictEqual(res.statusCode, 403);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 
@@ -98,9 +98,9 @@ describe('Проверяем сервис token', function() {
       assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 
@@ -119,13 +119,13 @@ describe('Проверяем сервис token', function() {
         res = e.response;
       }
     });
-    it('делаем запрос, статус должен быть 200', function () {
+    it('making the request, statusCode has to be 200', function () {
       assert.strictEqual(res.statusCode, 200);
     });
-    it('проверяем ответ на соответствие токену', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.strictEqual(res.body.length, 40, 'длина токена не равна 40');
+    it('check if the response indeed contains a token', function () {
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
+      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
     });
     describe('# check if the generated token is valid (header parameters auth) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
@@ -159,9 +159,9 @@ describe('Проверяем сервис token', function() {
       assert.strictEqual(res.statusCode, 403);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 
@@ -183,9 +183,9 @@ describe('Проверяем сервис token', function() {
       assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 
@@ -204,12 +204,12 @@ describe('Проверяем сервис token', function() {
       }
     });
     it('statusCode has to be 403', function () {
-      assert.strictEqual(res.statusCode, 403, 'Если прав на ws::gen-ws-token, то должен выдавать код 403');
+      assert.strictEqual(res.statusCode, 403, 'if no right to use ws::gen-ws-token the statusCode has to be 403');
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 
@@ -228,13 +228,13 @@ describe('Проверяем сервис token', function() {
         res = e.response;
       }
     });
-    it('делаем запрос, статус должен быть 200', function () {
+    it('making the request, statusCode has to be 200', function () {
       assert.strictEqual(res.statusCode, 200);
     });
-    it('проверяем ответ на соответствие токену', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.strictEqual(res.body.length, 40, 'длина токена не равна 40');
+    it('check if the response indeed contains a token', function () {
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
+      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
     });
     describe('# check if the generated token is valid (genws use rights) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
@@ -267,9 +267,9 @@ describe('Проверяем сервис token', function() {
       assert.strictEqual(res.statusCode, 401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'ожидаем атрибут body');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1, 'есть другие символы кроме нижнего регистра и цифр');
-      assert.notEqual(res.body.length, 40, 'длина токена не равна 40');
+      assert.ok(res.body, 'awaiting field "body"');
+      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
+      assert.notEqual(res.body.length, 40);
     });
   });
 

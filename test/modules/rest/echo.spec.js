@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {serverURL} = require('./config.js')
+const {serverURL} = require('./config.js');
 const request = require('request-promise-native');
 
 const reqOptions = {
@@ -12,29 +12,29 @@ const reqOptions = {
 };
 
 
-describe('Проверяем сервис echo', function() {
-  describe('# отработка правильных параметров запроса', function() {
+describe('Checking echo service', function() {
+  describe('# check if the response is valid on a valid request', function() {
     let resRequest;
-    it('проверка что осуществляется запрос без авторизации', async function() {
+    it('check if the request with no auth passes', async function() {
       resRequest = await request(reqOptions)
         .catch();
     });
-    it('ожидаем тип объект у результата запроса', function() {
+    it('expecting an object type in the response', function() {
       assert.strictEqual(typeof resRequest, 'object');
     });
-    it('ожидаем значение свойства echo "peekaboo"', function() {
+    it('expecting field "echo" containing "peekaboo"', function() {
       assert.strictEqual(resRequest.echo, 'peekaboo');
     });
   });
-  describe('# отработка ошибочных параметров запроса ', function() {
-    it('проверка что осуществляется запрос с авторизацией', async function() {
+  describe('# check if the response is valid on wrong request options ', function() {
+    it('check if the request can be made with auth', async function() {
       reqOptions.auth = {username: 'login', password: 'pswd'};
       const resRequest = await request(reqOptions)
         .catch();
       delete reqOptions.auth;
       assert.strictEqual(resRequest.echo, 'peekaboo');
     });
-    it('проверка что осуществляется запрос с accept = plain/text', async function() {
+    it('check if the request can be made with Accept = plain/text in the headers', async function() {
       reqOptions.headers['Accept'] = 'plain/text';
       const resRequest = await request(reqOptions)
         .catch();
