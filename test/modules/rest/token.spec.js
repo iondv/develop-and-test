@@ -39,9 +39,11 @@ describe('Checking token service', function() {
       it('authorization by token is passed', async function () {
         const reqOptions = {
           method: 'GET',
-          headers: {'Accept': 'application/json'},
           url: `${serverURL}/rest/echo-token`,
-          headers: {'auth-token': giventoken},
+          headers: {
+            'Accept': 'application/json',
+            'auth-token': giventoken
+          },
           json: true
         };
         const res = await request(reqOptions);
@@ -130,9 +132,12 @@ describe('Checking token service', function() {
     describe('# check if the generated token is valid (header parameters auth) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
         const reqOptions = {
-          method: 'GET', headers: {'Accept': 'application/json'},
+          method: 'GET',
           url: `${serverURL}/rest/echo-token`,
-          headers: {'auth-token': headersgiventoken},
+          headers: {
+            'Accept': 'application/json',
+            'auth-token': headersgiventoken
+          },
           json: true
         };
         const res = await request(reqOptions);
@@ -239,9 +244,12 @@ describe('Checking token service', function() {
     describe('# check if the generated token is valid (genws use rights) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
         const reqOptions = {
-          method: 'GET', headers: {'Accept': 'application/json'},
+          method: 'GET',
           url: `${serverURL}/rest/echo-token`,
-          headers: {'auth-token': genwsgiventoken},
+          headers: {
+            'Accept': 'application/json',
+            'auth-token': genwsgiventoken
+          },
           json: true
         };
         const res = await request(reqOptions);
@@ -276,9 +284,12 @@ describe('Checking token service', function() {
   describe('# check if auth is not passed with a random token (using echo-token)', function() {
     it('statusCode has to be 403', async function () {
       const reqOptions = {
-        method: 'GET', headers: {'Accept': 'application/json'},
+        method: 'GET',
         url: `${serverURL}/rest/echo-token`,
-        headers: {'auth-token': '123hi1uifhdiuoisjo1sijnsdfhh342456jieopq'},
+        headers: {
+          'Accept': 'application/json',
+          'auth-token': '123hi1uifhdiuoisjo1sijnsdfhh342456jieopq'
+        },
         json: true
       };
       let res;
@@ -288,6 +299,46 @@ describe('Checking token service', function() {
         res = e.response;
       }
       assert.strictEqual(res.statusCode, 403);
+    });
+  });
+  describe('# checking echo-token service', function() {
+    describe('## check if auth is not passed using basicAuth when token authMode is defined', function () {
+      it('statusCode has to be 401 for header auth request', async function () {
+        const reqOptions = {
+          method: 'GET',
+          url: `${serverURL}/rest/echo-token`,
+          headers: {
+            'Accept': 'application/json',
+            'auth-user': adminUsername, 'auth-pwd': adminPassword
+          },
+          json: true
+        };
+        let res;
+        try {
+          res = await request(reqOptions);
+        } catch (e) {
+          res = e.response;
+        }
+        assert.notStrictEqual(res.echo, 'peekaboo', 'no echo should be returned');
+        assert.strictEqual(res.statusCode, 401);
+      });
+      it('statusCode has to be 401 for basicAuth request', async function () {
+        const reqOptions = {
+          method: 'GET',
+          url: `${serverURL}/rest/echo-token`,
+          headers: {'Accept': 'application/json'},
+          auth: {username: adminUsername, password: adminPassword},
+          json: true
+        };
+        let res;
+        try {
+          res = await request(reqOptions);
+        } catch (e) {
+          res = e.response;
+        }
+        assert.notStrictEqual(res.echo, 'peekaboo', 'no echo should be returned');
+        assert.strictEqual(res.statusCode, 401);
+      });
     });
   });
 });
