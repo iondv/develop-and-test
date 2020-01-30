@@ -44,7 +44,7 @@ let giventoken;
 let tempId;
 
 describe('Checking acceptor service', function() {
-  describe('# baseAuth authorization with admin rights, POSTing strings', function() {
+  describe('# basicAuth authorization with admin rights, POSTing strings', function() {
     describe('# result of creation of objects', function() {
       let res;
       it('making the request, statusCode has to be 200', async function() {

@@ -6,7 +6,7 @@ let giventoken;
 
 describe('Checking echo-pwd service', function() {
   describe('# Requesting echo-pwd GET', function() {
-    describe('check if the request can be made using the baseAuth', function () {
+    describe('check if the request can be made using the basicAuth', function () {
       let resRequest;
       before(async function () {
         resRequest = await request({
@@ -44,7 +44,7 @@ describe('Checking echo-pwd service', function() {
       });
     });
   });
-  describe('# check if the response is valid on request with wrong baseAuth credentials', async function () {
+  describe('# check if the response is valid on request with wrong basicAuth credentials', async function () {
     describe('make a request', async function () {
       let resRequest;
       before(async function () {

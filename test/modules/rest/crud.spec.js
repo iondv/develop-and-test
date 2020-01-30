@@ -35,7 +35,7 @@ const modreq = function(props) {
       it('statusCode has to be 404', async function() {
         let res;
         try{
-          res = await request(BASE_REQUEST)
+          res = await request(modreq({method: 'POST'}));
         }
         catch(e){
           res = e.response;

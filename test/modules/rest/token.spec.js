@@ -8,7 +8,7 @@ describe('Checking token service', function() {
   let headersgiventoken;
   let genwsgiventoken;
 
-  describe('# baseAuth authorization with admin rights', function() {
+  describe('# basicAuth authorization with admin rights', function() {
     let reqOptions;
     let res;
     before(async function () {
@@ -35,7 +35,7 @@ describe('Checking token service', function() {
       assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
     });
 
-    describe('# check if the generated token is valid (baseAuth) (using echo-token)', function () {
+    describe('# check if the generated token is valid (basicAuth) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
         const reqOptions = {
           method: 'GET',
@@ -52,7 +52,7 @@ describe('Checking token service', function() {
     });
   });
 
-  describe('# baseAuth authorization using a non existent user', function() {
+  describe('# basicAuth authorization using a non existent user', function() {
     let reqOptions;
     let res;
     before(async function () {
@@ -79,7 +79,7 @@ describe('Checking token service', function() {
     });
   });
 
-  describe('# baseAuth authorization using a wrong password', function() {
+  describe('# basicAuth authorization using a wrong password', function() {
     let reqOptions;
     let res;
     before(async function () {

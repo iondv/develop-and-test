@@ -6,7 +6,7 @@ const url = require('url');
 const base64 = require('base64-js');
 // спецификация - https://www.npmjs.com/package/oauth2-server
 
-describe('Проверяем прокси для rest-api', async function () {
+describe('Checking rest-api proxy', async function () {
   let sess = '';
   before(async function () {
     let res;
@@ -22,10 +22,10 @@ describe('Проверяем прокси для rest-api', async function () {
 
     sess = res.headers['set-cookie'][0];
   });
-  it('check if user authenticated', function () {
+  it('check if the user is authenticated', function () {
     assert.ok(sess);
 
-    describe('Проверяем обращение к proxy API', async function () {
+    describe('Try requesting proxy API', async function () {
       let res;
       before(async function () {
         try {
@@ -42,10 +42,10 @@ describe('Проверяем прокси для rest-api', async function () {
           res = e.response;
         }
       });
-      it('проверка содержимого ответа', function () {
+      it('Checking the response body', function () {
         console.log(res.body);
-        assert.strictEqual(typeof res.body, 'object', 'тип содержимого - обьект');
-        assert.strictEqual(res.body.echo, 'peekaboo', 'атрибут echo равен peekaboo');
+        assert.strictEqual(typeof res.body, 'object', 'Body type is object');
+        assert.strictEqual(res.body.echo, 'peekaboo', 'field echo equals to "peekaboo"');
       });
     });
   });
