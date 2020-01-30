@@ -54,30 +54,30 @@ describe('Checking echo-oauth service', async function () {
         res = e.response;
       }
 
-      const redirect = url.parse(res.headers['location'], true);
-      auth_code = redirect.query.code;
-      if (auth_code) {
-        var test;
-        try {
-          res = await request({
-            method: 'POST',
-            uri: `${serverURL}/oauth2/token`,
-            headers: {
-              'Authorization': test='Basic ' + base64.fromByteArray(Buffer.from(extSystemUsername + ':' + extSystemSecret, 'utf8'))
-            },
-            form: {
-              'grant_type': 'authorization_code',
-              'code': auth_code
-            },
-            json: true,
-            resolveWithFullResponse: true
-          });
-          token = res.body.access_token;
-        } catch (e) {
-          res = e.response;
-          console.error(res);
+      if (res.headers['location']) {
+        const redirect = url.parse(res.headers['location'], true);
+        auth_code = redirect.query.code;
+        if (auth_code) {
+          try {
+            res = await request({
+              method: 'POST',
+              uri: `${serverURL}/oauth2/token`,
+              headers: {
+                'Authorization': 'Basic ' + base64.fromByteArray(Buffer.from(extSystemUsername + ':' + extSystemSecret, 'utf8'))
+              },
+              form: {
+                'grant_type': 'authorization_code',
+                'code': auth_code
+              },
+              json: true,
+              resolveWithFullResponse: true
+            });
+            token = res.body.access_token;
+          } catch (e) {
+            res = e.response;
+            console.error(res);
+          }
         }
-        console.log(test);
       }
     }
   });
@@ -103,7 +103,6 @@ describe('Checking echo-oauth service', async function () {
         } catch (e) {
           res = e.response;
         }
-        console.log('bingo');
       });
       it('check the response body', function () {
         assert.strictEqual(typeof res.body, 'object', 'type of the body is object');

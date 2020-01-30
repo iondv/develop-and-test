@@ -306,6 +306,25 @@
               "module": "ion://module",
               "fileStorage": "ion://fileStorage"
             }
+          },
+          "apiGateWay": {
+            "module": "modules/rest/client/GateWay",
+            "options": {
+              "log": "ion://sysLog",
+              "base": "/registry-ajax-api",
+              "clientId": "ext@system",
+              "clientSecret": "ion-demo",
+              "tokenPath": "/rest/token",
+              "endPoint": "[[rest.endPoint]]",
+              "definition": {
+                "paths": {
+                  "/rest/echo-token": {
+                    "post": true,
+                    "get": true
+                  }
+                }
+              }
+            }
           }
         }
       }
