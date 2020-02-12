@@ -142,12 +142,16 @@ describe('Checking acceptor service', function() {
       let res;
       let text;
       it('making the request, statusCode has to be 400', async function() {
-        res = await request({
-          method: 'POST', resolveWithFullResponse: true, json: false,
-          uri: `${serverURL}/rest/acceptor`, headers: {'Content-Type': 'text/plain'},
-          auth: {username: adminUsername, password: adminPassword},
-          body: text = cryptoRandom(8).toString('hex')
-        });
+        try {
+          res = await request({
+            method: 'POST', resolveWithFullResponse: true, json: false,
+            uri: `${serverURL}/rest/acceptor`, headers: {'Content-Type': 'text/plain'},
+            auth: {username: adminUsername, password: adminPassword},
+            body: text = cryptoRandom(8).toString('hex')
+          });
+        } catch (e) {
+          res = e.response;
+        }
         assert.strictEqual(res.statusCode, 400);
       });
       it(`check if the object was not created`, async function() {
