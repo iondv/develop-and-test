@@ -505,7 +505,11 @@
           "echo-pwd": "pwd",
           "echo-errtype": "a7b4e07d",
           "echo-oauth": "oauth",
-          "echo-token": "token"
+          "echo-token": "token",
+          "acceptor": "pwd",
+          "crud": "token",
+          "meta": "token",
+          "workflows": "token"
         },
         "di": {
           "simple": {
@@ -544,6 +548,20 @@
             "module": "modules/rest/lib/impl/crud",
             "options": {
               "auth": "ion://auth",
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo"
+            }
+          },
+          "meta": {
+            "module": "modules/rest/lib/impl/meta",
+            "options": {
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo"
+            }
+          },
+          "workflows": {
+            "module": "modules/rest/lib/impl/workflows",
+            "options": {
               "metaRepo": "ion://metaRepo",
               "dataRepo": "ion://dataRepo"
             }

@@ -29,7 +29,6 @@ const modreq = function(props) {
       headers: {'auth-user': adminUsername, 'auth-pwd': adminPassword}
       })).body;
       BASE_REQUEST.headers['auth-token'] = giventoken;
-      //console.log(giventoken);
     });
     describe('# check if the response for null parameters is valid', function() {
       it('statusCode has to be 404', async function() {
@@ -197,8 +196,8 @@ const modreq = function(props) {
           try {
             await request(modreq({
               method: 'POST', resolveWithFullResponse: true, json: true,
-              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json'},
-              auth: {username: adminUsername, password: adminPassword},
+              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json',
+                'auth-token': giventoken},
               body: {
                 _id: cryptoRandom(32).toString('hex'),
                 text_text: cryptoRandom(8).toString('hex') + "55",
@@ -208,8 +207,8 @@ const modreq = function(props) {
             }));
             await request(modreq({
               method: 'POST', resolveWithFullResponse: true, json: true,
-              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json'},
-              auth: {username: adminUsername, password: adminPassword},
+              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json',
+                'auth-token': giventoken},
               body: {
                 id: cryptoRandom(32).toString('hex'),
                 text_text: cryptoRandom(8).toString('hex') + "66",
@@ -219,8 +218,8 @@ const modreq = function(props) {
             }));
             await request(modreq({
               method: 'POST', resolveWithFullResponse: true, json: true,
-              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json'},
-              auth: {username: adminUsername, password: adminPassword},
+              uri: `${serverURL}/rest/crud/class_text@develop-and-test/`, headers: {'Content-Type': 'application/json',
+                'auth-token': giventoken},
               body: {
                 _id: cryptoRandom(32).toString('hex'),
                 text_text: cryptoRandom(8).toString('hex') + "77",
@@ -281,8 +280,8 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json'},
-            auth: {username: adminUsername, password: adminPassword},
+            headers: {'Content-Type': 'application/json',
+            'auth-token': giventoken},
             body: {
               id: tempId1,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -291,8 +290,8 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json'},
-            auth: {username: adminUsername, password: adminPassword},
+            headers: {'Content-Type': 'application/json',
+              'auth-token': giventoken},
             body: {
               id: tempId2,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -301,8 +300,8 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json'},
-            auth: {username: adminUsername, password: adminPassword},
+            headers: {'Content-Type': 'application/json',
+              'auth-token': giventoken},
             body: {
               id: tempId3,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -311,8 +310,8 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/classColl@develop-and-test/`,
-            headers: {'Content-Type': 'application/json'},
-            auth: {username: adminUsername, password: adminPassword},
+            headers: {'Content-Type': 'application/json',
+              'auth-token': giventoken},
             body: {
               id: tempId,
               table: [

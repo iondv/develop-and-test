@@ -193,7 +193,7 @@ describe('Checking acceptor service', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 403);
+      assert.strictEqual(res.statusCode, 401);
     });
     it('the response body should not contain the requested object', async function() {
       assert.notStrictEqual(res.body,

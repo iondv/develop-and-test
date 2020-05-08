@@ -1,5 +1,5 @@
 {
-  "name": "mocha test stripts for develop-and-test",
+  "name": "mocha-test-stripts-for-dnt",
   "description": "Metaproject for testing and development",
   "license": "Apache License 2.0",
   "version": "2.0.2",
@@ -14,7 +14,7 @@
   "ionMetaDependencies": {},
   "dependencies": {},
   "devDependencies": {
-    "request-promise-native": "^1.0.8",
-    "mocha": "^6.2.2"
+    "mocha": "^6.2.3",
+    "request-promise-native": "^1.0.8"
   }
 }
