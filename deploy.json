@@ -562,8 +562,10 @@
           "workflows": {
             "module": "modules/rest/lib/impl/workflows",
             "options": {
+              "auth": "ion://auth",
               "metaRepo": "ion://metaRepo",
-              "dataRepo": "ion://dataRepo"
+              "dataRepo": "ion://dataRepo",
+              "workflow": "ion://workflows"
             }
           },
           "crud-zero": {

@@ -1,6 +1,5 @@
 const assert = require('assert');
 const request = require('request-promise-native');
-const cryptoRandom = require('crypto').randomBytes;
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
 
 let BASE_REQUEST = {
