@@ -2,6 +2,8 @@ const assert = require('assert');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
+const fs = require('fs');
+const path = require('path');
 
 let  giventoken;
 // text/javascript // string
@@ -68,6 +70,42 @@ const modreq = function(props) {
           assert.strictEqual(res.body.text_text, `${tempText}1`);
           assert.strictEqual(res.body.text_multilinetext, `${tempText}2`);
           assert.strictEqual(res.body.text_formattext, `${tempText}3`);
+        });
+      });
+      describe('# sending a file with multipart body request (POST)', function () {
+        let res;
+        it('making the request, statusCode has to be 200', async function () {
+          let req = modreq({
+            method: "POST",
+            uri: `${serverURL}/rest/crud/class_file@develop-and-test/`,
+            formData: {
+              file_file: fs.createReadStream(__dirname + path.sep + 'crud_request'),
+            }
+          });
+          req.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+          res = await request(req);
+          assert.strictEqual(res.statusCode, 200);
+        });
+        it('check if the response contains the sent file object', async function () {
+          assert.strictEqual(res.body.file.buffer.length > 0, true);
+        });
+      });
+      describe('# sending a file with json body request (POST)', function () {
+        let res;
+        let req = modreq({
+          method: "POST",
+          uri: `${serverURL}/rest/crud/class_file@develop-and-test/`,
+          body: {
+            file_file: fs.readFileSync(__dirname + path.sep + 'crud_request', {encoding: 'base64'}),
+          }
+        });
+        req.headers['Content-Type'] = 'application/json';
+        it('making the request, statusCode has to be 200', async function () {
+          res = await request(req);
+          assert.strictEqual(res.statusCode, 200);
+        });
+        it('check if the response contains the sent text object', async function () {
+          assert.strictEqual(res.body.file.buffer.length > 0, true);
         });
       });
       describe('# creating an object with the same ID as the previous (POST)', function () {

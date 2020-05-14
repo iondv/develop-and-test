@@ -35,7 +35,7 @@ describe('checking metadata service', () => {
         console.log(e);
         throw e;
       }
-      console.log(res.body);
+      assert.equal(res.statusCode, 200);
       assert.equal(res.body instanceof Array, true);
       assert.notEqual(res.body.length, 0);
     })
@@ -49,7 +49,7 @@ describe('checking metadata service', () => {
         console.log(e);
         throw e;
       }
-      console.log(res.body);
+      assert.equal(res.statusCode, 200);
       assert.equal(res.body instanceof Array, true);
       assert.notEqual(res.body.length, 0);
     })
@@ -62,8 +62,8 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
-      console.log(res);
       assert.equal(typeof res, 'object');
       assert.notEqual(res.namespace, undefined);
     })
@@ -76,6 +76,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.notEqual(res, undefined);
       assert.ok(res.namespace);
@@ -89,6 +90,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Array, true);
       assert.notEqual(res.length, 0);
@@ -102,6 +104,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.classProperties);
@@ -115,6 +118,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.name);
@@ -128,6 +132,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.code);
@@ -141,6 +146,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Array, true);
       assert.notEqual(res.length, 0);
@@ -154,6 +160,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.columns);
@@ -167,6 +174,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.commands);
@@ -180,6 +188,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.tabs);
@@ -193,6 +202,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.commands);
@@ -206,6 +216,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.commands);
@@ -219,6 +230,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Array, true);
       assert.notEqual(res.length, 0);
@@ -232,6 +244,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.commands);
@@ -245,6 +258,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
       assert.ok(res.states);
@@ -258,6 +272,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Object, true);
     })
@@ -270,6 +285,7 @@ describe('checking metadata service', () => {
       } catch (e) {
         res = e.response.body;
       }
+      assert.equal(res.statusCode, 200);
       res = res.body;
       assert.equal(res instanceof Array, true);
       assert.notEqual(res.length, 0);
