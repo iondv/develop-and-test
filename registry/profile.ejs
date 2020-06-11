@@ -12,9 +12,9 @@
 <section id="middle">
 
   <header id="page-header">
-    <h1>User profile <%= user.name() %></h1>
+    <h1><%=__('User profile ')%><%= user.name() %></h1>
     <ol class="breadcrumb">
-      <li><a href="/<%=module%>"><i class="fa fa-dashboard"></i> Main</a></li>
+      <li><a href="/<%=module%>"><i class="fa fa-dashboard"></i><%=__(' Main')%></a></li>
       <%- blocks.breadcrumbs %>
     </ol>
   </header>
@@ -31,43 +31,43 @@
     <form action="/<%=module%>/profile" method="post" class="sky-form boxed">
       <fieldset>
         <section>
-          <label class="label">Name</label>
+          <label class="label"><%=__('Name')%></label>
           <label class="input">
             <input type="text" name="firstName" class="input" readonly value="<%= user.properties()['firstName'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">Surname</label>
+          <label class="label"><%=__('Surname')%></label>
           <label class="input">
             <input type="text" name="lastName" class="input" readonly value="<%= user.properties()['lastName'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">Birth date</label>
+          <label class="label"><%=__('Birth date')%></label>
           <label class="input">
             <input type="text" name="birthDate" class="input" readonly value="<%= user.properties()['birthDate'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">Sex</label>
+          <label class="label"><%=__('Sex')%></label>
           <label class="input">
             <input type="text" name="gender" class="input" readonly value="<%= user.properties()['gender'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">INILA</label>
+          <label class="label"><%=__('INILA')%></label>
           <label class="input">
             <input type="text" name="snils" class="input" readonly value="<%= user.properties()['snils'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">Tax payer ID</label>
+          <label class="label"><%=__('Tax payer ID')%></label>
           <label class="input">
             <input type="text" name="inn" class="input" readonly value="<%= user.properties()['inn'] %>" />
           </label>
         </section>
         <section>
-          <label class="label">E-mail</label>
+          <label class="label"><%=__('E-mail')%></label>
           <label class="input">
             <input type="text" name="email" class="input" readonly value="<%= user.properties()['email'] %>" />
           </label>
@@ -105,7 +105,7 @@
       </fieldset>
 
       <footer>
-        <% if (showSubmit) { %><button id="authbutton" type="submit" class="btn btn-primary pull-right">Save</button><% } %>
+        <% if (showSubmit) { %><button id="authbutton" type="submit" class="btn btn-primary pull-right"><%=__('Save')%></button><% } %>
       </footer>
     </form>
   </div>
@@ -128,8 +128,8 @@
               field = $regForm.find('[name='+fieldName+']');
               if (!field.val()) {
                 valid = false;
-                messages.push('Field ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
-                  + ' required');
+                messages.push('<%=__('Field ')%>' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
+                  + '<%=__(' required')%>');
               }
             }
           }

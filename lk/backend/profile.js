@@ -1,7 +1,7 @@
 /**
  * Created by kalias_90 on 09.08.17.
  */
-'use strict';
+const __ = require('core/strings').unprefix('i18n');
 
 /**
  * @param {{}} options
@@ -17,7 +17,7 @@ function ProfileEditor(options) {
     module.get('/' + module.locals.module + '/lk-profile', function (req, res) {
       let user = options.auth.getUser(req);
       res.render('lk-profile', {
-        title: 'Profile editor',
+        title: __('Profile editor'),
         user: user,
         name: user.name(),
         properties: user.properties() || {}

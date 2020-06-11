@@ -5,6 +5,7 @@
     "pageTitle": "IONDV. Develop-and-Test",
     "pageEndContent": "<div><img src=\"https://mc.iondv.com/watch/local/app/dnt\" style=\"position:absolute; left:-9999px;\" alt=\"iondv-metrics\" /></div>",
     "theme": "applications/develop-and-test/themes/www",
+    "i18n": "applications/develop-and-test/i18n",
     "moduleTitles": {
 		  "registry": "Registry",
 		  "geomap": "Geodata",

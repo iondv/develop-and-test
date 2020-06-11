@@ -92,23 +92,23 @@ $(document).ready(function () {
       locale: {
         name:'ru',
         operations: {
-          "Count": "Number",
-          "Count Unique Values": "Number of unique values",
-          "List Unique Values": "List of unique values",
-          "Sum": "Sum",
-          "Integer Sum": "Sum of integers",
-          "Average": "Average",
-          "Minimum": "Minimum",
-          "Maximum": "Maximum",
-          "Sum over Sum": "Sum over Sum",
-          "80% Upper Bound": "80% upper bound",
-          "80% Lower Bound": "80% lower bound",
-          "Sum as Fraction of Total": "Total sum",
-          "Sum as Fraction of Rows": "Sum by string",
-          "Sum as Fraction of Columns": "Sum by column",
-          "Count as Fraction of Total": "Total number",
-          "Count as Fraction of Rows": "Number by string",
-          "Count as Fraction of Columns": "Number by column"
+          "Count": "<%=__('Number')%>",
+          "Count Unique Values": "<%=__('Number of unique values')%>",
+          "List Unique Values": "<%=__('List of unique values')%>",
+          "Sum": "<%=__('Sum')%>",
+          "Integer Sum": "<%=__('Sum of integers')%>",
+          "Average": "<%=__('Average')%>",
+          "Minimum": "<%=__('Minimum')%>",
+          "Maximum": "<%=__('Maximum')%>",
+          "Sum over Sum": "<%=__('Sum over Sum')%>",
+          "80% Upper Bound": "<%=__('80% upper bound')%>",
+          "80% Lower Bound": "<%=__('80% lower bound')%>",
+          "Sum as Fraction of Total": "<%=__('Total sum')%>",
+          "Sum as Fraction of Rows": "<%=__('Sum by string')%>",
+          "Sum as Fraction of Columns": "<%=__('Sum by column')%>",
+          "Count as Fraction of Total": "<%=__('Total number')%>",
+          "Count as Fraction of Rows": "<%=__('Number by string')%>",
+          "Count as Fraction of Columns": "<%=__('Number by column')%>"
         }
       }
     }).ionPivot('reload');
