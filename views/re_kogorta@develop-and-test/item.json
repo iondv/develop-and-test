@@ -26,8 +26,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Cohort data",
@@ -52,8 +53,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Maniple",
@@ -78,8 +80,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "State",
@@ -104,8 +107,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Responsible",
@@ -130,8 +134,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Result",
@@ -156,8 +161,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

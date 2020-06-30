@@ -142,5 +142,6 @@
       "signAfter": false,
       "isBulk": false
     }
-  ]
+  ],
+  "metaVersion": "2.0.0"
 }

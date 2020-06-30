@@ -185,6 +185,13 @@
             }
           }
         }
+      },
+      "oauth": {
+        "module": "lib/oAuthAdapter",
+        "options": {
+          "auth": "ion://auth",
+          "dataSource": "ion://Db"
+        }
       }
     },
     "jobs": {
@@ -298,6 +305,25 @@
             "options": {
               "module": "ion://module",
               "fileStorage": "ion://fileStorage"
+            }
+          },
+          "apiGateWay": {
+            "module": "modules/rest/client/GateWay",
+            "options": {
+              "log": "ion://sysLog",
+              "base": "/registry-ajax-api",
+              "clientId": "ext@system",
+              "clientSecret": "ion-demo",
+              "tokenPath": "/rest/token",
+              "endPoint": "[[rest.endPoint]]",
+              "definition": {
+                "paths": {
+                  "/rest/echo-token": {
+                    "post": true,
+                    "get": true
+                  }
+                }
+              }
             }
           }
         }
@@ -476,12 +502,27 @@
       "globals": {
         "authMode": {
           "echo": "none",
+          "echo-pwd": "pwd",
+          "echo-errtype": "a7b4e07d",
+          "echo-oauth": "oauth",
           "echo-token": "token",
-          "crud": "token"
+          "acceptor": "pwd",
+          "crud": "token",
+          "meta": "token",
+          "workflows": "token"
         },
         "di": {
           "simple": {
             "module": "applications/develop-and-test/service/SimpleRest"
+          },
+          "echo-pwd": {
+            "module": "applications/develop-and-test/service/EchoRest"
+          },
+          "echo-errtype": {
+            "module": "applications/develop-and-test/service/EchoRest"
+          },
+          "echo-oauth": {
+            "module": "applications/develop-and-test/service/EchoRest"
           },
           "echo-token": {
             "module": "applications/develop-and-test/service/EchoRest"
@@ -507,8 +548,28 @@
             "module": "modules/rest/lib/impl/crud",
             "options": {
               "auth": "ion://auth",
-              "dataRepo": "ion://securedDataRepo"
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo"
             }
+          },
+          "meta": {
+            "module": "modules/rest/lib/impl/meta",
+            "options": {
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo"
+            }
+          },
+          "workflows": {
+            "module": "modules/rest/lib/impl/workflows",
+            "options": {
+              "auth": "ion://auth",
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo",
+              "workflow": "ion://workflows"
+            }
+          },
+          "crud-zero": {
+            "module": "modules/rest/lib/impl/crud"
           }
         }
       }

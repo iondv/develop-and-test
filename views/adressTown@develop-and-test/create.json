@@ -26,8 +26,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "District",
@@ -52,8 +53,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Name",
@@ -78,8 +80,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "ARCPS",
@@ -104,8 +107,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Refers to the countryside",
@@ -130,8 +134,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Code of ARCA",
@@ -156,8 +161,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

@@ -1,15 +1,16 @@
 {
-    "code": "gantt",
-    "orderNumber": 0,
-    "type": 0,
-    "caption": "Gantt-chart",
-    "classname": null,
-    "container": null,
-    "collection": null,
-    "url": null,
-    "hint": null,
+  "code": "gantt",
+  "orderNumber": 0,
+  "type": 0,
+  "caption": "Gantt-chart",
+  "classname": null,
+  "container": null,
+  "collection": null,
+  "url": null,
+  "hint": null,
   "conditions": null,
-    "sorting": [],
-    "pathChains": [],
-    "metaVersion": "2.0.61.17674"
-  }
+  "sorting": [],
+  "pathChains": [],
+  "metaVersion": "2.0.61.17674",
+  "title": ""
+}

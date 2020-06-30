@@ -23,11 +23,12 @@
           "readonly": true,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         },
         {
           "caption": "First catalog field",
@@ -53,7 +54,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         },
         {
           "caption": "Second catalog field",
@@ -79,7 +81,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         },
         {
           "caption": "Third catalog field",
@@ -105,7 +108,8 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

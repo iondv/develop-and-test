@@ -11,5 +11,7 @@
   "hint": null,
   "conditions": null,
   "sorting": [],
-  "pathChains": []
+  "pathChains": [],
+  "title": "",
+  "metaVersion": "2.0.0"
 }

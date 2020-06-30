@@ -38,7 +38,7 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -67,7 +67,11 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-      "selConditions": {"nempty": ["$data"]},
+      "selConditions": {
+        "nempty": [
+          "$data"
+        ]
+      },
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -96,10 +100,16 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-      "selConditions": {"contains": [
-      	"$collectionAttr", 
-      	{"nempty": ["$data"]}
-  	  ]},
+      "selConditions": {
+        "contains": [
+          "$collectionAttr",
+          {
+            "nempty": [
+              "$data"
+            ]
+          }
+        ]
+      },
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,

@@ -23,11 +23,12 @@
           "readonly": true,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         },
         {
           "caption": "Collection",
@@ -185,11 +186,12 @@
           "readonly": false,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": null
+          "selSorting": null,
+          "hierarchyAttributes": null
         },
         {
           "caption": "Reference",
@@ -214,8 +216,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Reference with computable semantics",
@@ -240,8 +243,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

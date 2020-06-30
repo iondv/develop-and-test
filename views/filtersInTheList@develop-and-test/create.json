@@ -25,7 +25,7 @@
           "readonly": false,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null
         },
@@ -51,7 +51,7 @@
           "readonly": false,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null
         },
@@ -76,11 +76,12 @@
           "readonly": false,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "property": "selectionProvider",
@@ -103,11 +104,12 @@
           "readonly": false,
           "selectionPaginated": true,
           "validators": null,
-          "hint": null,
+          "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": null,
-          "selSorting": []
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

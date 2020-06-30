@@ -39,7 +39,7 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": null,
       "indexSearch": false,
@@ -68,30 +68,30 @@
       "backColl": "",
       "binding": "",
       "semantic": null,
-    "selConditions": null,
+      "selConditions": null,
       "selSorting": [],
       "selectionProvider": {
         "type": "SIMPLE",
         "list": [
           {
             "key": "First value",
-            "value": "The value displayed in the interface for a key \u0027First value\u0027"
+            "value": "The value displayed in the interface for a key 'First value'"
           },
           {
             "key": "Second value",
-            "value": "The value displayed in the interface for a key \u0027Second value\u0027"
+            "value": "The value displayed in the interface for a key 'Second value'"
           },
           {
             "key": "Third value",
-            "value": "The value displayed in the interface for a key \u0027Third value\u0027"
+            "value": "The value displayed in the interface for a key 'Third value'"
           },
           {
             "key": "Fourth value",
-            "value": "The value displayed in the interface for a key \u0027Fourth value\u0027"
+            "value": "The value displayed in the interface for a key 'Fourth value'"
           },
           {
             "key": "Fifth value",
-            "value": "The value displayed in the interface for a key \u0027Fifth value\u0027"
+            "value": "The value displayed in the interface for a key 'Fifth value'"
           }
         ],
         "matrix": [],

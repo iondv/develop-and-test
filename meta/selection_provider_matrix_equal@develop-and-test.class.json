@@ -124,7 +124,7 @@
         "list": [],
         "matrix": [
           {
-            "comment": "matrix_base \u003d 1",
+            "comment": "matrix_base = 1",
             "conditions": {
               "eq": [
                 "$matrix_base",
@@ -147,7 +147,7 @@
             ]
           },
           {
-            "comment": "matrix_base \u003d 2",
+            "comment": "matrix_base = 2",
             "conditions": {
               "eq": [
                 "$matrix_base",
@@ -170,7 +170,7 @@
             ]
           },
           {
-            "comment": "matrix_base \u003d 3",
+            "comment": "matrix_base = 3",
             "conditions": {
               "eq": [
                 "$matrix_base",

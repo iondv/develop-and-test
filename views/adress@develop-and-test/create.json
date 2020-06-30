@@ -26,8 +26,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "District",
@@ -52,8 +53,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "City (locality)",
@@ -78,8 +80,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Street",
@@ -104,8 +107,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Address (refining search)",
@@ -223,7 +227,8 @@
           "options": {
             "template": "addrsearch",
             "searchBy": "name"
-          }
+          },
+          "hierarchyAttributes": null
         },
         {
           "caption": "House (building)",
@@ -248,8 +253,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Building",
@@ -274,8 +280,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Apartment",
@@ -300,8 +307,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Address, in the absence of values in catalogs",
@@ -326,8 +334,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Address on the map",
@@ -352,8 +361,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         },
         {
           "caption": "Postal code",
@@ -378,8 +388,9 @@
           "hint": "",
           "historyDisplayMode": 0,
           "tags": null,
-        "selConditions": null,
-          "selSorting": []
+          "selConditions": null,
+          "selSorting": [],
+          "hierarchyAttributes": null
         }
       ],
       "shortFields": []

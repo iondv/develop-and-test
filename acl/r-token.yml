@@ -1,0 +1,6 @@
+roles:
+  - id: token
+    name: Token
+    permissions:
+      'ws:::gen-ws-token':
+        - full

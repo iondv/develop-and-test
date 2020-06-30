@@ -105,7 +105,7 @@
         "list": [],
         "matrix": [
           {
-            "comment": "matrix_base \u003d 3",
+            "comment": "matrix_base = 3",
             "conditions": {
               "eq": [
                 "$matrix_base",
