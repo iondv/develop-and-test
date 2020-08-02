@@ -38,7 +38,7 @@ You can use IONDV. Framework apps installer, requiring installed node.js, mongod
 Install in one line:
 
 ```
-bash <(curl -sL https://raw.githubusercontent.com/iondv/iondv-app/master/iondv-app) -q -i -m localhost:27017 develop-and-test
+bash <(curl -sL https://raw.githubusercontent.com/iondv/iondv-app/master/iondv-app) -t git -q -i -m localhost:27017 develop-and-test
 ```
 Where  `localhost: 27017` is the MongoDB address, and `develop-and-test` is the app name.
 
