@@ -1,0 +1,26 @@
+{
+  "name": "dnt-tests",
+  "description": "Metaproject for testing and development iondv app",
+  "license": "Apache License 2.0",
+  "version": "3.0.0",
+  "homepage": "https://github.com/iondv/develop-and-test",
+  "bugs": {
+    "url": "https://github.com/iondv/develop-and-test"
+  },
+  "repository": {},
+  "engines": {},
+  "scripts": {},
+  "ionModulesDependencies": {},
+  "ionMetaDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "@types/puppeteer": "^2.0.0",
+    "jest": "^26.6.3",
+    "puppeteer": "^7.1.0",
+    "jest-environment-node": "^26.6.2",
+    "jest-puppeteer": "^4.4.0",
+    "mocha": "^6.2.3",
+    "request-promise-native": "^1.0.8"
+  }
+}
