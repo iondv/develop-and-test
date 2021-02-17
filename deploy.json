@@ -510,7 +510,8 @@
           "acceptor": "pwd",
           "crud": "token",
           "meta": "token",
-          "workflows": "token"
+          "workflows": "token",
+          "security-test": "pwd"
         },
         "di": {
           "simple": {
@@ -571,6 +572,15 @@
           },
           "crud-zero": {
             "module": "modules/rest/lib/impl/crud"
+          },
+          "security-test": {
+            "module": "applications/develop-and-test/service/SecurityTest",
+            "options": {
+              "auth": "ion://auth",
+              "metaRepo": "ion://metaRepo",
+              "dataRepo": "ion://dataRepo",
+              "workflow": "ion://workflows"
+            }
           }
         }
       }
