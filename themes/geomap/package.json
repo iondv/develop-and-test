@@ -58,7 +58,7 @@
       "fastclick": "1.0.6",
       "file-saver": "2.0.2",
       "font-awesome-min": "git+https://git.iondv.ru/node-modules/font-awesome-min.git",
-      "jquery": "2.2.4",
+      "jquery": "3.5.0",
       "jquery-knob": "git+https://github.com/aterrien/jQuery-Knob.git#1.2.13",
       "jquery-ui": "git+https://git.iondv.ru/node-modules/jquery-ui.git",
       "js-cookie": "2.2.1",
