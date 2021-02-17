@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>Platform ION: Login</title>
+<head><title><%=__('Platform ION: Login')%></title>
   <meta name="robots" content="noindex,nofollow">
   <base id="baseUrl" href="<%=baseUrl%>">
   <link rel="shortcut icon" href="favicon.ico">
@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="demo">
-  <h3>Change password</h3>
+  <h3><%=__('Change password')%></h3>
 
   <div class="auth-form">
     <div class="msg-container">
@@ -27,7 +27,7 @@
       <div><input type="password" name="password" placeholder="password" class="input password"></div>
       <div><input type="password" name="password2" placeholder="confirm password" class="input password"></div>
       <div class="buttons">
-        <button id="submit-btn" type="button">Change password</button>
+        <button id="submit-btn" type="button"><%=__('Change password')%></button>
         <div class="forgot-password pull-left">
           <a href="<%=baseUrl%>"><b>Return to app</b></a>
         </div>
@@ -55,12 +55,12 @@
         if (options.pwdMinLength) {
            if (pwd.length < options.pwdMinLength) {
              valid = false;
-             messages.push('Minimum password length ' + options.pwdMinLength + ' characters');
+             messages.push('<%=__('Minimum password length ')%>' + options.pwdMinLength + '<%=__(' characters')%>');
            }
         }
       } else {
         valid = false;
-        messages.push('Invalid password replay');
+        messages.push('<%=__('Invalid password replay')%>');
       }
       if (valid) {
         $regForm.submit();

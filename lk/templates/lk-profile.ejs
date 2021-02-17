@@ -2,10 +2,10 @@
 
 <div class="padding-20">
   <form id="profile-form" method="post" class="sky-form boxed">
-    <header><i class="fa fa-users"></i> User profile <%=name%></header>
+    <header><i class="fa fa-users"></i> <%=__('User profile')%> <%=name%></header>
     <fieldset>
       <section>
-        <label class="label">Pants style</label>
+        <label class="label"><%=__('Pants style')%></label>
         <label class="input">
           <input type="text" name="trouses" class="input" value="<%=properties.trouses || ''%>"/>
         </label>
@@ -13,14 +13,14 @@
     </fieldset>
     <fieldset>
       <section>
-        <label class="label">Hat style</label>
+        <label class="label"><%=__('Hat style')%></label>
         <label class="input">
           <input type="text" name="hat" class="input" value="<%=properties.hat || ''%>"/>
         </label>
       </section>
     </fieldset>
     <footer>
-      <button type="submit" class="btn btn-primary pull-right">Apply</button>
+      <button type="submit" class="btn btn-primary pull-right"><%=__('Apply')%></button>
     </footer>
   </form>
 </div>

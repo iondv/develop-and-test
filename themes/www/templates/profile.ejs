@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Platform ION: User profile</title>
+  <title><%=__('Platform ION: User profile')%></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
   <meta name="robots" content="noindex,nofollow">
@@ -24,7 +24,7 @@
     </div>
     <% } %>
     <form id="reg-form" action="profile" method="post" class="dlg-form boxed">
-      <header><i class="fa fa-users"></i> User profile <%=user.name()%></header>
+      <header><i class="fa fa-users"></i> <%=__('User profile')%> <%=user.name()%></header>
       <fieldset>
         <%  let showSubmit = false;
         Object.keys(fields).forEach(function(fieldName){
@@ -54,7 +54,7 @@
         <% }) %>
       </fieldset>
       <footer>
-        <% if (showSubmit) { %><button id="authbutton" type="submit" class="btn btn-primary pull-right">Save</button><% } %>
+        <% if (showSubmit) { %><button id="authbutton" type="submit" class="btn btn-primary pull-right"><%=__('Save')%></button><% } %>
         <div class="forgot-password pull-left">
           <a href="<%=baseUrl%>"><b>Return to app</b></a>
         </div>
