@@ -1,4 +1,3 @@
-const assert = require('assert');
 const request = require('request-promise-native');
 const {serverURL, adminUsername, adminPassword,
   anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
@@ -11,7 +10,7 @@ describe('Checking token service', function() {
   describe('# basicAuth authorization with admin rights', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {
         method: 'GET',
         headers: {'Accept': 'application/json'},
@@ -27,12 +26,12 @@ describe('Checking token service', function() {
       }
     });
     it('making the request, statusCode has to be 200', function () {
-      assert.strictEqual(res.statusCode, 200);
+      expect(res.statusCode).toEqual(200);
     });
     it('check if the response indeed contains a token', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
-      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).toEqual(40);
     });
 
     describe('# check if the generated token is valid (basicAuth) (using echo-token)', function () {
@@ -47,7 +46,7 @@ describe('Checking token service', function() {
           json: true
         };
         const res = await request(reqOptions);
-        assert.strictEqual(res.echo, 'peekaboo');
+        expect(res.echo).toEqual('peekaboo');
       });
     });
   });
@@ -55,7 +54,7 @@ describe('Checking token service', function() {
   describe('# basicAuth authorization using a non existent user', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {
         method: 'GET',
         headers: {'Accept': 'application/json'},
@@ -70,19 +69,19 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 401', function () {
-      assert.strictEqual(res.statusCode, 403);
+      expect(res.statusCode).toEqual(403);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
   describe('# basicAuth authorization using a wrong password', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {
         method: 'GET',
         headers: {'Accept': 'application/json'},
@@ -97,19 +96,19 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 401 (Unauthorized)', function () {
-      assert.strictEqual(res.statusCode, 401);
+      expect(res.statusCode).toEqual(401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
   describe('# authorization with admin rights using header parameters', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`,
         headers: {'auth-user': adminUsername, 'auth-pwd': adminPassword}
@@ -122,12 +121,12 @@ describe('Checking token service', function() {
       }
     });
     it('making the request, statusCode has to be 200', function () {
-      assert.strictEqual(res.statusCode, 200);
+      expect(res.statusCode).toEqual(200);
     });
     it('check if the response indeed contains a token', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
-      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).toEqual(40);
     });
     describe('# check if the generated token is valid (header parameters auth) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
@@ -141,7 +140,7 @@ describe('Checking token service', function() {
           json: true
         };
         const res = await request(reqOptions);
-        assert.strictEqual(res.echo, 'peekaboo');
+        expect(res.echo).toEqual('peekaboo');
       });
     });
   });
@@ -149,7 +148,7 @@ describe('Checking token service', function() {
   describe('# authorization using header parameters with a non existent user', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`,
         headers: {'auth-user': '123nouser321', 'auth-pwd': adminPassword}
@@ -161,19 +160,19 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 403', function () {
-      assert.strictEqual(res.statusCode, 403);
+      expect(res.statusCode).toEqual(403);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
   describe('# authorization using header parameters with a wrong password', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`,
         headers: {'auth-user': adminUsername, 'auth-pwd': '1234'}
@@ -185,19 +184,19 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 401 (Unauthorized)', function () {
-      assert.strictEqual(res.statusCode, 401);
+      expect(res.statusCode).toEqual(401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
   describe('# getting a token with regular rights (without the right to use ws::gen-ws-token)', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', headers: {'Accept': 'application/json'}, resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`,
         auth: {username: anyUsername, password: anyPassword}
@@ -209,19 +208,19 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 403', function () {
-      assert.strictEqual(res.statusCode, 403, 'if no right to use ws::gen-ws-token the statusCode has to be 403');
+      expect(res.statusCode).toEqual(403);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
   describe('# getting a token with regular rights (with the right to use ws::gen-ws-token)', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', headers: {'Accept': 'application/json'}, resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`,
         auth: {username: genwsUsername, password: genwsPassword}
@@ -234,12 +233,12 @@ describe('Checking token service', function() {
       }
     });
     it('making the request, statusCode has to be 200', function () {
-      assert.strictEqual(res.statusCode, 200);
+      expect(res.statusCode).toEqual(200);
     });
     it('check if the response indeed contains a token', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.strictEqual(res.body.search(/[^a-z0-9]/), -1, 'there are other symbols except lower case letters and numbers');
-      assert.strictEqual(res.body.length, 40, 'the length of the token is not 40');
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).toEqual(40);
     });
     describe('# check if the generated token is valid (genws use rights) (using echo-token)', function () {
       it('authorization by token is passed', async function () {
@@ -253,7 +252,7 @@ describe('Checking token service', function() {
           json: true
         };
         const res = await request(reqOptions);
-        assert.strictEqual(res.echo, 'peekaboo');
+        expect(res.echo).toEqual('peekaboo');
       });
     });
   });
@@ -261,7 +260,7 @@ describe('Checking token service', function() {
   describe('# try to get a token with no authorization', function() {
     let reqOptions;
     let res;
-    before(async function () {
+    beforeAll(async function () {
       reqOptions = {method: 'GET', headers: {'Accept': 'application/json'}, resolveWithFullResponse: true,
         url: `${serverURL}/rest/token`
       };
@@ -272,12 +271,12 @@ describe('Checking token service', function() {
       }
     });
     it('statusCode has to be 401 (Unauthorized)', function () {
-      assert.strictEqual(res.statusCode, 401);
+      expect(res.statusCode).toEqual(401);
     });
     it('no token should be returned', function () {
-      assert.ok(res.body, 'awaiting field "body"');
-      assert.notEqual(res.body.search(/[^a-z0-9]/), -1);
-      assert.notEqual(res.body.length, 40);
+      expect(res.body).toBeTruthy();
+      expect(res.body).toMatch(/^[a-z0-9]*$/);
+      expect(res.body.length).not.toEqual(40);
     });
   });
 
@@ -298,7 +297,7 @@ describe('Checking token service', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 403);
+      expect(res.statusCode).toEqual(403);
     });
   });
   describe('# checking echo-token service', function() {
@@ -319,8 +318,8 @@ describe('Checking token service', function() {
         } catch (e) {
           res = e.response;
         }
-        assert.notStrictEqual(res.echo, 'peekaboo', 'no echo should be returned');
-        assert.strictEqual(res.statusCode, 401);
+        expect(res.echo).not.toEqual('peekaboo');
+        expect(res.statusCode).toEqual(401);
       });
       it('statusCode has to be 401 for basicAuth request', async function () {
         const reqOptions = {
@@ -336,8 +335,8 @@ describe('Checking token service', function() {
         } catch (e) {
           res = e.response;
         }
-        assert.notStrictEqual(res.echo, 'peekaboo', 'no echo should be returned');
-        assert.strictEqual(res.statusCode, 401);
+        expect(res.echo).not.toEqual('peekaboo');
+        expect(res.statusCode).toEqual(401);
       });
     });
   });

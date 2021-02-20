@@ -1,4 +1,3 @@
-const assert = require('assert');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
@@ -25,7 +24,7 @@ const modreq = function(props) {
 };
 
   describe('Checking crud service', function() {
-    before(async function() {
+    beforeAll(async function() {
       giventoken = (await request({method: 'GET', resolveWithFullResponse: true,
       uri: `${serverURL}/rest/token`,
       headers: {'auth-user': adminUsername, 'auth-pwd': adminPassword}
@@ -41,7 +40,7 @@ const modreq = function(props) {
         catch(e){
           res = e.response;
         }
-        assert.strictEqual(res.statusCode, 404);
+        expect(res.statusCode).toEqual(404);
       })
     });
     describe('POST', function() {
@@ -63,49 +62,63 @@ const modreq = function(props) {
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
           //console.log(tempTextObj);
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains the sent text object', async function () {
-          assert.strictEqual(res.body.id, reqId);
-          assert.strictEqual(res.body.text_text, `${tempText}1`);
-          assert.strictEqual(res.body.text_multilinetext, `${tempText}2`);
-          assert.strictEqual(res.body.text_formattext, `${tempText}3`);
+          expect(res.body.id).toEqual(reqId);
+          expect(res.body.text_text).toEqual(`${tempText}1`);
+          expect(res.body.text_multilinetext).toEqual(`${tempText}2`);
+          expect(res.body.text_formattext).toEqual(`${tempText}3`);
         });
       });
       describe('# sending a file with multipart body request (POST)', function () {
         let res;
         it('making the request, statusCode has to be 200', async function () {
-          let req = modreq({
-            method: "POST",
-            uri: `${serverURL}/rest/crud/class_file@develop-and-test/`,
-            formData: {
-              file_file: fs.createReadStream(__dirname + path.sep + 'crud_request'),
+          const fileToSend = path.join(__dirname, 'crud_request-multipart');
+          fs.writeFileSync(fileToSend, cryptoRandom(64));
+          try {
+            let req = modreq({
+              method: "POST",
+              uri: `${serverURL}/rest/crud/class_file@develop-and-test/`,
+              formData: {
+                file_file: fs.createReadStream(fileToSend),
+              }
+            });
+            req.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            res = await request(req);
+            try {
+              req.formData.file_file.close();
+            } catch (err) {
             }
-          });
-          req.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-          res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
+          } finally {
+            fs.unlinkSync(fileToSend);
+          }
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains the sent file object', async function () {
-          assert.strictEqual(res.body.file.buffer.length > 0, true);
+          expect(res.body.file.buffer.length).toBeGreaterThan(0);
         });
       });
       describe('# sending a file with json body request (POST)', function () {
         let res;
+        const fileToSend = path.join(__dirname, 'crud_request-json');
+        fs.writeFileSync(fileToSend, cryptoRandom(64));
         let req = modreq({
           method: "POST",
           uri: `${serverURL}/rest/crud/class_file@develop-and-test/`,
-          body: {
-            file_file: fs.readFileSync(__dirname + path.sep + 'crud_request', {encoding: 'base64'}),
-          }
+          json: false,
+          body: JSON.stringify({
+            file_file: fs.readFileSync(fileToSend).toString('base64'),
+          })
         });
         req.headers['Content-Type'] = 'application/json';
+        fs.unlinkSync(fileToSend);
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains the sent text object', async function () {
-          assert.strictEqual(res.body.file.buffer.length > 0, true);
+          expect(res.body.file.buffer.length).toBeGreaterThan(0);
         });
       });
       describe('# creating an object with the same ID as the previous (POST)', function () {
@@ -115,27 +128,29 @@ const modreq = function(props) {
         let req = modreq({
           method: "POST",
           uri: `${serverURL}/rest/crud/class_text@develop-and-test/`,
-          body: {
+          json: false,
+          body: JSON.stringify({
             id: reqId,
-            text_text: `${tempText}1`,
+            text_text: 'test-same-id',// `${tempText}1`,
             text_multilinetext: `${tempText}2`,
             text_formattext: `${tempText}3`
-          }
+          })
         });
-        req.headers['Content-Type'] = 'application/json';
+        req.headers['Content-Type'] = 'application/json'
         it('making the request, statusCode has to be 400', async function () {
           try {
             res = await request(req);
           } catch (e) {
+            console.log(e);
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 400);
+          expect(res.statusCode).toEqual(400);
         });
       });
       describe('# creating an object, request type is not JSON (POST)', function () {
         let res;
         const tempText = cryptoRandom(24).toString('hex');
-        const reqId = tempTextObj;
+        const reqId = cryptoRandom(24).toString('hex');
         let req = modreq({
           method: "POST",
           uri: `${serverURL}/rest/crud/class_text@develop-and-test/`,
@@ -150,7 +165,7 @@ const modreq = function(props) {
             res = e.response;
           }
           //console.log(res);
-          assert.strictEqual(res.statusCode, 400);
+          expect(res.statusCode).toEqual(400);
         });
       });
       describe('# creating an object with invalid auth (POST)', function () {
@@ -174,7 +189,7 @@ const modreq = function(props) {
             res = e.response;
           }
           //console.log(res);
-          assert.strictEqual(res.statusCode, 403);
+          expect(res.statusCode).toEqual(403);
         });
         it('check if the object was not created (HEAD responds with 404)', async function () {
           let res;
@@ -187,7 +202,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
       describe('# creating an object with no auth (POST)', function () {
@@ -211,7 +226,7 @@ const modreq = function(props) {
             res = e.response;
           }
           //console.log(res);
-          assert.strictEqual(res.statusCode, 401);
+          expect(res.statusCode).toEqual(401);
         });
         it('check if the object was not created (HEAD responds with 404)', async function () {
           let res;
@@ -224,13 +239,13 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
     });
     describe('GET', function() {
       describe('# getting a list of text objects', function () {
-        before(async function () {
+        beforeAll(async function () {
           try {
             await request(modreq({
               method: 'POST', resolveWithFullResponse: true, json: true,
@@ -272,12 +287,12 @@ const modreq = function(props) {
         let req = modreq({uri: `${serverURL}/rest/crud/class_text@develop-and-test/`});
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains any text objects', function () {
           tempList = res.body;
-          assert.strictEqual(res.body.length > 0, true);
-          assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
+          expect(res.body.length).toBeGreaterThan(0);
+          expect(res.body[0].__class).toEqual('class_text@develop-and-test');
         });
       });
       describe('# getting a list of text objects, with an offset of 1 and a count of 2', function () {
@@ -285,15 +300,15 @@ const modreq = function(props) {
         let req = modreq({uri: `${serverURL}/rest/crud/class_text@develop-and-test/?_offset=1&_count=2`});
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains any text objects', function () {
-          assert.strictEqual(res.body.length > 0, true);
-          assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
+          expect(res.body.length).toBeGreaterThan(0);
+          expect(res.body[0].__class).toEqual('class_text@develop-and-test');
         });
         it('check if the response is indeed offset by 1 and count is 2', function () {
-          assert.deepEqual(res.body[0], tempList[1]);
-          assert.strictEqual(res.body.length, 2);
+          expect(res.body[0]).toEqual(tempList[1]);
+          expect(res.body.length).toEqual(2);
         });
       });
       describe('# getting a list of text objects containing a specific string', function () {
@@ -301,25 +316,27 @@ const modreq = function(props) {
         let req = modreq({uri: `${serverURL}/rest/crud/class_text@develop-and-test/?text_text=${tempText_text}`});
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
         it('check if the response contains any text objects', function () {
-          assert.strictEqual(res.body.length > 0, true);
-          assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
+          expect(res.body.length).toBeGreaterThan(0);
+          expect(res.body[0].__class).toEqual('class_text@develop-and-test');
         });
         it('check if the response only has objects containing the requested text_text', function () {
           res.body.forEach((item) => {
-            assert.notStrictEqual(item.text_text.indexOf(tempText_text), -1);
+            expect(item.text_text).toMatch(tempText_text);
           });
         });
       });
       describe('# getting a list of collections with the eager loading of the "table" property', function () {
-        before(async function () {
+        beforeAll(async function () {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json',
-            'auth-token': giventoken},
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': giventoken
+            },
             body: {
               id: tempId1,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -328,8 +345,10 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json',
-              'auth-token': giventoken},
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': giventoken
+            },
             body: {
               id: tempId2,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -338,8 +357,10 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/collRefCatalog@develop-and-test/`,
-            headers: {'Content-Type': 'application/json',
-              'auth-token': giventoken},
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': giventoken
+            },
             body: {
               id: tempId3,
               collRefCatalog: cryptoRandom(32).toString('hex')
@@ -348,8 +369,10 @@ const modreq = function(props) {
           await request(modreq({
             method: 'POST', resolveWithFullResponse: true, json: true,
             uri: `${serverURL}/rest/crud/classColl@develop-and-test/`,
-            headers: {'Content-Type': 'application/json',
-              'auth-token': giventoken},
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': giventoken
+            },
             body: {
               id: tempId,
               table: [
@@ -364,12 +387,12 @@ const modreq = function(props) {
         let req = modreq({uri: `${serverURL}/rest/crud/classColl@develop-and-test/${tempId}?_eager[]=table`});
         it('making the request, statusCode has to be 200', async function () {
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
-          it('check if the response contains all three collRefCatalog objects', function () {
-            assert.strictEqual(res.body[0].table.length, 3);
-            res.body.table.forEach((item, i) => {
-              assert.strictEqual(res.body[0].table[i].__class, 'collRefCatalog@develop-and-test');
-            });
+          expect(res.statusCode).toEqual(200);
+        });
+        it('check if the response contains all three collRefCatalog objects', function () {
+          expect(res.body[0].table.length).toEqual(3);
+          res.body.table.forEach((item, i) => {
+            expect(res.body[0].table[i].__class, 'collRefCatalog@develop-and-test');
           });
         });
       });
@@ -379,11 +402,12 @@ const modreq = function(props) {
         it('making the request, statusCode has to be 200', async function () {
           //console.log(tempId);
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
-          it('check if the response contains any text objects', function () {
-            assert.strictEqual(typeof res.body == 'object', true);
-            assert.strictEqual(res.body.__class, 'class_text@develop-and-test');
-          });
+          expect(res.statusCode).toEqual(200);
+        });
+        it('check if the response contains any text objects', function () {
+          expect(typeof res.body).toEqual('object');
+          expect(res.body).not.toBeNull();
+          expect(res.body.__class).toEqual('class_text@develop-and-test');
         });
       });
       describe('# getting an object with eager loading of the "table" property (GET)', function () {
@@ -392,12 +416,12 @@ const modreq = function(props) {
         it('making the request, statusCode has to be 200', async function () {
           //console.log(tempId);
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
-          it('check if the response contains all three collRefCatalog objects', function () {
-            assert.strictEqual(res.body.table.length, 3);
-            res.body.table.forEach((item, i) => {
-              assert.strictEqual(res.body.table[i].__class, 'collRefCatalog@develop-and-test');
-            });
+          expect(res.statusCode).toEqual(200);
+        });
+        it('check if the response contains all three collRefCatalog objects', function () {
+          expect(res.body.table.length).toEqual(3);
+          res.body.table.forEach((item, i) => {
+            expect(res.body.table[i].__class).toEqual('collRefCatalog@develop-and-test');
           });
         });
       });
@@ -410,7 +434,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
       describe('# checking if the response is valid on invalid class check (GET)', function () {
@@ -422,7 +446,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
       describe('# checking if the response is valid on invalid auth (GET)', function () {
@@ -437,7 +461,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 403);
+          expect(res.statusCode).toEqual(403);
         });
       });
       describe('# checking if the response is valid on unauthorized request (GET)', function () {
@@ -452,7 +476,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 401);
+          expect(res.statusCode).toEqual(401);
         });
       });
     });
@@ -466,11 +490,11 @@ const modreq = function(props) {
         it('making the request, statusCode has to be 200', async function () {
           //console.log(tempId);
           res = await request(req);
-          assert.strictEqual(res.statusCode, 200);
-          it('check if the response contains any text objects', function () {
-            assert.strictEqual(res.body.length > 0, true);
-            assert.strictEqual(res.body[0].__class, 'class_text@develop-and-test');
-          });
+          expect(res.statusCode).toEqual(200);
+        });
+        it('check if the response contains any text objects', function () {
+          expect(res.body.length).toBeGreaterThan(0);
+          expect(res.body[0].__class).toEqual('class_text@develop-and-test');
         });
       });
       describe('# checking if the response is valid on invalid object check (HEAD)', function () {
@@ -485,7 +509,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
       describe('# checking if the response is valid on invalid auth (HEAD)', function () {
@@ -501,7 +525,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 403);
+          expect(res.statusCode).toEqual(403);
         });
       });
       describe('# checking if the response is valid on unauthorized request (HEAD)', function () {
@@ -517,7 +541,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 401);
+          expect(res.statusCode).toEqual(401);
         });
       });
     });
@@ -543,12 +567,12 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
           it('check if the response contains the sent text object', async function () {
-            assert.strictEqual(res.body.id, reqId);
-            assert.strictEqual(res.body.text_text, `${tempText}1`);
-            assert.strictEqual(res.body.text_multilinetext, `${tempText}2`);
-            assert.strictEqual(res.body.text_formattext, `${tempText}3`);
+            expect(res.body.id).toEqual(reqId);
+            expect(res.body.text_text).toEqual(`${tempText}1`);
+            expect(res.body.text_multilinetext).toEqual(`${tempText}2`);
+            expect(res.body.text_formattext).toEqual(`${tempText}3`);
           });
         });
       });
@@ -569,7 +593,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 400);
+          expect(res.statusCode).toEqual(400);
         });
       });
       describe('# updating an unexistent object (PATCH)', function () {
@@ -593,7 +617,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
       });
       describe('# updating an object with invalid auth (PATCH)', function () {
@@ -620,7 +644,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 403);
+          expect(res.statusCode).toEqual(403);
         });
       });
       describe('# updating an object with no auth (PATCH)', function () {
@@ -646,14 +670,14 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 401);
+          expect(res.statusCode).toEqual(401);
         });
       });
     });
     describe('DELETE', function() {
       describe('# deleting an object with no auth (DELETE)', function () {
         let req;
-        before(async function () {
+        beforeAll(async function () {
           req = modreq({
             method: "DELETE",
             uri: `${serverURL}/rest/crud/class_text@develop-and-test/${tempId1}`,
@@ -666,7 +690,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response
           }
-          assert.strictEqual(res.statusCode, 401);
+          expect(res.statusCode).toEqual(401);
         });
         it('check if the object is still present (HEAD responds with 200)', async function () {
           let res;
@@ -679,12 +703,12 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
       });
       describe('# deleting an object with invalid auth (DELETE)', function () {
         let req;
-        before(async function () {
+        beforeAll(async function () {
           req = modreq({
             method: "DELETE",
             uri: `${serverURL}/rest/crud/class_text@develop-and-test/${tempId1}`,
@@ -697,7 +721,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response
           }
-          assert.strictEqual(res.statusCode, 403);
+          expect(res.statusCode).toEqual(403);
         });
         it('check if the object is still present (HEAD responds with 200)', async function () {
           let res;
@@ -710,12 +734,12 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          assert.strictEqual(res.statusCode, 200);
+          expect(res.statusCode).toEqual(200);
         });
       });
       describe('# deleting an object (DELETE)', function () {
         let deleted = false;
-        before(async function () {
+        beforeAll(async function () {
           let req = modreq({
             method: "DELETE",
             uri: `${serverURL}/rest/crud/class_text@develop-and-test/${tempTextObj}`,
@@ -725,7 +749,7 @@ const modreq = function(props) {
         });
         it('making the request, statusCode has to be 200', function () {
           //console.log(tempTextObj);
-          assert.ok(deleted);
+          expect(deleted).toBeTruthy();
         });
         it('check if the object was indeed deleted (HEAD responds with 404)', async function () {
           let res;
@@ -738,8 +762,7 @@ const modreq = function(props) {
           } catch (e) {
             res = e.response;
           }
-          ;
-          assert.strictEqual(res.statusCode, 404);
+          expect(res.statusCode).toEqual(404);
         });
         describe('# trying to delete an object for the second time (DELETE)', function () {
           let res;
@@ -754,7 +777,7 @@ const modreq = function(props) {
               res = e.response;
             }
             //console.log(tempTextObj);
-            assert.strictEqual(res.statusCode, 404);
+            expect(res.statusCode).toEqual(404);
           });
         });
       });

@@ -1,4 +1,3 @@
-const assert = require('assert');
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
 const request = require('request-promise-native');
 
@@ -8,7 +7,7 @@ describe('Checking echo-pwd service', function() {
   describe('# Requesting echo-pwd GET', function() {
     describe('check if the request can be made using the basicAuth', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         resRequest = await request({
           method: 'GET',
           uri: `${serverURL}/rest/echo-pwd`,
@@ -18,16 +17,16 @@ describe('Checking echo-pwd service', function() {
         });
       });
       it('expecting an object type in the response', function () {
-        assert.strictEqual(typeof resRequest.body, 'object');
+        expect(typeof resRequest.body).toEqual('object');
       });
       it('expecting field "echo" containing "peekaboo"', function () {
-        assert.strictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).toEqual('peekaboo');
       });
     });
 
-    describe('check if the request can be made using the headers auth', async function () {
+    describe('check if the request can be made using the headers auth', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         resRequest = await request({
           method: 'GET',
           uri: `${serverURL}/rest/echo-pwd`,
@@ -37,17 +36,17 @@ describe('Checking echo-pwd service', function() {
         });
       });
       it('expecting an object type in the response', function () {
-        assert.strictEqual(typeof resRequest.body, 'object');
+        expect(typeof resRequest.body).toEqual('object');
       });
       it('expecting field "echo" containing "peekaboo"', function () {
-        assert.strictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).toEqual('peekaboo');
       });
     });
   });
-  describe('# check if the response is valid on request with wrong basicAuth credentials', async function () {
-    describe('make a request', async function () {
+  describe('# check if the response is valid on request with wrong basicAuth credentials', function () {
+    describe('make a request', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         try{
           resRequest = await request({
             method: 'GET',
@@ -61,18 +60,18 @@ describe('Checking echo-pwd service', function() {
         }
       });
       it('expecting statusCode 401', function () {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       });
     });
   });
 
-  describe('# check if the response is valid on request with wrong headers auth credentials', async function () {
+  describe('# check if the response is valid on request with wrong headers auth credentials', function () {
     describe('make a request', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         try{
           resRequest = await request({
             method: 'GET',
@@ -86,10 +85,10 @@ describe('Checking echo-pwd service', function() {
         }
       });
       it('expecting statusCode 401', function () {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       });
     });
   });
@@ -97,7 +96,7 @@ describe('Checking echo-pwd service', function() {
   describe('# requesting without auth', function() {
     describe('make a request', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         try {
           resRequest = await request({
             method: 'GET',
@@ -110,17 +109,17 @@ describe('Checking echo-pwd service', function() {
         }
       });
       it('expecting statusCode 401', function() {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function() {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       });
     });
   });
   describe('# requesting with a token', function() {
     describe('make a request', function () {
       let resRequest;
-      before(async function () {
+      beforeAll(async function () {
         let res;
         try {
           res = await request({
@@ -149,10 +148,10 @@ describe('Checking echo-pwd service', function() {
         }
       });
       it('expecting statusCode 401', function() {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function() {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       });
     });
   });

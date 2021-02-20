@@ -1,4 +1,3 @@
-const assert = require('assert');
 const {serverURL, adminUsername, adminPassword} = require('./config.js');
 const request = require('request-promise-native');
 
@@ -6,7 +5,7 @@ let giventoken;
 let cookie;
 
 describe('Checking echo-errtype service', function() {
-  before(async function() {
+  beforeAll(async function() {
     giventoken = (await request({
       method: 'GET',
       resolveWithFullResponse: true,
@@ -16,8 +15,8 @@ describe('Checking echo-errtype service', function() {
   });
   describe('# check if the auth can\'t be passed with the incorrect auth type defined in deploy.json', function() {
     let resRequest;
-    describe('## with no auth', async function() {
-      before(async function() {
+    describe('## with no auth', function() {
+      beforeAll(async function() {
         try {
           resRequest = await request({
             method: 'GET',
@@ -30,15 +29,15 @@ describe('Checking echo-errtype service', function() {
         }
       });
       it('expecting statusCode 401', function() {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function() {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).toEqual('peekaboo');
       })
     });
 
-    describe('## using baseAuth', async function() {
-      before(async function() {
+    describe('## using baseAuth', function() {
+      beforeAll(async function() {
         try {
           resRequest = await request({
             method: 'GET',
@@ -52,14 +51,14 @@ describe('Checking echo-errtype service', function() {
         }
       });
       it('expecting statusCode 401', function() {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function() {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       })
     });
-    describe('## using headers auth', async function () {
-      before(async function () {
+    describe('## using headers auth', function () {
+      beforeAll(async function () {
         try{
           resRequest = await request({
             method: 'GET',
@@ -73,14 +72,14 @@ describe('Checking echo-errtype service', function() {
         }
       });
       it('expecting statusCode 401', function () {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       })
     });
-    describe('## using token auth', async function () {
-      before(async function () {
+    describe('## using token auth', function () {
+      beforeAll(async function () {
         try {
           resRequest = await request({
             method: 'GET',
@@ -94,15 +93,15 @@ describe('Checking echo-errtype service', function() {
         }
       });
       it('expecting statusCode 401', function () {
-        assert.strictEqual(resRequest.statusCode, 401);
+        expect(resRequest.statusCode).toEqual(401);
       });
       it('the response\'s body should not contain echo "peekaboo"', function () {
-        assert.notStrictEqual(resRequest.body.echo, 'peekaboo');
+        expect(resRequest.body.echo).not.toEqual('peekaboo');
       })
     });
 
     /*describe('## using cookie auth', async function () {
-      before(async function () {
+      beforeAll(async function () {
         let res;
         try {
           res = await request({

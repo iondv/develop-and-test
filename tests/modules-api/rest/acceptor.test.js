@@ -1,4 +1,3 @@
-const assert = require('assert');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
 const {serverURL, adminUsername, adminPassword,
@@ -49,39 +48,38 @@ describe('Checking acceptor service', function() {
       let res;
       it('making the request, statusCode has to be 200', async function() {
         res = await requestBody(reqBody);
-        assert.strictEqual(res.statusCode, 200);
+        expect(res.statusCode).toEqual(200);
       });
       it(`the response\'s body has to contain ${reqBody.length} objects`, async function() {
-        assert.strictEqual(res.body.length, reqBody.length);
+        expect(res.body.length).toEqual(reqBody.length);
       });
       it('the response\'s body has to contain fields of requested objects', async function() {
-        assert.strictEqual(res.body[0].string_text, reqBody[0].string_text, '#0');
-        assert.strictEqual(res.body[1].string_text, reqBody[1].string_text, '#1');
-        assert.strictEqual(res.body[2].string_text, reqBody[2].string_text, '#2');
-        assert.strictEqual(res.body[3].string_text, reqBody[3].string_text, '#3'); // TODO Нет атрибутов в возвращаемом объекте - только id и _id:  { id: '1f1ca1d7', _id: '1f1ca1d7' }
+        expect(res.body[0].string_text).toEqual(reqBody[0].string_text);
+        expect(res.body[1].string_text).toEqual(reqBody[1].string_text);
+        expect(res.body[2].string_text).toEqual(reqBody[2].string_text);
+        expect(res.body[3].string_text).toEqual(reqBody[3].string_text); // TODO Нет атрибутов в возвращаемом объекте - только id и _id:  { id: '1f1ca1d7', _id: '1f1ca1d7' }
       });
       it('the response\'s objects has id, also first object requested without id or _id', async function() {
-        assert.ok(res.body[0].id);
+        expect(res.body[0].id).toBeTruthy();
         tempId = res.body[0].id;
-        assert.ok(res.body[1].id);
-        assert.ok(res.body[2].id);
-        assert.ok(res.body[2].id);
+        expect(res.body[1].id).toBeTruthy();
+        expect(res.body[2].id).toBeTruthy();
       });
       it('the response\'s second object has id equal to request id', async function() {
-        assert.strictEqual(res.body[1].id, reqBody[1].id);
-        assert.strictEqual(res.body[1]._id, reqBody[1].id);
+        expect(res.body[1].id).toEqual(reqBody[1].id);
+        expect(res.body[1]._id).toEqual(reqBody[1].id);
       });
       it('the response\'s third object has id equal to request _id', async function() {
-        assert.strictEqual(res.body[2].id, reqBody[2]._id);
-        assert.strictEqual(res.body[2]._id, reqBody[2]._id);
+        expect(res.body[2].id).toEqual(reqBody[2]._id);
+        expect(res.body[2]._id).toEqual(reqBody[2]._id);
       });
       it('the request\'s fourth object has not equal "id" and "_id", but response both equal _id', async function() {
-        assert.strictEqual(res.body[3].id, reqBody[3].id);
-        assert.strictEqual(res.body[3]._id, reqBody[3].id);
+        expect(res.body[3].id).toEqual(reqBody[3].id);
+        expect(res.body[3]._id).toEqual(reqBody[3].id);
       });
     });
     describe('# check created objects', function() {
-      before(async function() {
+      beforeAll(async function() {
         giventoken = (await request({method: 'GET', resolveWithFullResponse: true,
         uri: `${serverURL}/rest/token`,
         headers: {'auth-user': adminUsername, 'auth-pwd': adminPassword}
@@ -104,8 +102,7 @@ describe('Checking acceptor service', function() {
               'auth-token': giventoken
             }
           });
-          //console.log(res);
-          assert.strictEqual(res.statusCode,200);
+          expect(res.statusCode).toEqual(200);
 // TODO get crud + status
         });
         it(`check id of ${i+1}'th`, async function() {
@@ -118,7 +115,7 @@ describe('Checking acceptor service', function() {
             },
             json: true
           });
-          assert.strictEqual(res.body.id,reqId);
+          expect(res.body.id).toEqual(reqId);
           // TODO get crud
         });
         it(`check attr of ${i+1}'th`, async function() {
@@ -131,9 +128,9 @@ describe('Checking acceptor service', function() {
             },
             json: true
           });
-          assert.strictEqual(res.body.string_text,item.string_text);
-          assert.strictEqual(res.body.string_multilinetext,item.string_multilinetext);
-          assert.strictEqual(res.body.string_formattext,item.string_formattext);
+          expect(res.body.string_text).toEqual(item.string_text);
+          expect(res.body.string_multilinetext).toEqual(item.string_multilinetext);
+          expect(res.body.string_formattext).toEqual(item.string_formattext);
           // TODO get crud
         });
       });
@@ -152,7 +149,7 @@ describe('Checking acceptor service', function() {
         } catch (e) {
           res = e.response;
         }
-        assert.strictEqual(res.statusCode, 400);
+        expect(res.statusCode).toEqual(400);
       });
       it(`check if the object was not created`, async function() {
         res = await request({
@@ -164,14 +161,14 @@ describe('Checking acceptor service', function() {
           },
           json: true
         });
-        assert.notStrictEqual(res.body, text);
+        expect(res.body).not.toEqual(text);
       });
     });
   });
   describe('# invalid authorization', function() {
     let reqOptions;
     let res;
-    before(function() {
+    beforeAll(function() {
       reqOptions = {method: 'POST', headers: {
           'auth-token': '123',
           'Content-Type': 'application/json'},
@@ -193,17 +190,17 @@ describe('Checking acceptor service', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 401);
+      expect(res.statusCode).toEqual(401);
     });
     it('the response body should not contain the requested object', async function() {
-      assert.notStrictEqual(res.body,
+      expect(res.body).not.toEqual(
         [{"id":"10101010-5583-11e6-aef7-cf50314f026b","_class":"class_string@develop-and-test","_classVer":"","string_formattext":"Example10","string_miltilinetext":"Example10","string_text":"Example10","_id":"10101010-5583-11e6-aef7-cf50314f026b"}]);
     });
   });
   describe('# no authorization', function() {
     let reqOptions;
     let res;
-    before(function() {
+    beforeAll(function() {
       reqOptions = {method: 'POST', headers: {
         'Content-Type': 'application/json'},
         resolveWithFullResponse: true,
@@ -224,10 +221,10 @@ describe('Checking acceptor service', function() {
       } catch (e) {
         res = e.response;
       }
-      assert.strictEqual(res.statusCode, 401);
+      expect(res.statusCode).toEqual(401);
     });
     it('the response body should not contain the requested object', async function() {
-      assert.notStrictEqual(res.body,
+      expect(res.body).not.toEqual(
         [{"id":"10101010-5583-11e6-aef7-cf50314f026b","_class":"class_string@develop-and-test","_classVer":"","string_formattext":"Example10","string_miltilinetext":"Example10","string_text":"Example10","_id":"10101010-5583-11e6-aef7-cf50314f026b"}]);
     });
   });

@@ -1,4 +1,3 @@
-const assert = require('assert');
 const {serverURL, adminUsername, adminPassword, extSystemUsername, extSystemSecret} = require('./config.js');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
@@ -6,12 +5,12 @@ const url = require('url');
 const base64 = require('base64-js');
 // спецификация - https://www.npmjs.com/package/oauth2-server
 
-describe('Checking echo-oauth service', async function () {
+describe('Checking echo-oauth service', function () {
   let sess = '';
   let dlg = false;
   let auth_code = '';
   let token = '';
-  before(async function () {
+  beforeAll(async function () {
     let res;
     try {
       res = await request({
@@ -82,54 +81,54 @@ describe('Checking echo-oauth service', async function () {
     }
   });
   it('check OAuth2 process', function () {
-    assert.ok(sess, 'check if user authenticated');
-    assert.ok(dlg, 'check if oauth2 grant dialog displayed');
-    assert.ok(auth_code, 'auth code obtained');
-    assert.ok(token, 'auth token obtained');
+    expect(sess).toBeTruthy();
+    expect(dlg).toBeTruthy();
+    expect(auth_code).toBeTruthy();
+    expect(token).toBeTruthy();
+  });
 
-    describe('Checking auth with valid OAuth2 token', async function () {
-      let res;
-      before(async function () {
-        try {
-          res = await request({
-            method: 'GET',
-            uri: `${serverURL}/rest/echo-oauth`,
-            resolveWithFullResponse: true,
-            json: true,
-            headers: {
-              'Authorization': 'Bearer ' + token
-            }
-          });
-        } catch (e) {
-          res = e.response;
-        }
-      });
-      it('check the response body', function () {
-        assert.strictEqual(typeof res.body, 'object', 'type of the body is object');
-        assert.strictEqual(res.body.echo, 'peekaboo', 'field "echo" equals to "peekaboo"');
-      });
+  describe('Checking auth with valid OAuth2 token', function () {
+    let res;
+    beforeAll(async function () {
+      try {
+        res = await request({
+          method: 'GET',
+          uri: `${serverURL}/rest/echo-oauth`,
+          resolveWithFullResponse: true,
+          json: true,
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        });
+      } catch (e) {
+        res = e.response;
+      }
     });
+    it('check the response body', function () {
+      expect(typeof res.body).toEqual('object');
+      expect(res.body.echo).toEqual('peekaboo');
+    });
+  });
 
-    describe('Checking auth with invalid OAuth2 token', async function () {
-      let res;
-      before(async function () {
-        try {
-          res = await request({
-            method: 'GET',
-            uri: `${serverURL}/rest/echo-oauth`,
-            resolveWithFullResponse: true,
-            json: true,
-            headers: {
-              'Authorization': 'Bearer aaa'
-            }
-          });
-        } catch (e) {
-          res = e.response;
-        }
-      });
-      it('statusCode has to be 401', function () {
-        assert.strictEqual(res.statusCode, 401);
-      });
+  describe('Checking auth with invalid OAuth2 token', function () {
+    let res;
+    beforeAll(async function () {
+      try {
+        res = await request({
+          method: 'GET',
+          uri: `${serverURL}/rest/echo-oauth`,
+          resolveWithFullResponse: true,
+          json: true,
+          headers: {
+            'Authorization': 'Bearer aaa'
+          }
+        });
+      } catch (e) {
+        res = e.response;
+      }
+    });
+    it('statusCode has to be 401', function () {
+      expect(res.statusCode).toEqual(401);
     });
   });
 });

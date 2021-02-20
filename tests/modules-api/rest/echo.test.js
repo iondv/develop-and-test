@@ -1,4 +1,3 @@
-const assert = require('assert');
 const {serverURL} = require('./config.js');
 const request = require('request-promise-native');
 
@@ -20,10 +19,10 @@ describe('Checking echo service', function() {
         .catch();
     });
     it('expecting an object type in the response', function() {
-      assert.strictEqual(typeof resRequest, 'object');
+      expect(typeof resRequest).toEqual('object');
     });
     it('expecting field "echo" containing "peekaboo"', function() {
-      assert.strictEqual(resRequest.echo, 'peekaboo');
+      expect(resRequest.echo).toEqual('peekaboo');
     });
   });
   describe('# check if the response is valid on wrong request options ', function() {
@@ -32,14 +31,14 @@ describe('Checking echo service', function() {
       const resRequest = await request(reqOptions)
         .catch();
       delete reqOptions.auth;
-      assert.strictEqual(resRequest.echo, 'peekaboo');
+      expect(resRequest.echo).toEqual('peekaboo');
     });
     it('check if the request can be made with Accept = plain/text in the headers', async function() {
       reqOptions.headers['Accept'] = 'plain/text';
       const resRequest = await request(reqOptions)
         .catch();
       reqOptions.headers['Accept'] = 'application/json';
-      assert.strictEqual(resRequest.echo, 'peekaboo');
+      expect(resRequest.echo).toEqual('peekaboo');
     });
   });
   describe.skip('# отработка злонамеренных параметров запроса ', function() {

@@ -1,0 +1,4 @@
+{
+  "verbose": true,
+  "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.[jt]sx?$"
+}
