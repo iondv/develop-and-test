@@ -28,7 +28,8 @@
     "ionadmin": "3.0.2",
     "dashboard": "1.1.8",
     "lk": "1.0.3",
-    "soap": "1.1.8"
+    "soap": "1.1.8",
+	"rest": "3.0.0"
   },
   "ionMetaDependencies": {
     "viewlib": "0.12.3"
