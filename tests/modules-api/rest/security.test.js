@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {serverURL, adminUsername, adminPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword} = require('../../config.js');
 const request = require('request-promise-native');
 
 describe.skip('Checking access rights', function () {

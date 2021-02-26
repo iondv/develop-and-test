@@ -1,4 +1,4 @@
-const {serverURL, adminUsername, adminPassword, extSystemUsername, extSystemSecret} = require('./config.js');
+const {serverURL, adminUsername, adminPassword, extSystemUsername, extSystemSecret} = require('../../config.js');
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
 const url = require('url');

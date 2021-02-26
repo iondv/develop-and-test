@@ -1,6 +1,6 @@
 const request = require('request-promise-native');
 const {serverURL, adminUsername, adminPassword,
-  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
+  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('../../config.js');
 
 describe('Checking token service', function() {
   let giventoken;

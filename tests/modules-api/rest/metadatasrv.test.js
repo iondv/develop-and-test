@@ -1,5 +1,5 @@
 const request = require('request-promise-native');
-const {serverURL, adminUsername, adminPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword} = require('../../config.js');
 
 let BASE_REQUEST = {
   method: 'GET', resolveWithFullResponse: true, json: true,

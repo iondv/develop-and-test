@@ -1,7 +1,7 @@
 const request = require('request-promise-native');
 const cryptoRandom = require('crypto').randomBytes;
 const {serverURL, adminUsername, adminPassword,
-  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('./config.js');
+  anyUsername, anyPassword, genwsUsername, genwsPassword} = require('../../config.js');
 
 const BASE_REQUEST = {
   method: 'POST', resolveWithFullResponse: true, json: true,

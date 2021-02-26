@@ -1,4 +1,4 @@
-const {serverURL, adminUsername, adminPassword} = require('./config.js');
+const {serverURL, adminUsername, adminPassword} = require('../../config.js');
 const request = require('request-promise-native');
 
 let giventoken;
