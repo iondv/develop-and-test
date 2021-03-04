@@ -16,7 +16,7 @@
   },
   "scripts": {
     "mocha": "mocha ./tests/e2e/**/*.js",
-    "test": "jest --config ./tests/jest-config.json"
+    "test": "env JEST_PUPPETEER_CONFIG=./tests/jest-puppeteer.config.js jest --runInBand --config ./tests/jest-config.json"
   },
   "ionModulesDependencies": {
     "registry": "3.0.5",

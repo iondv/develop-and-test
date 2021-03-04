@@ -19,6 +19,8 @@ module.exports = {
   genwsUsername: process.env.ION_TEST_GENWSUSER || 'operator@local',
   genwsPassword: process.env.ION_TEST_GENWSPASSWORD || 'ion-demo',
 
+  users: require('./e2e/resource/users.json'),
+
   browserOptions: {
     headless: (process.env.NODE_ENV? (process.env.NODE_ENV !== 'development') : true),
     width: 1280, height: 1024,

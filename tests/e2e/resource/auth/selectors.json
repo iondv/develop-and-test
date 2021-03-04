@@ -1,0 +1,9 @@
+{
+  "login": "#username",
+  "password": "#password",
+  "submit": "#authbutton",
+  "form": ".login-box > form.dlg-form",
+  "header": ".login-box > form.dlg-form > header",
+  "inputField": "input",
+  "errorMessage": "#error > p"
+}

@@ -1,0 +1,14 @@
+{
+  "admin": {
+    "login": "demo@local",
+    "password": "123"
+  },
+  "operator": {
+    "login": "operator@local",
+    "password": "ion-demo"
+  },
+  "user": {
+    "login": "user@local",
+    "password": "ion-demo"
+  }
+}
