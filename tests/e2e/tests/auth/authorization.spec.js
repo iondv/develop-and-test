@@ -1,10 +1,8 @@
 const cryptoRandom = require('crypto').randomBytes;
-const HTTP_STATUS_UNAUTHORIZED = 401;
-const HTTP_STATUS_NOT_FOUND = 404;
-const HTTP_STATUS_OK = 200;
 const config = require('../../../config.js');
 const selectors = require('../../resource/auth/selectors.json');
-const util = require('../../resource/auth/util.js');
+ const authUtil = require('../../resource/auth/util.js');
+const util = require('../../resource/util.js');
 
 describe('# checking authorization', function() {
   const url = `${config.serverURL}/${cryptoRandom(20).toString('hex')}`;
@@ -12,9 +10,10 @@ describe('# checking authorization', function() {
     let response;
     beforeAll(async function() {
       response = await page.goto(url, config.navigationOptions);
+      await page.exposeFunction('isVisible', util.isVisible);
     });
     it('Trying to access random service, expecting a response of 401', async function() {
-      expect(response.status()).toEqual(HTTP_STATUS_UNAUTHORIZED);
+      expect(response.status()).toEqual(config.HTTP_STATUS_UNAUTHORIZED);
     });
     it('Expecting a redirect to auth page', async function() {
       expect(page.url()).toEqual(`${config.serverURL}/auth`);
@@ -37,16 +36,14 @@ describe('# checking authorization', function() {
       await page.waitForSelector(selectors.password, config.elementVisibleOptions);
       expect(await page.$(selectors.password)).toBeTruthy();
       const inputEls = await page.$$eval(selectors.inputField, inputs =>
-        inputs.filter(input => {
-            const boundingBox = input.getBoundingClientRect();
-            return boundingBox && (boundingBox.width > 0) && (boundingBox.height > 0);
-          }
-        )
+        inputs.filter(el => {
+          const boundingBox = el.getBoundingClientRect();
+          return boundingBox && (boundingBox.width > 0) && (boundingBox.height > 0);
+        })
       );
       expect(inputEls).toHaveLength(2);
     });
     it('Checking the submit button', async function() {
-      const authButtonPromise = await page.$('#authbutton');
       await page.waitForSelector(selectors.submit, config.elementVisibleOptions);
       expect(await page.$(selectors.submit)).toBeTruthy();
       const authButtonText = await page.$eval(selectors.submit, authButton => authButton.innerText.trim());
@@ -59,13 +56,13 @@ describe('# checking authorization', function() {
       beforeAll(async function () {
         // this.timeout(waitElementLoad + waitPageLoad);
         // this.slow(slowPageLoad);
-        response = await util.logIn(page, {
+        response = await authUtil.logIn(page, config.navigationOptions, {
           login: cryptoRandom(8).toString('hex'),
           password: null
         });
       });
       it('Expecting 401 in response to invalid authorization', function () {
-        expect(response.status()).toEqual(HTTP_STATUS_UNAUTHORIZED);
+        expect(response.status()).toEqual(config.HTTP_STATUS_UNAUTHORIZED);
       });
       it('Checking error message', async function () {
         const errorEl = await page.waitForSelector(selectors.errorMessage, config.elementVisibleOptions);
@@ -79,13 +76,13 @@ describe('# checking authorization', function() {
       beforeAll(async function () {
         // this.timeout(waitElementLoad + waitPageLoad);
         // this.slow(slowPageLoad);
-        response = await util.logIn(page, {
+        response = await authUtil.logIn(page, config.navigationOptions, {
           login: cryptoRandom(8).toString('hex'),
           password: cryptoRandom(10).toString('hex')
         });
       });
       it('Expecting 401 in response to invalid authorization', function () {
-        expect(response.status()).toEqual(HTTP_STATUS_UNAUTHORIZED);
+        expect(response.status()).toEqual(config.HTTP_STATUS_UNAUTHORIZED);
       });
       it('Checking error message', async function () {
         const errorEl = await page.waitForSelector(selectors.errorMessage, config.elementVisibleOptions);
@@ -97,10 +94,10 @@ describe('# checking authorization', function() {
     describe('# Trying to authorize with defined login and password', function() {
       let response;
       beforeAll(async function () {
-        response = await util.logIn(page, config.users.admin);
+        response = await authUtil.logIn(page, config.navigationOptions, config.users.admin);
       });
       it('Expecting 404 in response to inexistent url request', function () {
-        expect(response.status()).toEqual(HTTP_STATUS_NOT_FOUND);
+        expect(response.status()).toEqual(config.HTTP_STATUS_NOT_FOUND);
       });
       it('Checking error message', async function () {
         const errorEl = await page.$(selectors.errorMessage);
@@ -114,7 +111,7 @@ describe('# checking authorization', function() {
       // this.timeout(waitPageLoad);
       // this.slow(slowPageLoad); // Так как грузим страницу, время нормального ожидания увеличиваем
       const response = await page.goto(`${config.serverURL}/`, config.navigationOptions);
-      expect(response.status()).toEqual(HTTP_STATUS_OK);
+      expect(response.status()).toEqual(config.HTTP_STATUS_OK);
     });
     it('Checking url after redirection, expecting it to contain registry', async function() {
       expect(page.url()).toMatch(new RegExp(`${config.serverURL}/registry`));

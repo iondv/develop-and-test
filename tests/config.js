@@ -36,4 +36,7 @@ module.exports = {
   waitUntilOption: {waitUntil: ['load', 'networkidle0']},
   navigationOptions: {timeout: DEFAULT_TIMEOUT, waitUntil: ['load', 'networkidle0']},
   elementVisibleOptions: {timeout: DEFAULT_TIMEOUT, visible: true},
+  HTTP_STATUS_UNAUTHORIZED: 401,
+  HTTP_STATUS_NOT_FOUND: 404,
+  HTTP_STATUS_OK: 200
 };

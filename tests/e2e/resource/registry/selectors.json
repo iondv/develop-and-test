@@ -1,0 +1,11 @@
+{
+  "itemViewHeader": ".middle-title",
+  "createSimpleWorkflowButton": "'#la_develop-and-test_simple_workflow_create'",
+  "itemViewFormField": "div.form-group",
+  "itemViewFormValue": "div.form-group > div",
+  "itemViewFormStaticField": "div.form-group .form-control-static",
+  "itemViewFormInteractiveField": "div.form-group .form-control",
+  "itemViewSaveButton": "div.panel-heading > button.SAVE",
+  "itemViewSaveAndCloseButton": "div.panel-heading > button.SAVEANDCLOSE",
+  "itemViewError": "#message-callout"
+}
