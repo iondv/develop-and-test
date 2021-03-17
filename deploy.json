@@ -4,7 +4,6 @@
   "globals": {
     "pageTitle": "IONDV. Develop-and-Test",
     "pageEndContent": "<div><img src=\"https://mc.iondv.com/watch/local/app/dnt\" style=\"position:absolute; left:-9999px;\" alt=\"iondv-metrics\" /></div>",
-    "theme": "applications/develop-and-test/themes/www",
     "moduleTitles": {
 		  "registry": "Registry",
 		  "geomap": "Geodata",
@@ -57,7 +56,7 @@
     ],
     "plugins":{
       "actualAclProvider":{
-        "module": "core/impl/access/DsAcl",
+        "module": "@iondv/acl/access/DsAcl",
         "initMethod": "init",
         "initLevel": 1,
         "options":{
@@ -70,7 +69,7 @@
         }
       },
       "aclProvider": {
-        "module": "core/impl/access/aclMetaMap",
+        "module": "@iondv/acl/access/aclMetaMap",
         "initMethod": "init",
         "initLevel": 1,
         "options":{
@@ -91,7 +90,7 @@
         }
       },
       "fileStorage": {
-        "module": "core/impl/resource/OwnCloudStorage",
+        "module": "@iondv/commons/lib/resource/OwnCloudStorage",
         "options": {
           "url": "https://owncloud.iondv.ru/",
           "login": "api",
@@ -99,7 +98,7 @@
           }
       },
       "customProfile": {
-        "module": "lib/plugins/customProfile",
+        "module": "@iondv/commons/lib/CustomProfile",
         "options": {
           "metaRepo": "ion://metaRepo",
           "dataRepo": "ion://dataRepo",
@@ -114,7 +113,7 @@
         }
       },
       "regPrep" : {
-        "module": "lib/plugins/customProfile",
+        "module": "@iondv/commons/lib/CustomProfile",
         "initLevel": 2,
         "options": {
           "fields": {
@@ -145,7 +144,7 @@
         }
       },
       "auth": {
-        "module": "lib/auth",
+        "module": "@iondv/auth",
         "initMethod": "init",
         "initLevel": 2,
         "options": {
@@ -156,7 +155,7 @@
         }
       },
       "htmlFiles": {
-        "module": "core/impl/resource/FsStorage",
+        "module": "@iondv/commons/lib/resource/FsStorage",
         "initMethod":"init",
         "initLevel": 3,
         "options": {
@@ -169,7 +168,7 @@
         }
       },
       "htmlImages": {
-        "module": "core/impl/resource/ImageStorage",
+        "module": "@iondv/commons/lib/resource/ImageStorage",
         "initMethod": "init",
         "initLevel": 3,
         "options": {
@@ -187,7 +186,7 @@
         }
       },
       "oauth": {
-        "module": "lib/oAuthAdapter",
+        "module": "@iondv/web/lib/oAuthAdapter",
         "options": {
           "auth": "ion://auth",
           "dataSource": "ion://Db"
@@ -204,7 +203,7 @@
         "worker": "dummy",
         "di": {
           "dummy": {
-            "executable": "applications/develop-and-test/jobs/dummy"
+            "executable": "./jobs/dummy"
           }
         }
       }
@@ -236,8 +235,8 @@
           }
         },
         "templates" : [
-          "applications/develop-and-test/attrTemplates",
-          "applications/develop-and-test/registry"
+          "./attrTemplates",
+          "./registry"
         ],
         "storage": {
           "class_file@develop-and-test": {
@@ -290,7 +289,7 @@
         "contentImageStorage": "htmlImages",
         "di":{
           "fileCollectionController": {
-            "module": "applications/viewlib/lib/controllers/api/file-collection",
+            "module": "@iondv/viewlib/lib/controllers/api/file-collection",
             "initMethod": "init",
             "initLevel": 0,
             "options": {
@@ -299,7 +298,7 @@
             }
           },
           "fileshareController": {
-            "module": "applications/viewlib/lib/controllers/api/fileshare",
+            "module": "@iondv/viewlib/lib/controllers/api/fileshare",
             "initMethod": "init",
             "initLevel": 0,
             "options": {
@@ -308,7 +307,7 @@
             }
           },
           "apiGateWay": {
-            "module": "modules/rest/client/GateWay",
+            "module": "@iondv/rest/client/GateWay",
             "options": {
               "log": "ion://sysLog",
               "base": "/registry-ajax-api",
@@ -440,7 +439,7 @@
         }
       },
       "import" : {
-        "src": "applications/develop-and-test/geo",
+        "src": "./geo",
         "namespace": "develop-and-test"
       }
     },
@@ -462,13 +461,9 @@
             }
           }
         },
-        "templates" : ["applications/develop-and-test/publicSheets"],
+        "templates" : ["./publicSheets"],
         "di": {
         }
-      },
-      "import" : {
-        "src": "applications/develop-and-test/bi",
-        "namespace": "develop-and-test"
       }
     },
     "dashboard": {
@@ -477,7 +472,7 @@
           "develop-and-test": "Meta for testing and development"
         },
         "root": {
-          "develop-and-test": "applications/develop-and-test/dashboard"
+          "develop-and-test": "./dashboard"
         },
         "layouts": {
           "tasks": {
@@ -493,7 +488,7 @@
         },
         "di": {
           "simple": {
-            "module": "applications/develop-and-test/service/Simple"
+            "module": "./service/Simple"
           }
         }
       }
@@ -513,39 +508,39 @@
         },
         "di": {
           "simple": {
-            "module": "applications/develop-and-test/service/SimpleRest"
+            "module": "./service/SimpleRest"
           },
           "echo-pwd": {
-            "module": "applications/develop-and-test/service/EchoRest"
+            "module": "./service/EchoRest"
           },
           "echo-errtype": {
-            "module": "applications/develop-and-test/service/EchoRest"
+            "module": "./service/EchoRest"
           },
           "echo-oauth": {
-            "module": "applications/develop-and-test/service/EchoRest"
+            "module": "./service/EchoRest"
           },
           "echo-token": {
-            "module": "applications/develop-and-test/service/EchoRest"
+            "module": "./service/EchoRest"
           },
           "echo": {
-            "module": "applications/develop-and-test/service/EchoRest"
+            "module": "./service/EchoRest"
           },
           "acceptor": {
-            "module": "modules/rest/lib/impl/acceptor",
+            "module": "@iondv/rest/lib/impl/acceptor",
             "options": {
               "dataRepo": "ion://dataRepo",
               "metaRepo": "ion://metaRepo"
             }
           },
           "string-list": {
-            "module": "applications/develop-and-test/service/String-list",
+            "module": "./service/String-list",
             "options": {
               "stringClassName": "class_string@develop-and-test",
               "dataRepo": "ion://dataRepo"
             }
           },
           "crud": {
-            "module": "modules/rest/lib/impl/crud",
+            "module": "@iondv/rest/lib/impl/crud",
             "options": {
               "auth": "ion://auth",
               "metaRepo": "ion://metaRepo",
@@ -553,14 +548,14 @@
             }
           },
           "meta": {
-            "module": "modules/rest/lib/impl/meta",
+            "module": "@iondv/rest/lib/impl/meta",
             "options": {
               "metaRepo": "ion://metaRepo",
               "dataRepo": "ion://dataRepo"
             }
           },
           "workflows": {
-            "module": "modules/rest/lib/impl/workflows",
+            "module": "@iondv/rest/lib/impl/workflows",
             "options": {
               "auth": "ion://auth",
               "metaRepo": "ion://metaRepo",
@@ -569,21 +564,21 @@
             }
           },
           "crud-zero": {
-            "module": "modules/rest/lib/impl/crud"
+            "module": "@iondv/rest/lib/impl/crud"
           }
         }
       }
     },
     "portal": {
       "import" : {
-        "src": "applications/develop-and-test/portal",
+        "src": "./portal",
         "namespace": "develop-and-test"
       },
       "globals": {
         "portalName": "Develop And Test",
-        "templates":["applications/develop-and-test/portal/view/templates"],
+        "templates":["./portal/view/templates"],
         "statics":{
-          "dnt": "applications/develop-and-test/portal/view/static"
+          "dnt": "./portal/view/static"
         },
         "pageTemplates": {
           "navigation": {
@@ -599,11 +594,11 @@
         },
         "di": {
           "markdownAdapter": {
-            "module": "modules/portal/lib/impl/adapter/FileAdapter",
+            "module": "@iondv/portal/lib/impl/adapter/FileAdapter",
             "initMethod": "init",
             "initLevel": 0,
             "options": {
-              "dir": "applications/develop-and-test/portal/markdown",
+              "dir": "./portal/markdown",
               "type": "markdown",
               "log": "ion://sysLog"
             }
@@ -613,7 +608,7 @@
               "adapters": {
                 "strings":{
                   "name": "classStringAdapter",
-                  "module":"modules/portal/lib/impl/adapter/ClassAdapter",
+                  "module":"@iondv/portal/lib/impl/adapter/ClassAdapter",
                   "options": {
                     "dataRepo": "ion://dataRepo",
                     "className": "class_string@develop-and-test",
@@ -625,7 +620,7 @@
                 },
                 "guids":{
                   "name": "classGuidAdapter",
-                  "module":"modules/portal/lib/impl/adapter/ClassAdapter",
+                  "module":"@iondv/portal/lib/impl/adapter/ClassAdapter",
                   "options": {
                     "dataRepo": "ion://dataRepo",
                     "className": "class_guid@develop-and-test",
@@ -644,14 +639,14 @@
     },
     "lk": {
       "globals": {
-        "templates": ["applications/develop-and-test/lk/templates"],
+        "templates": ["./lk/templates"],
         "default": "lk-profile",
         "toolbar": {
           "lk-profile": "Profile editor"
         },
         "di": {
           "profileEditor": {
-            "module": "applications/develop-and-test/lk/backend/profile",
+            "module": "./lk/backend/profile",
             "initMethod": "init",
             "options": {
               "module": "ion://module",
@@ -664,11 +659,11 @@
     },
     "graph":{
       "import" : {
-        "src": "applications/develop-and-test/graph",
+        "src": "./graph",
         "namespace": "develop-and-test"
       },
       "globals": {
-        "templates":["applications/develop-and-test/graph/templates"]
+        "templates":["./graph/templates"]
       }
     },
     "ionadmin": {

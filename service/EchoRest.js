@@ -1,4 +1,4 @@
-const Service = require('modules/rest/lib/interfaces/Service');
+const Service = require('@iondv/rest/lib/interfaces/Service');
 
 /** Simple app service - REST module
  * @param {{dataRepo: DataRepository, metaRepo: MetaRepository}} options
