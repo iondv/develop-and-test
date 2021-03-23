@@ -7,5 +7,6 @@
   "itemViewFormInteractiveField": "div.form-group .form-control",
   "itemViewSaveButton": "div.panel-heading > button.SAVE",
   "itemViewSaveAndCloseButton": "div.panel-heading > button.SAVEANDCLOSE",
-  "itemViewError": "#message-callout"
+  "itemViewError": "#message-callout",
+  "itemViewObjectControl": ".object-control"
 }

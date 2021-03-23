@@ -26,10 +26,9 @@ describe('Checking simple workflow functionality', function() {
     let response;
     beforeAll(async function() {
       const bpPage = `${config.serverURL}/registry/develop-and-test@simple_workflow`;
-      const response = await util.goto(bpPage);
+      response = await util.goto(bpPage);
     });
     it('List of class objects is accessible', async function() {
-      // this.timeout(waitPageLoad);
       expect(response.status()).toEqual(config.HTTP_STATUS_OK);
     });
     it('Checking url', async function() {
@@ -39,8 +38,6 @@ describe('Checking simple workflow functionality', function() {
       expect(await page.title()).toMatch(/Simple workflow/);
     });
     it('Form header contains the name of the class', async function() {
-      // this.timeout(waitElementLoad);
-      const headerPromise = await page.waitForSelector('.middle-title', OPT_ELEMENT_WAIT_VISIBLE);
       await page.waitForSelector(selectors.itemViewHeader, config.elementVisibleOptions);
       const header = await page.$(selectors.itemViewHeader);
       expect(header).toBeTruthy();
@@ -49,116 +46,56 @@ describe('Checking simple workflow functionality', function() {
     });
   });
   describe('Checking WIP stage', function() {
-    describe('Trying to create an object with quantity field left empty', function() {
-      beforeAll(async function() {
-        loadEventPromise = await Promise.all([
-          page.waitForNavigation(config.navigationOptions),
-          click(page, '#la_develop-and-test_simple_workflow_create')
-        ]);
-        // workingFrame = loadEventPromise[0];
-      });
-      it('Object\'s creator and verifier fields can be edited', async function() {
-        // this.timeout(waitPageLoad);
-        await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
-        const auditorFieldFound = await registryUtil.editItemField(page, selectors.itemViewFormField, 'Проверяющий', '');
-        expect(auditorFieldFound).toBeTruthy();
-        const creatorFieldFound = await registryUtil.editItemField(page, selectors.itemViewFormField, 'Автор объекта', '');
-        expect(creatorFieldFound).toBeTruthy();
-        expect(await registryUtil.isInteractive(page, undefined, 'Проверяющий')).toBeTruthy();
-        expect(await registryUtil.isInteractive(page, undefined, 'Автор объекта')).toBeTruthy();
-      });
-      it('Object saving', async function() {
-        // this.timeout(waitPageLoad);
-        loadEventPromise = await Promise.all([
-          page.waitForNavigation(config.navigationOptions),
-          registryUtil.saveItem(page)
-        ]);
-        const message = await page.$(selectors.itemViewError);
-        if (message && (await util.isVisible(message))) {
-          const messageText = await util.getText(message);
-          console.warn(messageText);
-          throw new Error(messageText);
-        }
-      });
-      it('Checking ID', async function() {
-        await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
-        expect(await util.isVisible(page, selectors.itemViewFormField)).toBeTruthy();
-        const id = await registryUtil.getFieldValue(page, selectors.itemViewFormField, "Идентификатор");
-        expect(id.length).toBeGreaterThan(0);
-        createdObjectsId.push(id);
-      });
-      it('Item\'s author field is not editable', async function() {
-        await page.waitForSelector('#a_develop-and-test_workflowBase_creatorDefault', OPT_ELEMENT_WAIT_INVISIBLE)
-          .catch(err => {
-            expect(err).not.toBeTruthy();
-          });
-        await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
-        await page.waitForXPath('//input[@id = "a_develop-and-test_workflowBase_creatorDefault"]/' +
-          'following-sibling::div[contains(concat(" ", normalize-space(@class), " "), " form-control-static ")]',
-          config.elementVisibleOptions)
-          .catch(err => {
-            expect(err).not.toBeTruthy();
-          });
-        let authorOverlay = await page.$x('//input[@id = "a_develop-and-test_workflowBase_creatorDefault"]/' +
-          'following-sibling::div[contains(concat(" ", normalize-space(@class), " "), " form-control-static ")]');
-        authorOverlay = authorOverlay.pop();
-        const authorField = await workingFrame.$('#a_develop-and-test_workflowBase_creatorDefault');
-        const authorOverlayText = await workingFrame.evaluate(overText => overText.innerText, authorOverlay);
-        const authorFieldText = await workingFrame.evaluate(fieldText => fieldText.getAttribute('value'), authorField);
-        assert(authorOverlayText === authorFieldText, 'Значение поля ввода "Автор Объекта" и заменителя не cовпадают');
-      });
-      it('Проверка невозможности редактирования поля "Проверяющий"', async function() {
-        await workingFrame.waitForSelector('#a_develop-and-test_workflowBase_person', OPT_ELEMENT_WAIT_INVISIBLE)
-          .catch(err => {
-            assert.equal(err, null, 'Не отображается поле ввода для редактирования значения аттрибута Проверяющий');
-          });
-        await workingFrame.waitForXPath('//input[@id = "a_develop-and-test_workflowBase_person"]/following-sibling::' +
-          'div[contains(concat(" ", normalize-space(@class), " "), " form-control-static ")]',
-          OPT_ELEMENT_WAIT_VISIBLE)
-          .catch(err => {
-            assert.equal(err, null, 'Заменитель поля ввода "Проверяющий" не отобразился');
-          });
-        let auditorOverlay = await workingFrame.$x('//input[@id = "a_develop-and-test_workflowBase_person"]/' +
-          'following-sibling::div[contains(concat(" ", normalize-space(@class), " "), " form-control-static ")]');
-        auditorOverlay = auditorOverlay.pop();
-        const auditorField = await workingFrame.$('#a_develop-and-test_workflowBase_person');
-        const auditorOverlayText = await workingFrame.evaluate(overText => overText.innerText, auditorOverlay);
-        const auditorFieldText = await workingFrame.evaluate(fieldText => fieldText.getAttribute('value'), auditorField);
-        assert(auditorOverlayText === auditorFieldText, 'Значение поля ввода "Проверяющий" и заменителя не cовпадают');
-      });
-      it('Проверка отсутствия поля "Результат"', async function() {
-        const resultField = await workingFrame.$('#a_develop-and-test_workflowBase_result');
-        assert.equal(resultField, null, 'Поле "Результат" загрузилось');
-      });
-      it('Проверка поля "Этап" созданного объекта', async function() {
-        const stageField = await workingFrame.$('#a_develop-and-test_workflowBase_stage');
-        const stageFieldText = await workingFrame.evaluate(stageText => stageText.getAttribute('value'), stageField);
-        assert.equal(stageFieldText, 'inwork', 'Этап нового объекта отличается от "В работе"');
-      });
+    it('Object\'s creator and reviewer fields can be edited', async function () {
+      // this.timeout(waitPageLoad);
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      const authorFieldName = await registryUtil.findLabel(page, undefined, ['Автор объекта', 'Object author']);
+      const reviewerFieldName = await registryUtil.findLabel(page, undefined, ['Проверяющий', 'Reviewer']);
+      expect(authorFieldName).toBeTruthy();
+      expect(reviewerFieldName).toBeTruthy();
+      expect(await registryUtil.isInteractive(page, undefined, authorFieldName)).toBeTruthy();
+      expect(await registryUtil.isInteractive(page, undefined, reviewerFieldName)).toBeTruthy();
+    });
+    it('Object saving', async function () {
+      // this.timeout(waitPageLoad);
+      await registryUtil.saveItem(page);
+    });
+    it('Checking ID', async function () {
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      expect(await util.isVisible(page, selectors.itemViewFormField)).toBeTruthy();
+      const idFieldName = await registryUtil.findLabel(page, selectors.itemViewFormField, ['Идентификатор', 'Identifier']);
+      const id = await registryUtil.getFieldValue(page, selectors.itemViewFormField, idFieldName);
+      expect(id.length).toBeGreaterThan(0);
+      createdObjectsId.push(id);
+    });
+    it('Item\'s author field is not editable', async function () {
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      const authorFieldName = await registryUtil.findLabel(page, undefined, ['Автор объекта', 'Object author']);
+      expect(await registryUtil.isInteractive(page, undefined, authorFieldName)).toEqual(false);
+    });
+    it('Item\'s reviewer field is not editable', async function () {
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      const reviewerFieldName = await registryUtil.findLabel(page, undefined, ['Проверяющий', 'Reviewer']);
+      expect(await registryUtil.isInteractive(page, undefined, reviewerFieldName)).toEqual(false);
+    });
+    it('Item\'s result field is not shown', async function () {
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      const resultFieldName = await registryUtil.findLabel(page, undefined, ['Результат', 'Result']);
+      expect(resultFieldName).toEqual(false);
+    });
+    it('Workflow\'s starting state is \"In progress\"', async function () {
+      await page.waitForSelector(selectors.itemViewFormField, config.elementVisibleOptions);
+      const stageFieldName = await registryUtil.findLabel(page, undefined, ['Этап', 'Stage']);
+      const stageFieldValue = await registryUtil.getFieldValue(page, undefined, stageFieldName);
+      expect(stageFieldValue).toEqual('In progress');
     });
   });
-  describe('Проверка работы условия (>10) появления перехода "На приёмку"', function() {
-    it('Вводим значение меньше необходимого в поле quantaty', async function() {
-      const quantity = await workingFrame.$('#a_develop-and-test_workflowBase_quantaty');
-      await workingFrame.evaluate(quantityObj => quantityObj.value = '', quantity);
-      await workingFrame.type('#a_develop-and-test_workflowBase_quantaty', createdObjectsQuantity[0]);
-    });
-    it('Сохранение объекта', async function() {
-      this.timeout(waitPageLoad);
-      loadEventPromise = await Promise.all([waitForLoadEvent(), clickSave(workingFrame)]);
-      workingFrame = loadEventPromise[0];
-    });
-    it('Проверка на наличие сообщений об ошибках', async function() {
-      this.timeout(waitPageLoad);
-      let message = await workingFrame.$('#message-callout');
-      if (message && await isVisible(workingFrame, message)) {
-        console.warn(await getText(workingFrame, message));
-        throw new Error(message);
-      }
-    });
-    it('Проверяем отсутствие возможности перехода', async function() {
-      const startCheckBtn = await workingFrame.$('.startCheck');
-      assert.equal(startCheckBtn, null, 'Кнопка "Начать приёмку" загрузлась');
+  describe('Check conditions of transferring to the next stage', function() {
+    it('Quantity of below 10 restricts the transfer', async function() {
+      const quantityFieldName = await registryUtil.findLabel(page, undefined, ['Quantaty', 'Количество плюшек']); // english label is misspelled
+      await registryUtil.editField(page, undefined, quantityFieldName, '');
+      await registryUtil.saveItem(page);
+      await registryUtil.findControl('Start checking');
     });
     it('Вводим минимальное необходимое значение в поле quantaty', async function() {
       const quantity = await workingFrame.$('#a_develop-and-test_workflowBase_quantaty');
