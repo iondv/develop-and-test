@@ -25,10 +25,13 @@
     "@iondv/auth": "iondv/auth#main",
     "@iondv/commons": "iondv/commons#main",
     "@iondv/db": "iondv/db#main",
+    "@iondv/geomap": "github:iondv/geomap#v2",
     "@iondv/meta-model": "iondv/meta-model#main",
+    "@iondv/registry": "iondv/registry#v2",
     "@iondv/report": "iondv/report#v2",
     "@iondv/rest": "iondv/rest#v2",
     "@iondv/utils": "iondv/utils#main",
+    "@iondv/viewlib": "iondv/viewlib#v2",
     "@iondv/web": "iondv/web#main",
     "@iondv/web-rte": "iondv/web-rte#main"
   },

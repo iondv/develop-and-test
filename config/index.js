@@ -15,11 +15,13 @@ module.exports = {
     app.post('/api/notifications/viewed/:id', api.markAsViewed);
     app.post('/api/notifications/viewed-all', api.markAllAsViewed);
     app.get('/api/notifications/viewed-more/:offset', api.moreViewedNotifications);
-    app.get('/i18n/handler.js', api.i18n);    
+    app.get('/i18n/handler.js', api.i18n);
   },
   modules: {
+    registry: require('@iondv/registry'),
     rest: require('@iondv/rest'),
-    report: require('@iondv/report')
+    report: require('@iondv/report'),
+	  geomap: require('@iondv/geomap')
   }
 };
 
