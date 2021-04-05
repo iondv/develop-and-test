@@ -21,7 +21,8 @@ module.exports = {
     registry: require('@iondv/registry'),
     rest: require('@iondv/rest'),
     report: require('@iondv/report'),
-	  geomap: require('@iondv/geomap')
+	  geomap: require('@iondv/geomap'),
+    ionadmin: require('@iondv/ionadmin')
   }
 };
 

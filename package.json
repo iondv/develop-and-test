@@ -26,6 +26,7 @@
     "@iondv/commons": "iondv/commons#main",
     "@iondv/db": "iondv/db#main",
     "@iondv/geomap": "github:iondv/geomap#v2",
+    "@iondv/ionadmin": "github:iondv/ionadmin#v2",
     "@iondv/meta-model": "iondv/meta-model#main",
     "@iondv/registry": "iondv/registry#v2",
     "@iondv/report": "iondv/report#v2",
