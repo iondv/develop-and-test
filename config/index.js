@@ -22,7 +22,10 @@ module.exports = {
     rest: require('@iondv/rest'),
     report: require('@iondv/report'),
 	  geomap: require('@iondv/geomap'),
-    ionadmin: require('@iondv/ionadmin')
+    ionadmin: require('@iondv/ionadmin'),
+    dashboard: require('@iondv/dashboard'),
+    portal: require('@iondv/portal'),
+    soap: require('@iondv/soap')
   }
 };
 
