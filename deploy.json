@@ -478,7 +478,8 @@
           "tasks": {
             "title": "Catalog"
           }
-        }
+        },
+        "statics": ["./dashboard"]
       }
     },
     "soap": {
