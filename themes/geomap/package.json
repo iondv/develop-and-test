@@ -47,7 +47,7 @@
         "paper": "^0.10.2"
     },
     "dependencies": {
-      "bootstrap": "3.3.5",
+      "bootstrap": "3.4.1",
       "bootstrap-daterangepicker": "git+https://github.com/dangrossman/daterangepicker.git#v1.3.23",
       "bootstrap3-wysihtml5-bower": "0.3.3",
       "bootstrap-datepicker": "git+https://git.iondv.ru/node-modules/bootstrap-datepicker.git",
@@ -77,7 +77,7 @@
       "paper": "0.10.3"
     },
     "resolutions": {
-      "bootstrap": "3.3.5"
+      "bootstrap": "3.4.1"
     }
   }
   
